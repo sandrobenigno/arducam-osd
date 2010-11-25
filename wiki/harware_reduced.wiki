@@ -3,9 +3,6 @@
 == Smaller USB Host ==
 
 
-=== What you will need to: ===
-
-
 *Arduino Pro Mini 328 - 3.3V/8MHz:*
   * *!SparkFun:* http://www.sparkfun.com/products/9220
 
