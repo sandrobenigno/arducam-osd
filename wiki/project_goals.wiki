@@ -6,9 +6,7 @@ The code is NOT finished.
 
 Even the camera control part need several changes to improve error tracking, to turn possible other PTP commands, and so on.
 
-You can try the actual code. Just do the checkout of the code from the repository:
-
-http://arducam-osd.googlecode.com/svn/trunk/
+You can try the actual code. Just do the checkout of the code from [http://code.google.com/p/arducam-osd/source/browse/trunk here].
 
 <br/>
 
