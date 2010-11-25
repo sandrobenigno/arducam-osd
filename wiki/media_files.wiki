@@ -1,0 +1,13 @@
+#summary One-sentence summary of this page.
+
+= See it working! =
+
+<wiki:video url="http://www.youtube.com/watch?v=e_8vO9JBHrw"/>
+
+The code is NOT finished.
+
+Even the camera control part need several changes to improve error tracking, to turn possible other PTP commands and so on.
+
+If you can try the actual code just checkout the code from the repository: 
+
+http://arducam-osd.googlecode.com/svn/trunk/
