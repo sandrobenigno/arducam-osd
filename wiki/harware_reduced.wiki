@@ -1,0 +1,19 @@
+#summary Hardware with smaller boards.
+
+== Reduced Hardware: ==
+
+*This will be the smallest approach (right):*
+
+http://arducam-osd.googlecode.com/svn/wiki/images/boards_reduction.jpg
+Note: It will need some adaptations for attach the Max7456 board.
+
+=== Reduced hardware detail: ===
+
+
+*Arduino Pro Mini 328 - 3.3V/8MHz:*
+  * *!SparkFun:* http://www.sparkfun.com/products/9220
+
+*Arduino USB Host Mini:*
+  * *!Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
+
+<br/>
