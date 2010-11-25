@@ -5,7 +5,6 @@
  * [arducam_osd About this Project]
  * [media_files See it working]
 
-----
 
 *Hardware*
 
