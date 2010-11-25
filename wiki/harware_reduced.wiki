@@ -14,6 +14,6 @@ Note: It will need some adaptations for attach the Max7456 board.
   * *!SparkFun:* http://www.sparkfun.com/products/9220
 
 *Arduino USB Host Mini:*
-  * *!Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
+  * *!Circuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
 
 <br/>
