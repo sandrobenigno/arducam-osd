@@ -1,6 +1,9 @@
 == !ArduCam OSD ==
 
- * *Hardware*
+*Introduction*
+ * [arducam_osd About this Project]
+
+*Hardware*
  * [hardware_current Current Hardware]
  * [harware_reduced Smaller USB Host] 
  * [project_goals Project Goals]
