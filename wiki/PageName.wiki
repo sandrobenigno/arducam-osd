@@ -11,15 +11,15 @@ http://arducam-osd.googlecode.com/svn/wiki/images/arducamosd_wiring.jpg
 === Hardware detail: ===
 
 *Arduino 328p Board:*
-  * *SeeedStudio:* http://www.seeedstudio.com/depot/seeeduino-v22-atmega-328p-p-669.html?cPath=79_80&zenid=7fe38f862c182bbe21f5dce4200a1f67
+  * *!SeeedStudio:* http://www.seeedstudio.com/depot/seeeduino-v22-atmega-328p-p-669.html?cPath=79_80&zenid=7fe38f862c182bbe21f5dce4200a1f67
   Note: mine is V2.12
 
 *Arduino USB Host Shield:*
-  * *SparkFun:* http://www.sparkfun.com/products/9947
-  Note: this is the original one: *Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino/
+  * *!SparkFun:* http://www.sparkfun.com/products/9947
+  Note: this is the original one: *!Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino/
 
 *Breakout Board for MAX7456 On Screen Display:*
-  * *SparkFun:* http://www.sparkfun.com/products/9168
+  * *!SparkFun:* http://www.sparkfun.com/products/9168
 
 <br/>
 
@@ -34,10 +34,10 @@ Note: It will need some adaptations for attach the Max7456 board.
 
 
 *Arduino Pro Mini 328 - 3.3V/8MHz:*
-  * *SparkFun:* http://www.sparkfun.com/products/9220
+  * *!SparkFun:* http://www.sparkfun.com/products/9220
 
 *Arduino USB Host Mini:*
-  * *Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
+  * *!Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
 
 <br/>
 
