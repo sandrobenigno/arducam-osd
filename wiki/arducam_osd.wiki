@@ -1,0 +1,38 @@
+#summary Main wiki page.
+
+http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
+
+= Introduction =
+
+Using high quality digital cameras with full remote control in the air is a dream for a lot of people, me included. Some time ago, I started to read all I could find about the subject.
+
+In mean time, I found a very interesting Linux project called GPhoto.
+After attach my Cannon Power Shot S3is on the PC's USB and play around GPhoto, it brought the central question: "How can I replace the PC with something smaller, light and remote?".
+
+Lots of thoughts followed that question:
+
+  * "I can try one of those embedded Linux based router to hack and install GPhoto"...
+  * "maybe a COM/SOM board (like !BeagleBoard) with an USB wireless adapter attached"...
+  * "But... it all will need a laptop too"...
+  * "by other hand I can use and RC system and it will need... let's say... an Arduino at the middle interfacing it!!! Niiice!!!"...
+  * "Hmmm... is there an Arduino USB host shield??? Not yet..."
+
+Some time after all that crazy ideas I just found the "Circuits at Home" page. The great guy --Oleg Mazurov-- not only created an USB host shield for Arduino, but even started to discuss about port the PTP protocol to it. I just followed the discussion until the day that Oleg show us the fantastic PTP library and the Canon EOS implementation. I just bought my board and started to think about how to port it to smaller cams with addition of the OSD capacity. I read the EOS code and sent some questions by e-mail to Oleg. He helped me to start with the S3is, teach me how to understand the extracted USB dumps and give me all the orientation. Like I said, he is a great guy. At same time, I found the great Max7456 breakout board. Well, all started from that point.
+
+After some studying, tries and a long time with no time (LOL). Now I wanna share it with you.
+
+The project is about controlling digital cameras remotely using USB PTP commands and adding telemetry and camera feedback data to the video signal coming from the controlled camera. The main purpose is to be applied on UAV projects, otherwise, it can be used on every kind of camera remote controlling and shooting.
+
+Initially, the work will concentrate on PTP compatible Canon Power Shot cameras.
+
+The reason is:
+
+ # it have A/V output separated from USB port;
+ # it's capable to send video signal when in PTP remote controlling mode;
+ # it tends to be smaller an more lightweight than EOS ones.
+
+In future, the project will need to expand the control to other Canon Power Shoot cameras that don't have PTP from factory, by inserting PTP commands on hacked firmwares like the fabulous CHDK.
+
+Maybe it will be possible trying to extend it to other camera brands by hacking their firmwares, but it's in a distant future of this project.
+
+Sandro Benigno.
