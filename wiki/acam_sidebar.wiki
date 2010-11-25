@@ -1,4 +1,4 @@
-== !ArduCam !OSD ==
+== !ArduCam OSD ==
 
  * *Hardware*
  * [hardware_current Current Hardware]
