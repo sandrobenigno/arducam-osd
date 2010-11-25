@@ -1,12 +1,10 @@
 #summary Main wiki page.
 
-= Introduction =
-
 http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 
 <br/>
 
-== About this Project ==
+= About this Project =
 
 Using high quality digital cameras with full remote control in the air is a dream for a lot of people, me included. Some time ago, I started to read all I could find about the subject.
 
