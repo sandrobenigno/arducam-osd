@@ -15,12 +15,12 @@ http://arducam-osd.googlecode.com/svn/trunk/
 == Project Goals ==
 
 Current:
-  * Mapping: commands from Canon PS (Power Shot cams) (OK);
-  * Codding: to adapt essential mapped PS commands to main PTP library; (OK)
-  * Codding: to wrap necessary camera resources into simple serial calls ( 90% OK);
-  * Mapping: necessary registers of the chip Max7456 to work as the OSD core (OK);
-  * Testing: sketch which read and write the basic Max7456 registers (OK);
-  * Design:  create a basic charset to use on UAV projects (OK);
+  * Mapping: commands from Canon PS (Power Shot cams) *(OK)*;
+  * Codding: to adapt essential mapped PS commands to main PTP library; *(OK)*
+  * Codding: to wrap necessary camera resources into simple serial calls *( not 100% OK)*;
+  * Mapping: necessary registers of the chip Max7456 to work as the OSD core *(OK)*;
+  * Testing: sketch which read and write the basic Max7456 registers *(OK)*;
+  * Design:  create a basic charset to use on UAV projects *(OK)*;
   * Codding: to insert the charset into the Max7456 prototype;
   * Codding: to wrap all the Map7456 code into a useful library;
   * Codding: to implement OSD pannels for telemetry data on screen;
