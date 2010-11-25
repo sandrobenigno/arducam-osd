@@ -2,15 +2,13 @@
 
 *Introduction*
 
- * [arducam_osd About this Project]
- * [media_files See it working]
+  * [arducam_osd About this Project]
+  * [media_files See it working]
 
 *Hardware*
 
- * [hardware_current Current Hardware]
- * [harware_reduced Smaller USB Host] 
- * [project_goals Status and Goals]
-
-* *
-
+  * [hardware_current Current Hardware]
+  * [harware_reduced Smaller USB Host] 
+  * [project_goals Status and Goals]
+  
 ----
