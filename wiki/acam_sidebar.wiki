@@ -1,0 +1,6 @@
+== !ArduCam !OSD ==
+
+ * *Hardware*
+ * [hardware_current Current Hardware]
+ * [harware_reduced Reduced Hardware] 
+ * [project_goals Project Goals]
