@@ -11,7 +11,7 @@ Using high quality digital cameras with full remote control in the air is a drea
 In mean time, I found a very interesting Linux project called GPhoto.
 After attach my Cannon Power Shot S3is on the PC's USB and play around GPhoto, it brought the central question: "How can I replace the PC with something smaller, light and remote?".
 
-Lots of thoughts followed that question:
+A lot of thoughts followed that question:
 
   * "I can try one of those embedded Linux based router to hack and install GPhoto"...
   * "maybe a COM/SOM board (like !BeagleBoard) with an USB wireless adapter attached"...
