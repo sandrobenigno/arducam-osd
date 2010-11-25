@@ -1,13 +1,9 @@
 #summary Hardware with smaller boards.
 
-== Reduced Hardware: ==
+== Smaller USB Host ==
 
-*This will be the smallest approach (right):*
 
-http://arducam-osd.googlecode.com/svn/wiki/images/boards_reduction.jpg
-Note: It will need some adaptations for attach the Max7456 board.
-
-=== Reduced hardware detail: ===
+=== What you will need to: ===
 
 
 *Arduino Pro Mini 328 - 3.3V/8MHz:*
@@ -16,4 +12,11 @@ Note: It will need some adaptations for attach the Max7456 board.
 *Arduino USB Host Mini:*
   * *Circuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
 
+
 <br/>
+
+*This will be the smallest approach (right):*
+
+Note: It will need some adaptations for attach the Max7456 board.
+
+http://arducam-osd.googlecode.com/svn/wiki/images/boards_reduction.jpg
