@@ -1,0 +1,25 @@
+#summary Project Status and Goals.
+
+== Project Goals ==
+
+Current:
+  * Mapping: commands from Canon PS (Power Shot cams) (OK);
+  * Codding: to adapt essential mapped PS commands to main PTP library; (OK)
+  * Codding: to wrap necessary camera resources into simple serial calls ( 90% OK);
+  * Mapping: necessary registers of the chip Max7456 to work as the OSD core (OK);
+  * Testing: sketch which read and write the basic Max7456 registers (OK);
+  * Design:  create a basic charset to use on UAV projects (OK);
+  * Codding: to insert the charset into the Max7456 prototype;
+  * Codding: to wrap all the Map7456 code into a useful library;
+  * Codding: to implement OSD pannels for telemetry data on screen;
+  * Codding: to write a new SPI class with a parametrized CS method (chip selection);
+  * Codding: to merge "USB Host" and "OSD" code using the new SPI class;
+  * Codding and Hardware: to use the mini USB host shield;
+  * Hardware: to develop an "all-in-one" small board.
+
+Future:
+  * Accept newest and smallest Canon PS without PTP from factory:
+    * Use CHDK to open one parametrized PTP command to run internal LUA scripts;
+  * Accept cams with other brands (when possible to hack their firmware).
+
+<br/>
