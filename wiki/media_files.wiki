@@ -2,6 +2,12 @@
 
 = See it working! =
 
+The APM that is mentioned on the video is the awesome UAV platform [http://code.google.com/p/ardupilot-mega/wiki/home?tm=6 ArduPilot Mega].
+
+!ArduPilot Mega is the UAV platform used on the fantastic [http://code.google.com/p/arducopter/ ArduCopter].
+
+<br/>
+
 <wiki:video url="http://www.youtube.com/watch?v=e_8vO9JBHrw"/>
 
 The code is NOT finished.
