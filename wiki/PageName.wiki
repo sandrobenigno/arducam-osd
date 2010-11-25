@@ -1,0 +1,64 @@
+#summary Project overview.
+
+= Introduction =
+
+== Current hardware: ==
+
+*This is how my current prototype looks like:*
+
+http://arducam-osd.googlecode.com/svn/wiki/images/arducamosd_wiring.jpg
+
+=== Hardware detail: ===
+
+*Arduino 328p Board:*
+  * *SeeedStudio:* http://www.seeedstudio.com/depot/seeeduino-v22-atmega-328p-p-669.html?cPath=79_80&zenid=7fe38f862c182bbe21f5dce4200a1f67
+  Note: mine is V2.12
+
+*Arduino USB Host Shield:*
+  * *SparkFun:* http://www.sparkfun.com/products/9947
+  Note: this is the original one: *Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino/
+
+*Breakout Board for MAX7456 On Screen Display:*
+  * *SparkFun:* http://www.sparkfun.com/products/9168
+
+<br/>
+
+== Reduced Hardware: ==
+
+*This will be the smallest approach (right):*
+
+http://arducam-osd.googlecode.com/svn/wiki/images/boards_reduction.jpg
+Note: It will need some adaptations for attach the Max7456 board.
+
+=== Reduced hardware detail: ===
+
+
+*Arduino Pro Mini 328 - 3.3V/8MHz:*
+  * *SparkFun:* http://www.sparkfun.com/products/9220
+
+*Arduino USB Host Mini:*
+  * *Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino-pro-mini/
+
+<br/>
+
+== Project Goals ==
+
+Current:
+  * Mapping: commands from Canon PS (Power Shot cams) (OK);
+  * Codding: to adapt essential mapped PS commands to main PTP library; (OK)
+  * Codding: to wrap necessary camera resources into simple serial calls ( 90% OK);
+  * Mapping: necessary registers of the chip Max7456 to work as the OSD core (OK);
+  * Testing: sketch which read and write the basic Max7456 registers (OK);
+  * Design:  create a basic charset to use on UAV projects (OK);
+  * Codding: to insert the charset into the Max7456 prototype;
+  * Codding: to wrap all the Map7456 code into a useful library;
+  * Codding: to implement OSD pannels for telemetry data on screen;
+  * Codding: to write a new SPI class with a parametrized CS method (chip selection);
+  * Codding: to merge "USB Host" and "OSD" code using the new SPI class;
+  * Codding and Hardware: to use the mini USB host shield;
+  * Hardware: to develop an "all-in-one" small board.
+
+Future:
+  * Accept newest and smallest Canon PS without PTP from factory:
+    * Use CHDK to open one parametrized PTP command to run internal LUA scripts;
+  * Accept cams with other brands (when possible to hack their firmware).
