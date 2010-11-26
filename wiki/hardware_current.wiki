@@ -8,7 +8,7 @@
 
 *Arduino USB Host Shield:*
   * *!SparkFun:* http://www.sparkfun.com/products/9947
-  This is the original one: *!Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino/
+  This is the original one: *Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino/
 
 *Breakout Board for MAX7456 On Screen Display:*
   * *!SparkFun:* http://www.sparkfun.com/products/9168
