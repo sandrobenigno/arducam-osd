@@ -1,6 +1,6 @@
 #summary PowerShots and remote control.
 
-= Does the project suitable for my camera? =
+= Does it suitable to my camera? =
 
 Currently, this project is based on Canon SDK (PS-ReCSDK 1.1.0e) definitions.
 
