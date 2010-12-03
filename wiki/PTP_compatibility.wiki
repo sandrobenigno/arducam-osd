@@ -20,4 +20,5 @@ The SDK lists the follow cameras:
 You can get detailed info [http://www.gphoto.org/doc/remote/ here].
 
 By other hand, there is a [http://chdk.wikia.com/wiki/PTP_Extension PTP hacking extension] in course at CHDK project.
-ArduCam will adapt the code soon, for extending the PTP control to other newer Canon models, which are small and light.
+
+!ArduCam will adapt the code soon, for extending the PTP control to other newer Canon models, which are small and light.
