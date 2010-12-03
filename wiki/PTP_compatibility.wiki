@@ -1,4 +1,4 @@
-#summary About PTP compatibility.
+#summary PowerShots and remote control.
 
 = Does the project suitable for my camera? =
 
