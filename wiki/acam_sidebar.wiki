@@ -4,7 +4,7 @@
 
   * [arducam_osd About this Project]
   * [media_files See it working]
-  * [PTP_compatibility Does it suitable to my cam?]
+  * [PTP_compatibility Does it suitable to my cam]
 
 
 *Hardware*
