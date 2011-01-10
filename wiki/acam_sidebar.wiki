@@ -1,10 +1,10 @@
-== Table of Contens ==
+== Table of Contents ==
 
-* *Introduction*
-  * [arducam_osd About this Project]
-  * [media_files See it working]
-  * [PTP_compatibility Does it suitable to my cam?]
-* *Hardware*
-  * [hardware_current Current Hardware]
-  * [harware_reduced Smaller USB Host] 
-  * [project_goals Status and Goals]
+ * *Introduction*
+ * [arducam_osd About this Project]
+ * [media_files See it working]
+ * [PTP_compatibility Does it suitable to my cam?]
+ * *Hardware*
+ * [hardware_current Current Hardware]
+ * [harware_reduced Smaller USB Host] 
+ * [project_goals Status and Goals]
