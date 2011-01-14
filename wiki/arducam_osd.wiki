@@ -33,6 +33,6 @@ The reason is:
  # it's capable to send video signal when in PTP remote controlling mode;
  # it tends to be smaller an more lightweight than EOS ones.
 
-In future, the project will need to expand the control to other Canon Power Shoot cameras that don't have PTP from factory, by inserting PTP commands on hacked firmwares like the fabulous CHDK.
+In future, the project will need to expand the control to other Canon Power Shoot cameras that don't have PTP from factory, by inserting PTP commands on hacked firmwares like the awesome [http://chdk.wikia.com/wiki/CHDK CHDK].
 
 Maybe it will be possible trying to extend it to other camera brands by hacking their firmwares, but it's in a distant future of this project.
