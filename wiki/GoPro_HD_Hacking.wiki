@@ -38,7 +38,7 @@ Here goes the complete mapping of !GoPro HD Bus:
  # CLK interface I2C
  # GND
 
-Pins *28* and *29* are very interesting. But nothing was found using the current firmware. It needs to be sniffed using the new firmware that allow shot two cams synchronized to grab 3D images.
+Pins *28* and *29* are very interesting. Still, nothing was found using the current firmware. It needs to be sniffed using the new firmware that allow shot two cams synchronized to grab 3D images.
 
 = Details =
 
