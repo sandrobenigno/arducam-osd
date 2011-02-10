@@ -1,5 +1,5 @@
 #labels goprohdhackingcamera
-= GoPro HD Hacking =
+= !GoPro !HD !Hacking =
 
 The most wanted cam to be used on UAVs is now partially hacked.
 You can control on/off start/stop recording remotely.
