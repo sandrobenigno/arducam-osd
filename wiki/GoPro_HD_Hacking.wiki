@@ -1,0 +1,30 @@
+#labels goprohdhackingcamera
+= GoPro HD Hacking =
+
+The most wanted cam to be used on UAVs is now partially hacked.
+You can control on/off start/stop recording remotely.
+
+= Details =
+
+This hacking use that Bus you can find on back side of GoPro HD.
+That connector is pin compatible with that ones used to connect on iPhone.
+Depending on the connector, you will need to cut two small plastic walls.
+
+= Hardware =
+
+Using relay:
+
+1 x iPhone Male Connector:
+1 x 75 ohms resistors
+1 x 150 ohms resistor
+1 x LED
+1 x relay
+
+Using transistor:
+
+1 x iPhone Male Connector:
+1 x 75 ohms resistors
+1 x 10k ohms resistor
+1 x 150 ohms resistor
+1 x LED
+1 x BC548
