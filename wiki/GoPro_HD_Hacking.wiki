@@ -6,7 +6,7 @@ You can control on/off start/stop recording remotely.
 
 = Details =
 
-This hacking use that Bus you can find on back side of !GoPro HD.
+This hacking use that Bus slot you can find on back side of !GoPro HD.
 That connector is pin compatible with that ones used to connect on !iPhone.
 Depending on the connector, you will need to cut two small plastic walls.
 
