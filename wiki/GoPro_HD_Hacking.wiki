@@ -20,7 +20,7 @@ Using relay:
  * 1 x LED
  * 1 x relay
 
-[image here]
+<image here>
 
 Using transistor:
 
@@ -31,4 +31,4 @@ Using transistor:
  * 1 x LED
  * 1 x BC548
 
-[image here]
+<image here>
