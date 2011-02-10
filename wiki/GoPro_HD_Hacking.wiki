@@ -3,6 +3,7 @@
 
 The most wanted cam to be used on UAVs is now partially hacked.
 You can control on/off start/stop recording remotely.
+A special control function will be added on !ArduCam OSD to allow remote controlling !GoPro HD cams.
 
 = Details =
 
