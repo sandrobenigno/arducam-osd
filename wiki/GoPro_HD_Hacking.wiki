@@ -5,6 +5,39 @@ The most wanted cam to be used on UAVs is now partially hacked.
 You can control on/off start/stop recording remotely.
 A special control function will be added on !ArduCam OSD to allow remote controlling !GoPro HD cams.
 
+Here goes the complete mapping of !GoPro HD Bus:
+
+ # GND
+ # R video out - component Pb/Cb or composite
+ # G video out - component Y
+ # B video out - component Pr/Cr
+ # USB +5V USB power
+ # USB +5V USB power
+ # USB DP-B USB data line D+
+ # USB DM-B USB data line D-
+ # GND
+ # HPR audio out right channel
+ # HPL audio out left channel
+ # PWR/MODE power/mode button
+ # V3.6
+ # IN1R audio in right channel
+ # IN1L audio in left channel
+ # IR IN input IR receiver
+ # TRIG (?)
+ # GND
+ # ID1 digital input
+ # ID2 digital input
+ # ID3 digital input
+ # ID4 digital input
+ # ADAPTER output - power for ext. adapter?
+ # ADAPTER output - power for ext. adapter?
+ # WBAT+ input - ext. power for camera?
+ # WBAT+ input - ext. power for camera?
+ # GND
+ # DATA interface I2C
+ # CLK interface I2C
+ # GND
+
 = Details =
 
 This hacking use that Bus slot you can find on back side of !GoPro HD.
