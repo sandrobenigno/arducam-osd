@@ -20,11 +20,15 @@ Using relay:
  * 1 x LED
  * 1 x relay
 
+[image here]
+
 Using transistor:
 
  * 1 x iPhone Male Connector:
  * 1 x 75 ohms resistors
- * 1 x 10k ohms resistor
  * 1 x 150 ohms resistor
+ * 1 x 10k ohms resistor
  * 1 x LED
  * 1 x BC548
+
+[image here]
