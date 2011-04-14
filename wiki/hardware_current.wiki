@@ -10,6 +10,8 @@
   * *!SparkFun:* http://www.sparkfun.com/products/9947
   This is the original one: *Cisrcuits at Home:* http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-for-arduino/
 
+  Oleg Mazurov developed a new version of his full size board. It have a lot of improvements as a second level converters, more jumpers, more pads, etc: http://www.circuitsathome.com/products-page/arduino-shields/usb-host-shield-2-0-for-arduino/
+
 *Breakout Board for MAX7456 On Screen Display:*
   * *!SparkFun:* http://www.sparkfun.com/products/9168
   Note: Some adaptations will be needed. Max7456 part is a breakout board not a shield.
