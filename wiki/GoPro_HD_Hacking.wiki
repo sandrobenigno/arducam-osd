@@ -62,6 +62,8 @@ The red part of diagram is about composite output video.
 You need to down to ground pins 20 and 21, to enable pin 2 as composite video output. If you ground just pin 20 you will enable component on pins 2, 3 and 4.
 
 <br/><br/>
+
+<wiki:comment>
 Using transistor:
 
  * 1 x iPhone Male Connector: [http://www.sparkfun.com/products/8295 SparkFun Store]
@@ -72,3 +74,5 @@ Using transistor:
  * 1 x BC548
 
 <image here>
+
+</wiki:comment>
