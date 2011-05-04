@@ -53,6 +53,7 @@ You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's fr
  * Upload sketch "!ArduCamOSD_Beta"
 
 <br />
-That's it! If everything is OK you will see the OSD Demo loop running on your NTSC or PAL display.
-
+If everything is OK you will see the OSD Demo loop running on your NTSC or PAL display.
 *Note:* If you're using PAL hardware, you will need to enable "#define isPAL" on "ArduCam_Max7456.h" to best fit all on screen).
+
+If you have a compatible PowerShot cam (switched to "P" mode), when you attach it to the board it will start capture session. If you send C by UART it will capture a picture and so one. Take a look into the "readSerialCommand" function at main sketch "ArduCamOSD_Beta" to understand how it work and test some more commands. It's pretty simple.
