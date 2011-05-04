@@ -29,7 +29,7 @@ You will need a good terminal to "send file". I'm using "TeraTerm Pro". It's fre
 
 
 == Installing it ==
-
+ * Copy USBHOST, PTPCamera and Time folders to Arduino libraries folder;
  * Copy ArduCamOSD_Beta and Max_Char_Write to your Arduino scketch folder;
  * Upload the sketch "Max_Char_Write" to ArduCam OSD board;
  * Install TeraTerm;
