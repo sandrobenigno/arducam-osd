@@ -15,14 +15,14 @@ You can try the actual code. Just do the checkout of the code from [http://code.
 Current:
   * Mapping: commands from Canon PS (Power Shot cams) *(OK)*;
   * Codding: to adapt essential mapped PS commands to main PTP library; *(OK)*
-  * Codding: to wrap necessary camera resources into simple serial calls *( not 100% OK)*;
+  * Codding: to wrap necessary camera resources into simple serial calls *(OK)*;
   * Mapping: necessary registers of the chip Max7456 to work as the OSD core *(OK)*;
   * Testing: sketch which read and write the basic Max7456 registers *(OK)*;
   * Design:  create a basic charset to use on UAV projects *(OK)*;
   * Codding: to insert the charset into the Max7456 prototype *(OK)*;
   * Codding: to wrap all the Map7456 code into a useful library *(OK)*;
   * Codding: to implement OSD pannels for telemetry data on screen *(OK)*;
-  * Codding: to merge "USB Host" and "OSD" code using the new SPI class;
+  * Codding: to merge "USB Host" and "OSD" code using the new SPI class; *(OK)*;
   * Codding and Hardware: to use the mini USB host shield *(OK)*;
   * Hardware: to develop an "all-in-one" small board *(OK)*.
 
