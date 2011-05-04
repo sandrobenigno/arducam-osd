@@ -4,7 +4,7 @@
 
 *Introduction and Features List*
 
-!ArduCam OSD board was projected to be a DIY OSD board very hackable with a plus of an integrated USB host on it. The board's dimension is: 34 x 56 x 10mm (W x L x D). 
+DIYDrone's !ArduCam OSD board was projected to be a DIY OSD board very hackable with a plus of an integrated USB host on it. The board's dimension is: 34 x 56 x 10mm (W x L x D). 
 
 http://arducam-osd.googlecode.com/svn/wiki/images/ArduCamOSD_bootloader_pic.jpg
 
