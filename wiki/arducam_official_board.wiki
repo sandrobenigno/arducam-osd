@@ -38,7 +38,7 @@ That's a start point, however DIYers can create very nice projects with that awe
 *USB Host Features*
  
  * based on speciaized USB host chip Max3421;
- * compatible with Arduino USB host shield and PTP libraries (from circuitsathome.com);
+ * compatible with [https://github.com/felis/USB_Host_Shield Arduino USB host shield] and [https://github.com/felis/Arduino_Camera_Control PTP libraries] (from circuitsathome.com);
  * Open Code:
   * current firmware show you how to control !PowerShot digital cameras from Canon with PTP remote-control enabled;
   * the PTP library have examples to control Canon EOS cams and even Nikon cams which have the standard PTP remote-control enabled;
