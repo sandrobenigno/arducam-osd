@@ -6,30 +6,26 @@ The first thing you'll need to do is checkout the trunk from !ArduCam OSD [http:
 
 == About trunk folders ==
 
-*ArduCamOSD_Beta*
+*'ArduCamOSD_Beta"*
 
 This is an Arduino project folder which have the code base to adapt/integrate with any project. Until now the OSD part is running on something like a "demo loop" just to allow us to test it and seeing some values changing, simulating as it came from APM
 
+*"Library"* (external necessary libraries)
+ * *"USBHOST"*: to drive Max4321;
+ * *"PTPCamera"*: the library to control cameras through PTP;
+ * *"Time"*: to easily control OSD and USB loop nodes.
+
 *Tools*
 
- * *Max_Char_Write*
+ * *"Max_Char_Write"*
 
 This is another Arduino project folder, used to set the arduino as a bridge to upload the new charset to Max7456.
 You will need a good terminal to "send file". I'm using "TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
 
- * *Library"
-
-This folder have all the external necessary libraries:
-
- * USBHOST: to drive Max4321;
- * PTPCamera: the library to control cameras through PTP;
- * Time: to easily control OSD and USB loop nodes.
-
  * *root files in Tools folder*
-
-  * TERATERM.INI (modified to open more than default 4 serial ports)
-  * OSD_SA_v3.mcm (the !ArduCam OSD charset)
-  * MAX7456Charwizard.jar <--- used to see/change the charset
+  * *"TERATERM.INI"* (modified to open more than default 4 serial ports)
+  * *"OSD_SA_v3.mcm"* (the !ArduCam OSD charset)
+  * *"MAX7456Charwizard.jar"* (used to see/change the charset)
 
 
 == Installing it ==
