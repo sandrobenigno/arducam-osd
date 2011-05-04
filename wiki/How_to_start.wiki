@@ -4,6 +4,7 @@
 
 The first thing you'll need to do is checkout the trunk from !ArduCam OSD [http://code.google.com/p/arducam-osd/source/checkout source code].
 
+<br />
 == About trunk folders ==
 
 *'ArduCamOSD_Beta"*
