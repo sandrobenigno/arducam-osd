@@ -12,7 +12,7 @@ That's a start point, however DIYers can create very nice projects with that awe
 
 *General Features*
  
- * !opensource and open hardware !OSD board with integrated USB host;
+ * !opensource and open hardware OSD board with integrated USB host;
  * both resources are driven by !onboard Atmega328p over !SPI;
  * !Arduino compatible;
  * serial interface is compatible with FTDI cable;
