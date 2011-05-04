@@ -27,7 +27,7 @@ You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's fr
   * *"OSD_SA_v3.mcm"* (the !ArduCam OSD charset)
   * *"MAX7456Charwizard.jar"* (used to see/change the charset)
 
-
+<br />
 == Installing it ==
  * Copy USBHOST, PTPCamera and Time folders to Arduino libraries folder;
  * Copy ArduCamOSD_Beta and !Max_Char_Write to your Arduino scketch folder;
