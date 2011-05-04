@@ -6,7 +6,7 @@
  * [PTP_compatibility Does it suitable to my cam?]
  * Hardware
  * !ArduCam OSD Board!!!
- * Old Hardware
-  * [hardware_current Current Hardware]
-  * [harware_reduced Smaller USB Host] 
+ * Prototype Hardware
+  * [hardware_current Breakout boards/shields]
+  * [harware_reduced Small USB Host] 
  * [project_goals Status and Goals]
