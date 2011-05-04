@@ -35,7 +35,7 @@ You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's fr
  * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
  * Install !TeraTerm;
  * Replace the ini in your program files "TTERMPRO" folder;
- * Use !Teraterm to send file: "OSD_SA_v1.mcm" to !ArduCam board;
+ * Use !TeraTerm to send file: "OSD_SA_v1.mcm" to !ArduCam board;
  * When it finished sending it, you just need to reset Arduino, It will show the new charset
  * Upload sketch "!ArduCamOSD_Beta"
 
