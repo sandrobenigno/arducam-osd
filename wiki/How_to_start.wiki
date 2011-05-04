@@ -2,8 +2,6 @@
 
 = How to start =
 
-The first thing you'll need to do is checkout the trunk from !ArduCam OSD [http://code.google.com/p/arducam-osd/source/checkout source code].
-
 Wire up the board is pretty simple.
 
 *Serial connection:* It have a FTDI compatible pads, so you just need to add male pin headers to use it.
@@ -13,6 +11,8 @@ Wire up the board is pretty simple.
 *USB Host connection:* There is a standard USB female bus to just plug your peripheral;
 
 *Power connection:* You can use VIN to attach upto 12V and use the !onboard ON/OFF switch. Alternatively, you can just feed the board from FTDI 5V pin.
+
+After that, all you'll need to do is checkout the trunk from !ArduCam OSD [http://code.google.com/p/arducam-osd/source/checkout source code] and follow the instructions below:
 
 <br />
 == About trunk folders ==
