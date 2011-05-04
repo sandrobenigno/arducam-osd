@@ -10,4 +10,4 @@
   * [hardware_current Breakout boards/shields]
   * [harware_reduced Small USB Host] 
  * *Whats going on?*
-  * [project_goals Status and Goals]
+ * [project_goals Status and Goals]
