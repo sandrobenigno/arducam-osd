@@ -6,6 +6,8 @@
 
 !ArduCam OSD board was projected to be a DIY OSD board very hackable with a plus of an integrated USB host on it.
 
+http://arducam-osd.googlecode.com/svn/wiki/images/ArduCamOSD_bootloader_pic.jpg
+
 The !ArduCam OSD project gives you all the basic resources to start adding OSD telemetry and PTP remote-control enabled cameras to your project.
 That's a start point, however DIYers can create very nice projects with that awesome Arduino based board, such rovers controlled by Bluetooth joystick or even another custom project using mouse, keyboard, touch-panel, etc. All this, sending OSD data directly to a video monitor or video transmitter... and much more!
  
