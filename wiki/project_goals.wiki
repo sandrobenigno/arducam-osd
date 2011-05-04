@@ -25,6 +25,8 @@ Current:
   * Codding: to merge "USB Host" and "OSD" code using the new SPI class; *(OK)*;
   * Codding and Hardware: to use the mini USB host shield *(OK)*;
   * Hardware: to develop an "all-in-one" small board *(OK)*.
+  * Codding: to integrate !ArduCam !OSD with !ArduPilot Mega via MAVLink;
+  * Codding: to create new !OSD panels to fit !ArduPilot Mega needs.
 
 Future:
   * Accept newest and smallest Canon PS without PTP from factory:
