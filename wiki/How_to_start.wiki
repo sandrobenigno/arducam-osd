@@ -17,7 +17,7 @@ This is an Arduino project folder which have the code base to adapt/integrate wi
 
 *Tools*
 
- * *"Max_Char_Write"*
+ * *"!Max_Char_Write"*
 
 This is another Arduino project folder, used to set the arduino as a bridge to upload the new charset to Max7456.
 You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
@@ -34,8 +34,8 @@ You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's fr
  * Upload the sketch "Max_Char_Write" to !ArduCam OSD board;
  * Install !TeraTerm;
  * Replace the ini in your program files "TTERMPRO" folder;
- * Use teraterm to send file: "OSD_SA_v1.mcm" to ArduCam board;
+ * Use !teraterm to send file: "OSD_SA_v1.mcm" to ArduCam board;
  * When it finished sending it, you just need to reset Arduino, It will show the new charset
- * Upload sketch "ArduCamOSD_Beta"
+ * Upload sketch "!ArduCamOSD_Beta"
 
 That's it!
