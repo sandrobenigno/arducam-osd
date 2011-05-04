@@ -2,11 +2,11 @@
 
 == Status ==
 
-The code is NOT finished.
+The code is NOT finished. It's a continuous hard work. ;)
 
 Even the camera control part need several changes to improve error tracking, to turn possible other PTP commands, and so on.
 
-You can try the actual code. Just do the checkout of the code from [http://code.google.com/p/arducam-osd/source/browse/trunk here].
+You can try the current code. Just do the checkout of the code from [http://code.google.com/p/arducam-osd/source/browse/trunk here].
 
 <br/>
 
