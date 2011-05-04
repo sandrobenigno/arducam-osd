@@ -9,4 +9,5 @@
  * Prototype Hardware
   * [hardware_current Breakout boards/shields]
   * [harware_reduced Small USB Host] 
- * [project_goals Status and Goals]
+ * *Whats going on?*
+  * [project_goals Status and Goals]
