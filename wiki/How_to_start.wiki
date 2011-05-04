@@ -2,7 +2,7 @@
 
 = How to start =
 
-The first thing you'll need to do is checkout the trunk from ArduCam OSD source code.
+The first thing you'll need to do is checkout the trunk from !ArduCam OSD [http://code.google.com/p/arducam-osd/source/checkout source code].
 
 == About trunk folders ==
 
@@ -17,6 +17,14 @@ This is an Arduino project folder which have the code base to adapt/integrate wi
 This is another Arduino project folder, used to set the arduino as a bridge to upload the new charset to Max7456.
 You will need a good terminal to "send file". I'm using "TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
 
+ * *Library"
+
+This folder have all the external necessary libraries:
+
+ * USBHOST: to drive Max4321;
+ * PTPCamera: the library to control cameras through PTP;
+ * Time: to easily control OSD and USB loop nodes.
+
  * *root files in Tools folder*
 
   * TERATERM.INI (modified to open more than default 4 serial ports)
@@ -24,9 +32,14 @@ You will need a good terminal to "send file". I'm using "TeraTerm Pro". It's fre
   * MAX7456Charwizard.jar <--- used to see/change the charset
 
 
-= Details =
+== Installing it ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+ * Copy ArduCamOSD_Beta and Max_Char_Write to your Arduino scketch folder;
+ * Upload the sketch "Max_Char_Write" to ArduCam OSD board;
+ * Install TeraTerm;
+ * Replace the ini in your program files "TTERMPRO" folder;
+ * Use teraterm to send file: "OSD_SA_v1.mcm" to ArduCam board;
+ * When it finished sending it, you just need to reset Arduino, It will show the new charset
+ * Upload sketch "ArduCamOSD_Beta"
+
+That's it!
