@@ -28,7 +28,7 @@ That's a start point, however DIYers can create very nice projects with that awe
  * based on specialized OSD chip Max7456;
  * compatible with NTSC or PAL signal; 
  * provides internal, external and automatic vertical sync;
- * LOS, Hsync and ClockOut are exposed;
+ * LOS, Hsync and !ClockOut are exposed;
  * video input and output exposed as pin and solder pads.
  * Open Code:
   * optimized code to write OSD panels pretty fast;
@@ -40,6 +40,6 @@ That's a start point, however DIYers can create very nice projects with that awe
  * based on speciaized USB host chip Max3421;
  * compatible with Arduino USB host shield and PTP libraries (from circuitsathome.com);
  * Open Code:
-  * current firmware show you how to control PowerShot digital cameras from Canon with PTP remote-control enabled;
+  * current firmware show you how to control !PowerShot digital cameras from Canon with PTP remote-control enabled;
   * the PTP library have examples to control Canon EOS cams and even Nikon cams which have the standard PTP remote-control enabled;
   * user could integrate it with other peripherals, such bluetooth joysticks, midi interfaces and so on by using USB host shield libraries.
