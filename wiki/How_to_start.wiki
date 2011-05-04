@@ -55,4 +55,4 @@ You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's fr
 <br />
 That's it! If everything is OK you will see the OSD Demo loop running on your NTSC or PAL display.
 
-*Note:* If you're using PAL systems, you will need to enable "#define isPAL" on "ArduCam_Max7456.h" to best fit all on screen).
+*Note:* If you're using PAL hardware, you will need to enable "#define isPAL" on "ArduCam_Max7456.h" to best fit all on screen).
