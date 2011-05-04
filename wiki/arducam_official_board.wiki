@@ -1,0 +1,44 @@
+#summary About !DIYDrones !ArduCam !OSD Official board.
+
+= Feature list =
+
+*!ArduCam OSD Board Features*
+ 
+!ArduCam OSD board was projected to be a DIY OSD board very hackable with a plus of an integrated USB host on it.
+The !ArduCam OSD project gives you all the basic resources to start adding OSD telemetry and PTP remote-control enabled cameras to your project.
+That's a start point, however DIYers can create very nice projects with that awesome Arduino based board, such rovers controlled by Bluetooth joystick or even another custom project using mouse, keyboard, touch-panel, etc. All this, sending OSD data directly to a video monitor or video transmitter... and much more!
+ 
+
+*General Features*
+ 
+ * !opensource and open hardware !OSD board with integrated USB host;
+ * both resources are driven by !onboard Atmega328p over !SPI;
+ * !Arduino compatible;
+ * serial interface is compatible with FTDI cable;
+ * voltage input VIN have a swicth to enable/disable external power source from (up to 12V);
+ * 3V3 and 5V exposed from integrated voltage regulators;
+ * it can be integrated to any project through exposed UART or i2C pins;
+ * 2 extra digital pins exposed, both PWM capable;
+ * it can drive external peripherals by exposed SPI and the extra digital pins as chip selectors;
+ * 6 analog pins exposed to read external sensors (i2c clock and data included);
+ 
+*OSD Features*
+ 
+ * based on specialized OSD chip Max7456;
+ * compatible with NTSC or PAL signal; 
+ * provides internal, external and automatic vertical sync;
+ * LOS, Hsync and ClockOut are exposed;
+ * video input and output exposed as pin and solder pads.
+ * Open Code:
+  * optimized code to write OSD panels pretty fast;
+  * character table can be customized and replaced by using a free editor and a special arduino sketch;
+  * user have total control to enable/disable specific panels, change its location and everything else.
+ 
+*USB Host Features*
+ 
+ * based on speciaized USB host chip Max3421;
+ * compatible with Arduino USB host shield and PTP libraries (from circuitsathome.com);
+ * Open Code:
+  * current firmware show you how to control PowerShot digital cameras from Canon with PTP remote-control enabled;
+  * the PTP library have examples to control Canon EOS cams and even Nikon cams which have the standard PTP remote-control enabled;
+  * user could integrate it with other peripherals, such bluetooth joysticks, midi interfaces and so on by using USB host shield libraries.
