@@ -19,6 +19,7 @@ The SDK lists the follow cameras:
 
 You can get detailed info [http://www.gphoto.org/doc/remote/ here].
 
-By other hand, there is a [http://chdk.wikia.com/wiki/PTP_Extension PTP hacking extension] in course at CHDK project.
+You can adapt the code easily to work on Canon EOS cams and some Nikon ones, due !ArduCam board is compatible with Oleg's PTP library. Please, check it [http://www.circuitsathome.com/camera-control/generic-ptp-control-of-digital-cameras here].
 
+By other hand, there is a [http://chdk.wikia.com/wiki/PTP_Extension PTP hacking extension] in course at CHDK project.
 The !ArduCam project's goal is use that nice resource soon, for extending the PTP control to other newer Canon models, which are small and light.
