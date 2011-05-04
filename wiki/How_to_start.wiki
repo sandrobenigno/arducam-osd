@@ -1,0 +1,32 @@
+#summary One-sentence summary of this page.
+
+= How to start =
+
+The first thing you'll need to do is checkout the trunk from ArduCam OSD source code.
+
+== About trunk folders ==
+
+*ArduCamOSD_Beta*
+
+This is an Arduino project folder which have the code base to adapt/integrate with any project. Until now the OSD part is running on something like a "demo loop" just to allow us to test it and seeing some values changing, simulating as it came from APM
+
+*Tools*
+
+ * *Max_Char_Write*
+
+This is another Arduino project folder, used to set the arduino as a bridge to upload the new charset to Max7456.
+You will need a good terminal to "send file". I'm using "TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
+
+ * *root files in Tools folder*
+
+  * TERATERM.INI (modified to open more than default 4 serial ports)
+  * OSD_SA_v3.mcm (the !ArduCam OSD charset)
+  * MAX7456Charwizard.jar <--- used to see/change the charset
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
