@@ -2,7 +2,7 @@
 
 =The Official !ArduCam OSD Board=
 
-*!ArduCam OSD Board Features*
+*Introduction and Features List*
 
 !ArduCam OSD board was projected to be a DIY OSD board very hackable with a plus of an integrated USB host on it.
 
