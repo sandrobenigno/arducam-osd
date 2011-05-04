@@ -1,4 +1,4 @@
-#summary About !DIYDrones !ArduCam !OSD Official board.
+#summary About DIYDrone's ArduCam OSD - The Official board.
 
 = Feature list =
 
