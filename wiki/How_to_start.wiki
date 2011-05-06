@@ -15,7 +15,9 @@ It's pretty simple:
 
 *Power connection:* You can use VIN to attach upto 12V and use the !onboard ON/OFF switch. Alternatively, you can just feed the board from FTDI 5V pin.
 
-After that, all you'll need to do is checkout the trunk from !ArduCam OSD [http://code.google.com/p/arducam-osd/source/checkout source code] and follow the instructions below:
+http://arducam-osd.googlecode.com/svn/wiki/images/PinMap.jpg
+
+After wire it up, all you'll need to do is checkout the trunk from !ArduCam OSD [http://code.google.com/p/arducam-osd/source/checkout source code] and follow the instructions below:
 
 <br />
 == About trunk folders ==
