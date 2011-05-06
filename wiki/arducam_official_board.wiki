@@ -21,7 +21,7 @@ That's a start point, however DIYers can create very nice projects with that awe
  * voltage input VIN have a swicth to enable/disable external power source from (up to 12V);
  * 3V3 and 5V exposed from integrated voltage regulators;
  * it can be integrated to any project through exposed UART or i2C pins;
- * 2 extra digital pins exposed, both PWM capable;
+ * 3 extra digital pins exposed, 2 PWM capable;
  * it can drive external peripherals by exposed SPI and the extra digital pins as chip selectors;
  * 6 analog pins exposed to read external sensors (i2c clock and data included);
  
