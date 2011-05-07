@@ -13,7 +13,7 @@ It's pretty simple:
 
 *USB Host connection:* There is a standard USB A female bus to just plug your peripheral;
 
-*Power connection:* You can use VIN to attach upto 12V and use the !onboard ON/OFF switch. Alternatively, you can just feed the board from FTDI 5V pin.
+*Power connection:* You can attach a battery to VIN power line (up to 12V). There is a tinny ON/OFF switch to enable/disable battery power. Alternatively, you can just feed the board by 5V power line. You can use the USART FTDI interface to feed the board.
 
 http://arducam-osd.googlecode.com/svn/wiki/images/PinMap.jpg
 
