@@ -6,7 +6,7 @@
  * [PTP_compatibility Does it suitable to my cam?]
  * *Hardware*
  * [arducam_official_board ArduCam OSD Official Board!!!]
- * [How_to_start How to Start?]
+ * [How_to_start How to Start]
  * Prototype Hardware
   * [hardware_current Breakout boards/shields]
   * [harware_reduced Small USB Host] 
