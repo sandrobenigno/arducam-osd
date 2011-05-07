@@ -29,8 +29,8 @@ Here goes the complete mapping of !GoPro HD Bus:
  # ID2 digital input
  # ID3 digital input
  # ID4 digital input
- # ADAPTER output - power for ext. adapter?
- # ADAPTER output - power for ext. adapter?
+ # ADAPTER output (Seems that it could be used as status...)
+ # ADAPTER output ?
  # WBAT+ input - ext. power for camera?
  # WBAT+ input - ext. power for camera?
  # GND
