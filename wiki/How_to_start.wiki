@@ -7,7 +7,7 @@
 
 It's pretty simple:
 
-*Serial connection:* It have a USART interface FTDI compatible pads, so you just need to add male pin headers to use it.
+*Serial connection:* It has a USART interface FTDI compatible pads, so you just need to add male pin headers to use it.
 
 *OSD Video IO connection:* You will find two ways to attach video in and out: pin based pads and surface solder pads.
 
