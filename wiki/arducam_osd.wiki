@@ -6,10 +6,9 @@ http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 
 = About this Project =
 
-Using high quality digital cameras with full remote control in the air is a dream for a lot of people, me included. Some time ago, I started to read all I could find about the subject.
+To use high quality digital cameras with full remote control in the air is a dream for a lot of people including me. Some time ago I started to read all I could find about it.
 
-In mean time, I found a very interesting Linux project called GPhoto.
-After attach my Cannon Power Shot S3is on the PC's USB and play around GPhoto, it brought the central question: "How can I replace the PC with something smaller, light and remote?".
+In mean time I found a very interesting Linux project called GPhoto. After connecting my Cannon Power Shot S3is on the PC's USB and playing around with GPhoto, it brought the central question: "How can I replace the PC with something smaller, lighter and wireless?".
 
 A lot of thoughts followed that question:
 
