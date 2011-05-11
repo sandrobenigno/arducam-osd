@@ -31,6 +31,8 @@ That's a start point, however DIYers can create very nice projects with that awe
 
 http://arducam-osd.googlecode.com/svn/wiki/images/Chips.jpg
 
+http://arducam-osd.googlecode.com/svn/wiki/images/PinMap.jpg
+
 *OSD Features*
  
  * based on specialized OSD chip Max7456;
