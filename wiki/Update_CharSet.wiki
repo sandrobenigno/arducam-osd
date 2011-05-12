@@ -12,6 +12,6 @@
  * Copy the folder !Max_Char_Write to your Arduino scketch folder;
  * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
 
-== Send a new CharSet ==
+== Send a new Character Set ==
  * Use !TeraTerm to send the file "OSD_SA_v1.mcm" to !ArduCam board;
  * When it finished sending it, you just need to reset Arduino. It will shows the new character set.
