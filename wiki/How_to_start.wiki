@@ -46,13 +46,13 @@ You will need a good terminal to "send file". I'm using "!TeraTerm Pro". It's fr
 <br />
 == Installing it ==
  * Copy USBHOST, PTPCamera and Time folders to Arduino libraries folder;
- * Copy ArduCamOSD_Beta and !Max_Char_Write to your Arduino scketch folder;
+ * Copy folders ArduCamOSD_Beta and !Max_Char_Write to your Arduino scketch folder;
  * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
  * Install !TeraTerm;
  * Replace the ini in your program files "TTERMPRO" folder;
  * Use !TeraTerm to send file: "OSD_SA_v1.mcm" to !ArduCam board;
  * When it finished sending it, you just need to reset Arduino. It will shows the new charset
- * Upload sketch "ArduCamOSD_Beta"
+ * Upload sketch "ArduCamOSD_Beta" to !ArduCam OSD board.
 
 <br />
 If everything is OK you will see the OSD Demo loop running on your NTSC or PAL display.
