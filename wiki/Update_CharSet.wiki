@@ -12,7 +12,7 @@ This is an Arduino project folder, used to set the !ArduCam OSD board as a bridg
   * *"OSD_SA_v3.mcm"* (the !ArduCam OSD charset)
   * *"MAX7456Charwizard.jar"* (used to see/change the charset)
 
-== Character Set Editor ==
+=== Character Set Editor ===
 
   * A double click on the file will run the JAVA application.
   * To visualize the character set file go to menu file/open and filnd the file "OSD_SA_v3.mcm".
