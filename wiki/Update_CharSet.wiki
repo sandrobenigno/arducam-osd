@@ -1,17 +1,31 @@
 = Update MAX7456 Character Set =
 
+The folder "Tools" at the trunk from SVN source has all the required files:
+
+
+ * *"!Max_Char_Write"*
+
+This is an Arduino project folder, used to set the !ArduCam OSD board as a bridge to upload the new character set to the chip Max7456.
+You will also need a good terminal software to "send file" through serial connection. I'm using "!TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
+
+ * *Other files at the root of "Tools"*
+  * *"TERATERM.INI"* (modified to open more than default 4 serial ports)
+  * *"OSD_SA_v3.mcm"* (the !ArduCam OSD charset)
+  * *"MAX7456Charwizard.jar"* (used to see/change the charset)
+
 == Character Set Editor ==
 
+  * A double click on the file will run the JAVA application;
+  * To visualize the character set file  
 
-
-== Terminal ==
+=== Terminal ===
  * Install !TeraTerm;
  * Replace the ini in your program files "TTERMPRO" folder;
 
-== The Arduino sketch ==
+=== The Arduino sketch ===
  * Copy the folder !Max_Char_Write to your Arduino scketch folder;
  * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
 
-== Send a new Character Set ==
+=== Send a new Character Set ===
  * Use !TeraTerm to send the file "OSD_SA_v1.mcm" to !ArduCam board;
  * When it finished sending it, you just need to reset Arduino. It will shows the new character set.
