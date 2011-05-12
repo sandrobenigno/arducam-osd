@@ -2,7 +2,6 @@
 
 = How to start =
 
-<br />
 == Wiring it up ==
 
 It's pretty simple:
