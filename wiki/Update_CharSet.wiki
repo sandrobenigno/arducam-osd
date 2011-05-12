@@ -1,6 +1,6 @@
 = Update MAX7456 Character Set =
 
-On the SVN source, the folder "Tools" at the trunk has all the required resources:
+On the SVN source, the folder *"Tools"* at the trunk has all the required resources:
 
 
  * *"!Max_Char_Write"*
