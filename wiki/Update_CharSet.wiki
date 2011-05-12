@@ -1,5 +1,7 @@
 = Update MAX7456 Character Set =
 
+The ArduCam OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
+
 On the SVN source at the trunk, the folder *[http://code.google.com/p/arducam-osd/source/browse/#svn%2Ftrunk%2FTools "Tools"]* has all you need to update the character set:
 
 
