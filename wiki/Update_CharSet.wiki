@@ -1,0 +1,17 @@
+= Update MAX7456 Character Set =
+
+== Character Set Editor ==
+
+
+
+== Terminal ==
+ * Install !TeraTerm;
+ * Replace the ini in your program files "TTERMPRO" folder;
+
+== The Arduino sketch ==
+ * Copy the folder !Max_Char_Write to your Arduino scketch folder;
+ * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
+
+== Send a new CharSet ==
+ * Use !TeraTerm to send the file "OSD_SA_v1.mcm" to !ArduCam board;
+ * When it finished sending it, you just need to reset Arduino. It will shows the new character set.
