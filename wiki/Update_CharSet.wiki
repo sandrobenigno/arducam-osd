@@ -1,6 +1,6 @@
 = Update MAX7456 Character Set =
 
-On the SVN source at the trunk, the folder [http://code.google.com/p/arducam-osd/source/browse/#svn%2Ftrunk%2FTools *"Tools"*] has all the required resources:
+On the SVN source at the trunk, the folder *[http://code.google.com/p/arducam-osd/source/browse/#svn%2Ftrunk%2FTools "Tools"]* has all the required resources:
 
 
  * *"!Max_Char_Write"*
