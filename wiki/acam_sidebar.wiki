@@ -7,7 +7,7 @@
  * *Hardware*
  * [arducam_official_board ArduCam OSD Official Board!!!]
  * [How_to_start How to Start]
- * [Update_CharSet Update MAX7456 Character Set]
+ * [Update_CharSet Update Character Set]
  * Prototype Hardware
   * [hardware_current Breakout boards/shields]
   * [harware_reduced Small USB Host] 
