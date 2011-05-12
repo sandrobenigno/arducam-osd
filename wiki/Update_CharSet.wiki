@@ -5,7 +5,7 @@ On the SVN source at the trunk, the folder *[http://code.google.com/p/arducam-os
 
  * *"!Max_Char_Write"*
 
-This is an Arduino project folder, used to set the !ArduCam OSD board as a bridge to upload the new character set to the chip Max7456.
+This is an Arduino project folder, used to set the !ArduCam OSD board as a bridge to upload the new character set from your PC to the chip Max7456.
 
  * *Other files at the root of "Tools"*
   * *"TERATERM.INI"* (modified to open more than default 4 serial ports)
