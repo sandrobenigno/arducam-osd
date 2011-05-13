@@ -7,7 +7,7 @@ The !ArduCam OSD base code has an optimized way to draw panels fast on screen. T
 
 
 
-Looking at the SVN source inside the trunk you will see the folder *[http://code.google.com/p/arducam-osd/source/browse/#svn%2Ftrunk%2FTools "Tools"]*. It has all you need to update the character set:
+Looking at the SVN source, more specifically at the trunk, you will see the folder *[http://code.google.com/p/arducam-osd/source/browse/#svn%2Ftrunk%2FTools "Tools"]*. It has all you need to update the character set:
 
 
  * *"!Max_Char_Write"*
