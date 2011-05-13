@@ -31,7 +31,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/CharSetEditor.png
 You will also need a good terminal software to "send file" through serial connection. I'm using "!TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
 
  * Install !TeraTerm;
- * Replace the ini in your program files "TTERMPRO" folder;
+ * Replace the file "TERATERM.INI" in your program files "TTERMPRO" folder;
 
 === The Arduino sketch ===
  * Copy the folder !Max_Char_Write to your Arduino scketch folder;
