@@ -3,7 +3,7 @@
 The !ArduCam OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
 
 
-*Important Note!* You need to wire up the video-out from !ArduCam to a monitor. You will see the old character set on screen (when you start running the sketch "Max_Char_Write") as well as the updated one, after restart the board (the last step of the updating process).
+*Important Note!* You need to wire up the video-out from !ArduCam to a monitor. You will see the old character set on screen (when you start running the sketch "!Max_Char_Write") as well as the updated one, after restart the board (the last step of the updating process).
 
 
 
