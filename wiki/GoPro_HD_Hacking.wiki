@@ -46,7 +46,7 @@ This hacking use that Bus slot you can find on back side of !GoPro HD.
 That connector is pin compatible with that ones used to connect on !iPhone.
 Depending on the connector, you will need to cut two small plastic walls.
 
-= Hardware =
+= Tests Hardware =
 
 Using relay:
 
@@ -61,18 +61,19 @@ http://arducam-osd.googlecode.com/svn/wiki/images/GoPro_remote_video.jpg
 The red part of diagram is about composite output video.
 You need to down to ground pins 20 and 21, to enable pin 2 as composite video output. If you ground just pin 20 you will enable component on pins 2, 3 and 4.
 
+= Original Connectors and Plug =
+
+These are the 100% compatible connectors with GoPro BUS.
+No need to cut that small plastic like on iPhone ones. 
+
+
+*SMD Horizontal:*
+
+[http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail&name=670-1020-2-ND DD1B030HA1R500]
+
+
+*Cable Plug:*
+
+[http://search.digikey.com/scripts/DkSearch/dksus.dll?vendor=0&keywords=DD1P030MA1 DD1P030MA1]
+
 <br/><br/>
-
-<wiki:comment>
-Using transistor:
-
- * 1 x iPhone Male Connector: [http://www.sparkfun.com/products/8295 SparkFun Store]
- * 1 x 75 ohms resistors
- * 1 x 150 ohms resistor
- * 1 x 10k ohms resistor
- * 1 x LED
- * 1 x BC548
-
-<image here>
-
-</wiki:comment>
