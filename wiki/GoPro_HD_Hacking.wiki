@@ -54,7 +54,7 @@ Using relay:
  * 1 x 75 ohms resistors
  * 1 x 150 ohms resistor
  * 1 x LED
- * 1 x relay
+ * 1 x relay or button
 
 http://arducam-osd.googlecode.com/svn/wiki/images/GoPro_remote_video.jpg
 
