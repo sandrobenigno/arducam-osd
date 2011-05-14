@@ -63,7 +63,7 @@ You need to down to ground pins 20 and 21, to enable pin 2 as composite video ou
 
 == Original Connectors and Plug ==
 
-These are the 100% compatible connectors with GoPro BUS.
+These are the 100% compatible connectors with !GoPro Bus.
 No need to cut that small plastic like on iPhone ones. 
 
 
