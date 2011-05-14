@@ -5,7 +5,7 @@ File : ArduCamOSD_Beta.pde
 Version : v0.9, 25 april 2011
 
 Author(s): Sandro Benigno
-           FastSerial and BiteStream from Michael Smith
+           FastSerial and BetterStream from Michael Smith
            USB host and PTP library from Oleg Mazurov - circuitsathome.com
 
 This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ the Free Software Foundation, either version 3 of the License, or
 #include <stdio.h>
 
 #include "Spi.h"
-#include "Wire.h" //Maybe add i2c comunication too
+#include "Wire.h" //Future i2c comunication. Uncommented to watch hex size
 
 /****** USB INCLUDES ******/
 #include <Max3421e.h>
@@ -163,6 +163,10 @@ void writeOSD() //Interrupt function (ISR)
 
 void osd_job()
 { 
+	/*Its the place for data aquisition*/
+	
+	/*JUST Simulated here as DEMO and test*/
+	
   if(millis() > lastGPSUpdate + 100){
     lastGPSUpdate = millis();
     lat+=0.0001;
@@ -190,6 +194,8 @@ void osd_job()
     vel+=5;
     bat_val -= 0.1;
   }
+  
+  //Next line will arm OSD function for the next VSync interruption
   attachInterrupt(0, writeOSD, FALLING);
 }
 
