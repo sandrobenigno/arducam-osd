@@ -40,13 +40,13 @@ Here goes the complete mapping of !GoPro HD Bus:
 
 Pins *28* and *29* are very interesting. Still, nothing was found using the current firmware. It needs to be sniffed using the new firmware that allow shot two cams synchronized to grab 3D images.
 
-= Details =
+== Details ==
 
 This hacking use that Bus slot you can find on back side of !GoPro HD.
 That connector is pin compatible with that ones used to connect on !iPhone.
 Depending on the connector, you will need to cut two small plastic walls.
 
-= Tests Hardware =
+== Test Hardware ==
 
 Using relay:
 
@@ -61,7 +61,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/GoPro_remote_video.jpg
 The red part of diagram is about composite output video.
 You need to down to ground pins 20 and 21, to enable pin 2 as composite video output. If you ground just pin 20 you will enable component on pins 2, 3 and 4.
 
-= Original Connectors and Plug =
+== Original Connectors and Plug ==
 
 These are the 100% compatible connectors with GoPro BUS.
 No need to cut that small plastic like on iPhone ones. 
