@@ -23,7 +23,7 @@ float hom_dis = 0; //distance from home <-------- !!! (probably must be calculat
 float head = 170.0; //heading angle = compass
 float alt = 0; //altitude <-------- !!! ( Need to know the default unit meters foots?)
 float vel = 0; //velocity <-------- !!! ( Need to know the default unit meters/sec kmeters/h milles/h?)
-int   num_sat = 6; //number of satelites
-int   gps_lock = 1; //GPS lock... need verify if is boolean or not <--------- !!! ( Remember!!! Very important on startup time!!!)
+int   num_sat = 3; //number of satelites
+int   gps_lock = 0; //GPS lock... need verify if is boolean or not <--------- !!! ( Remember!!! Very important on startup time!!!)
 
 
