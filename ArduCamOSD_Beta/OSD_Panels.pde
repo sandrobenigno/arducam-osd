@@ -3,13 +3,12 @@
 void startPanels(){
   osd.clear();
   panLogo(10,5);
-  delay(3000); //To do: Stay here until get a GPS lock and save HOME position
-  attachInterrupt(0, writeOSD, FALLING);//First run to other panels
 }
 
 /******* PANELS - POSITION *******/
 
 void writePanels(){
+//osd.clear();
 int offset = 2;
 #ifdef isPAL
   offset = 0;
@@ -21,6 +20,7 @@ int offset = 2;
   panCenter(13,8-offset); //4x2
   panGPS(2,12-offset); //12x3
   panCompass(16,12-offset); //13x3
+  //osd.control(1);
 }
 
 /******* PANELS - DEFINITION *******/
@@ -30,7 +30,7 @@ int offset = 2;
 void panHome(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c%d|%c%d|%c%d%c",0x1f,(int)hom_dis,0x85,(int)alt,0x86,(int)vel,0x88);
+  osd.printf("%c%5.0f|%c%5.0f|%c%5.0f%c",0x1f,hom_dis,0x85,alt,0x86,vel,0x88);
   osd.closePanel();
 }
 
@@ -78,7 +78,14 @@ void panGPS(int first_col, int first_line){
   char buf_lock[3] = {0x10,0x11};
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c%c%d %c|%c%11.6f|%c%11.6f", 0x0f, 0xe3,num_sat, buf_lock[gps_lock], 0x83, lat, 0x84, lon);
+  switch (gps_lock){
+    case 0:
+      osd.printf("%c%c%2.0f %c|%c%s|%c%s", 0x0f, 0xe3,(float)num_sat, buf_lock[0], 0x83, " ---- ", 0x84, " ---- ");
+      break;
+    case 1:
+      osd.printf("%c%c%d %c|%c%11.6f|%c%11.6f", 0x0f, 0xe3,num_sat, buf_lock[1], 0x83, lat, 0x84, lon);
+      break;
+  }
   osd.closePanel();
 }
 
@@ -102,6 +109,6 @@ void panCompass(int first_col, int first_line){
   }
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf(" %c%c%4.2f%c|%s|%c%s%c", 0xc8, 0xc9, head, 0xb0, buf_mark, 0xd0, buf_show, 0xd1);
+  osd.printf(" %c%c%4.0f%c|%s|%c%s%c", 0xc8, 0xc9, head, 0xb0, buf_mark, 0xd0, buf_show, 0xd1);
   osd.closePanel();
 }

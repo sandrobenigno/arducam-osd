@@ -114,24 +114,26 @@ float headIncrementSignal = 1;
 
 void setup()
 {
-  Serial.begin(115200);
+  Serial.begin(57600);
   pinMode(10, OUTPUT); //usb host CS
   pinMode(6,  OUTPUT); //OSD CS
-  
   unplugSlaves();
+
   osd.init();
   startPanels();
   delay( 200 );
   
   unplugSlaves();
   Ps.Setup();
+  delay( 2000 );
+  osd.clear();
   
-  //Starting Timers
-  displayTimer.Set(&OnDisplayTimer, 20);
+  //Setting Timers
+  displayTimer.Set(&OnDisplayTimer, 150);
   cameraTimer.Set(&OnCameraTimer, 500);
   delay( 200 );
-  //displayTimer.Disable();
-  displayTimer.Enable();
+
+  displayTimer.Enable(); //Starting OSD timer (camera timer depends on camera is attached or not)
 }
 
 void loop(){
@@ -157,7 +159,6 @@ void writeOSD() //Interrupt function (ISR)
   //Serial.println("Interrupt!");
   detachInterrupt(0); //It will respect the new aquisition
   unplugSlaves();
-  osd.clear();
   writePanels();//Check OSD_Panels Tab!
 }
 

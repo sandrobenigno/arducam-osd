@@ -33,18 +33,21 @@
 #define MAX7456_CLEAR_display 0x04
 #define MAX7456_CLEAR_display_vert 0x06
 
+#define MAX7456_INCREMENT_auto 0x03
+#define MAX7456_SETBG_local 0x20 //00100000 force local BG to defined brightness level VM1[6:4]
+
 #define MAX7456_END_string 0xff
 
 //VM0 commands mixed with mode NTSC or PAL mode
 #define MAX7456_ENABLE_display (0x08 | MAX7456_MODE) //Don't used. Bad sync. 00001000
 #define MAX7456_ENABLE_display_vert (0x0c | MAX7456_MODE) //Much better. Good sync 00001100
-#define MAX7456_reset (0x02 | MAX7456_MODE)
+#define MAX7456_RESET (0x02 | MAX7456_MODE)
 #define MAX7456_DISABLE_display (0x00 | MAX7456_MODE)
-//VMO command modifiers
+//VM0 command modifiers
 #define MAX7456_SYNC_autosync 0x10
 #define MAX7456_SYNC_internal 0x30
 #define MAX7456_SYNC_external 0x20
-
+//VM1 command modifiers
 #define MAX7456_WHITE_level_80 0x03
 #define MAX7456_WHITE_level_90 0x02
 #define MAX7456_WHITE_level_100 0x01
@@ -68,9 +71,10 @@ class OSD: public BetterStream
     void init(void);
     void clear(void);
     void plug(void);
-    void setPanel(int start_col, int start_row);
+    void setPanel(uint8_t start_col, uint8_t start_row);
     void openPanel(void);
     void closePanel(void);
+    void control(uint8_t ctrl);
     virtual int     available(void);
     virtual int     read(void);
     virtual int     peek(void);
@@ -78,7 +82,7 @@ class OSD: public BetterStream
     virtual void write(uint8_t c);
     using BetterStream::write;
   private:
-    int start_col, start_row, col, row;
+    uint8_t start_col, start_row, col, row;
 };
 
 #endif

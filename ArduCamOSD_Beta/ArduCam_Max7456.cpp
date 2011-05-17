@@ -23,11 +23,11 @@ void OSD::init()
   pinMode(MAX7456_SELECT,OUTPUT);
   digitalWrite(MAX7456_SELECT,HIGH); //disable device
   pinMode(MAX7456_VSYNC, INPUT);
-  digitalWrite(MAX7456_VSYNC,HIGH); //enabling pull-up resistor
+  //digitalWrite(MAX7456_VSYNC,HIGH); //enabling pull-up resistor
   // force soft reset on Max7456
   digitalWrite(MAX7456_SELECT,LOW);
   Spi.transfer(MAX7456_VM0_reg);
-  Spi.transfer(MAX7456_reset);
+  Spi.transfer(MAX7456_RESET);
   digitalWrite(MAX7456_SELECT,HIGH);
   delay(50);
 
@@ -38,14 +38,10 @@ void OSD::init()
     Spi.transfer(x + 0x10);
     Spi.transfer(MAX7456_WHITE_level_120);
   }
-
   // define sync (auto,int,ext) and
   // making sure the Max7456 is enabled
-  Spi.transfer(MAX7456_VM0_reg);
-  //Spi.transfer(MAX7456_ENABLE_display_vert | MAX7456_SYNC_internal);
-  //Spi.transfer(MAX7456_ENABLE_display_vert | MAX7456_SYNC_external);
-  Spi.transfer(MAX7456_ENABLE_display_vert | MAX7456_SYNC_autosync);
-  digitalWrite(MAX7456_SELECT,HIGH);
+  control(1);
+  //digitalWrite(MAX7456_SELECT,HIGH);
 
   //Serial.println("Initialized!");
 }
@@ -71,7 +67,7 @@ void OSD::clear()
 //------------------ set panel -----------------------------------------------
 
 void
-OSD::setPanel(int st_col, int st_row){
+OSD::setPanel(uint8_t st_col, uint8_t st_row){
   start_col = st_col;
   start_row = st_row;
   col = st_col;
@@ -95,7 +91,7 @@ OSD::openPanel(void){
 
   //Auto increment turn writing fast (less SPI commands).
   //No need to set next char address. Just send them
-  settings = B00000011; //To Enable DMM Auto Increment
+  settings = MAX7456_INCREMENT_auto | MAX7456_SETBG_local; //To Enable DMM Auto Increment and set BG local bit control
   digitalWrite(MAX7456_SELECT,LOW);
   Spi.transfer(MAX7456_DMM_reg); //dmm
   Spi.transfer(settings);
@@ -131,6 +127,25 @@ OSD::write(uint8_t c){
     Spi.transfer(MAX7456_DMDI_reg);
     Spi.transfer(c);
   }
+}
+
+//------------------
+
+void
+OSD::control(uint8_t ctrl){
+  digitalWrite(MAX7456_SELECT,LOW);
+  Spi.transfer(MAX7456_VM0_reg);
+  switch(ctrl){
+    case 0:
+      Spi.transfer(MAX7456_DISABLE_display);
+      break;
+    case 1:
+      //Spi.transfer(MAX7456_ENABLE_display_vert | MAX7456_SYNC_internal);
+      //Spi.transfer(MAX7456_ENABLE_display_vert | MAX7456_SYNC_external);
+      Spi.transfer(MAX7456_ENABLE_display_vert | MAX7456_SYNC_autosync); 
+      break;
+  }
+  digitalWrite(MAX7456_SELECT,HIGH);
 }
 
 //------------------ pure virtual ones (just overriding) ---------------------
