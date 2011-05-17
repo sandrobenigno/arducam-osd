@@ -2,7 +2,7 @@
 ArduCam OSD - The Arduino based Remote Camera Control and OSD.
 
 File : ArduCamOSD_Beta.pde
-Version : v0.9, 25 april 2011
+Version : v0.95, 17 may 2011
 
 Author(s): Sandro Benigno
            FastSerial and BetterStream from Michael Smith
