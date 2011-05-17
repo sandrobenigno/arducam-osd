@@ -30,7 +30,7 @@ int offset = 2;
 void panHome(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c%5.0f|%c%5.0f|%c%5.0f%c",0x1f,hom_dis,0x85,alt,0x86,vel,0x88);
+  osd.printf("%c%5.0f%c|%c%5.0f%c|%c%5.0f%c",0x1f,hom_dis,0x8d,0x85,alt,0x8d,0x86,vel,0x88);
   osd.closePanel();
 }
 
@@ -83,7 +83,7 @@ void panGPS(int first_col, int first_line){
       osd.printf("%c%c%2.0f %c|%c%s|%c%s", 0x0f, 0xe3,(float)num_sat, buf_lock[0], 0x83, " ---- ", 0x84, " ---- ");
       break;
     case 1:
-      osd.printf("%c%c%d %c|%c%11.6f|%c%11.6f", 0x0f, 0xe3,num_sat, buf_lock[1], 0x83, lat, 0x84, lon);
+      osd.printf("%c%c%2.0f %c|%c%11.6f|%c%11.6f", 0x0f, 0xe3,(float)num_sat, buf_lock[1], 0x83, lat, 0x84, lon);
       break;
   }
   osd.closePanel();
