@@ -91,7 +91,7 @@ OSD::openPanel(void){
 
   //Auto increment turn writing fast (less SPI commands).
   //No need to set next char address. Just send them
-  settings = MAX7456_INCREMENT_auto | MAX7456_SETBG_local; //To Enable DMM Auto Increment and set BG local bit control
+  settings = MAX7456_INCREMENT_auto; //To Enable DMM Auto Increment
   digitalWrite(MAX7456_SELECT,LOW);
   Spi.transfer(MAX7456_DMM_reg); //dmm
   Spi.transfer(settings);
