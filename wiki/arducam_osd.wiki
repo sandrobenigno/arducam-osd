@@ -9,7 +9,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 
 The project is about controlling digital cameras remotely using USB PTP commands and adding telemetry and camera feedback data to the video signal coming from the controlled camera. The main purpose is to be applied on UAV projects, otherwise, it can be used on every kind of camera remote controlling and shooting.
 
-= Project History =
+== Project History ==
 
 To use high quality digital cameras with full remote control in the air is a dream for a lot of people including me. Some time ago I started to read all I could find about it.
 
