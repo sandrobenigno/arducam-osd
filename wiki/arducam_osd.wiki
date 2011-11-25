@@ -7,7 +7,19 @@ http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 = About the Project =
 
 
-The project is about controlling digital cameras remotely using USB PTP commands and adding telemetry and camera feedback data to the video signal coming from the controlled camera. The main purpose is to be applied on UAV projects using [http://code.google.com/p/ardupilot-mega/wiki/home ArduPilot Mega], otherwise, it could be hacked to be used on every kind of projects to achieve OSD and communicate with external USB device.
+The project is about adding camera and OSD telemetry to UAV projects using [http://code.google.com/p/ardupilot-mega/wiki/home ArduPilot Mega], otherwise, it could be hacked to be used on every kind of projects.
+
+Depending on the hardware choice you can achieve OSD telemetry out-of-the-box or even communicate with external USB devices, like controlling digital cameras remotely using USB PTP commands.
+
+There are two kind of boards on this project.<br>
+Both are attached between the !ArduPilot and your video equipment:
+
+ * MinimOSD: APM OSD board to RC FPV cameras and video links;
+ * ArduCAM OSD: APM OSD board to PTP capable digital cameras;
+
+Those two classes of board add telemetry data to the video signal coming from the camera aboard by reading !ArduPilot !MAVLink messages.
+
+Note: Optionally, you can use those boards on ground, using a wireless serial link between your APM and the OSD board. However, the digicam control is no long possible on this way.
 
 == Project History ==
 
