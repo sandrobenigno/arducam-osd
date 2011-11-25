@@ -4,7 +4,34 @@
 
 The code is NOT finished. The hard work continues! ;)
 
-Even the camera control part need several changes to improve error tracking, to turn possible other PTP commands, and so on.
+*OSD*
+
+There is much more to improve and add, but it work pretty fine.<br>
+Current Panels Set includes:
+
+ * Home Distance
+ * Home Direction
+ * Throttle
+ * Speed
+ * Altitude
+ * Battery voltage
+ * GPS lock
+ * Number of visible sats
+ * Latitude
+ * Longitude
+ * Pitch angle
+ * Row angle
+ * Heading angle
+ * Compass rule
+
+*USB Host and Camera Control*
+
+The camera control part is already working with OSD.<br>
+However, deal with !MAVLink  and USB Host at same time demands a lot of SRAM.<br>
+
+We have two options to complete the OSD+USB Host project:
+ * Customize a light OSD panel to fit better ATMega328p resources;
+ * Create a new board, based on ATMega2560 chip;
 
 You can try the current code. Just do the checkout of the code from [http://code.google.com/p/arducam-osd/source/browse/trunk here].
 
@@ -25,8 +52,8 @@ Current:
   * Codding: to merge "USB Host" and "OSD" code using the new SPI class; *(OK)*;
   * Codding and Hardware: to use the mini USB host shield *(OK)*;
   * Hardware: to develop an "all-in-one" small board *(OK)*.
-  * Codding: to integrate !ArduCam OSD with !ArduPilot Mega via MAVLink;
-  * Codding: to create new OSD panels to fit !ArduPilot Mega needs.
+  * Codding: to integrate !ArduCam OSD with !ArduPilot Mega via MAVLink; *(OK)*
+  * Codding: to create new OSD panels to fit !ArduPilot Mega needs. *(OK)*
 
 Future:
   * Accept newest and smallest Canon PS without PTP from factory:
