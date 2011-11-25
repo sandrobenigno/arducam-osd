@@ -3,8 +3,6 @@
 =!ArduCam OSD 328p Board (in development)=
 
 
-http://arducam-osd.googlecode.com/svn/wiki/images/ArduCamOSD_wiki.jpg
-
 *Introduction and Features List*
 
 DIYDrone's !ArduCam OSD board was projected to be a DIY board very hackable and customizable to provide OSD and USB host. And the best part: it already have an Arduino based circuitry controlling the dedicated chips and give you access to everything.
