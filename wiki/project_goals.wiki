@@ -37,7 +37,7 @@ You can try the current code. Just do the checkout of the code from [http://code
 
 <br/>
 
-== Project Goals ==
+== Basic Goals ==
 
 Current:
   * Mapping: commands from Canon PS (Power Shot cams) *(OK)*;
