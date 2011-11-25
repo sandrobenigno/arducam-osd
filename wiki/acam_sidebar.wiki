@@ -9,7 +9,7 @@
    * [arducam_official_board ArduCam OSD Official Board!!!]
    * [How_to_start Quick Start Guide]
   * MinimOSD
-   * [minimosd MinimOSD ArduPilot Mega OSD]
+   * [minimosd ArduPilot OSD for FPV]
    * [How_to_start_minim Quick Start Guide]
  * [Update_CharSet Update Character Set]
  * Prototype Hardware
