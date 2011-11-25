@@ -5,8 +5,12 @@
  * [media_files See it working]
  * [PTP_compatibility Does it suitable to my cam?]
  * *Hardware*
- * [arducam_official_board ArduCam OSD Official Board!!!]
- * [How_to_start How to Start]
+  * ArduCAM OSD
+   * [arducam_official_board ArduCam OSD Official Board!!!]
+   * [How_to_start Quick Start Guide]
+  * MinimOSD
+   * [minimosd MinimOSD ArduPilot Mega OSD]
+   * [How_to_start_minim Quick Start Guide]
  * [Update_CharSet Update Character Set]
  * Prototype Hardware
   * [hardware_current Breakout boards/shields]
