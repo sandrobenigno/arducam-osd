@@ -6,7 +6,7 @@
  * [PTP_compatibility Does it suitable to my cam?]
  * *Hardware*
   * ArduCAM OSD
-   * [arducam_official_board ArduCam OSD 328p]
+   * [arducam_328p ArduCam OSD 328p]
    * [How_to_start Quick Start Guide]
   * MinimOSD
    * [minimosd ArduPilot OSD for FPV]
