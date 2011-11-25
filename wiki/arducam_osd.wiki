@@ -17,7 +17,7 @@ Both are attached between the !ArduPilot and your video equipment:
  * *[arducam_328p ArduCAM OSD:]* APM OSD board and USB Host to PTP remote capable digital cameras
  * *[minimosd MinimOSD:]* APM OSD board to RC FPV cameras and video links
 
-Those two classes of board add telemetry data to the video signal coming from the camera aboard by reading !ArduPilot MAVLink messages.
+Those two classes of board add telemetry data to the video signal coming from the camera aboard by reading !ArduPilot [http://qgroundcontrol.org/mavlink/start MAVLink] messages.
 
 Note: Optionally, you can use those boards on ground, using a wireless serial link between your APM and the OSD board. However, the digicam control is no long possible on this way.
 
