@@ -1,5 +1,6 @@
+#summary wiring up and attaching to APM board
 
-= How to start =
+= Quick Start Guide =
 
 == Wiring it up ==
 
