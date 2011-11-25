@@ -2,11 +2,11 @@
 
 = Introduction =
 
-MinimOSD has the half size of ArduCAM OSD board.
+MinimOSD has the half size of ArduCAM OSD 328p board.
 It's a super-tinny board designed to a clear target: RC FPV cameras and video links.
  
 It's intended to be a dedicated APM telemetry video output.
-So, it also read MAVLink messages from its RX as well as request rates from APM if you connect its TX to the "telem" port.
+So, it also read [http://qgroundcontrol.org/mavlink/start MAVLink] messages from its RX as well as request rates from APM if you connect its TX to the "telem" port.
 
 
 = Details =
