@@ -1,6 +1,6 @@
-#How to wire it and attach to ArduPilot Mega board.
+#How to wire MinimOSD and attach it to !ArduPilot Mega board.
 
-= Wiring Diagram =
+== Wiring Diagram ==
 
 This is a basic diagram for using the MinimOSD aboard:
 
