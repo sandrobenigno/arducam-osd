@@ -2,7 +2,7 @@
 
  * *Introduction*
  * [arducam_osd About this Project]
- * *Hardware*
+ * *OSD Boards*
   * MinimOSD
    * [minimosd ArduPilot OSD for FPV]
    * [How_to_start_minim Quick Start Guide]
