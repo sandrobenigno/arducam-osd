@@ -22,7 +22,7 @@ This is an Arduino project folder, used to set the !ArduCam OSD board as a bridg
 === Character Set Editor ===
 
   * A double click on the file "MAX7456Charwizard.jar" runs a JAVA based application.
-  * To visualize the character set file go to menu file/open and filnd the file "OSD_SA_v3.mcm".
+  * To visualize the character set file go to menu file/open and filnd the file "OSD_SA_v4.mcm".
 
 http://arducam-osd.googlecode.com/svn/wiki/images/CharSetEditor.png
 
@@ -38,5 +38,5 @@ You will also need a good terminal software to "send file" through serial connec
  * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
 
 === Send a new Character Set ===
- * Use !TeraTerm to send the file "OSD_SA_v1.mcm" to !ArduCam board;
+ * Use !TeraTerm to send the file "OSD_SA_v4.mcm" to !ArduCam board;
  * When it finished sending it, you just need to reset Arduino. It will shows the new character set.
