@@ -1,5 +1,14 @@
 #How to wire it and attach to ArduPilot Mega board.
 
-= Introduction =
+= Wiring Diagram =
 
-(in construction)
+This is a basic diagram for using the MinimOSD aboard:
+
+http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
+
+Note: TX is NOT connected if there is also an XBee in parallel, in order to use a Ground Control Station simultaneously.<br>
+To use an XBee and MinimOSD at same time, you need to make an "Y" cable or prepare your APM IMU board to have a parallel "mirror" connection.
+
+Here is a nice solution using 20mm long male pin-headers:
+
+http://arducam-osd.googlecode.com/svn/wiki/images/Preparing_APM.jpg
