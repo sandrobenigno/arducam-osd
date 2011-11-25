@@ -7,7 +7,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 = About the Project =
 
 
-The project is about controlling digital cameras remotely using USB PTP commands and adding telemetry and camera feedback data to the video signal coming from the controlled camera. The main purpose is to be applied on UAV projects, otherwise, it can be used on every kind of camera remote controlling and shooting.
+The project is about controlling digital cameras remotely using USB PTP commands and adding telemetry and camera feedback data to the video signal coming from the controlled camera. The main purpose is to be applied on UAV projects using !ArduPilot Mega, otherwise, it could be hacked to be used on every kind of projects to achieve OSD and communicate with external USB device.
 
 == Project History ==
 
