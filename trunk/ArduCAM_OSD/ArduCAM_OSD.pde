@@ -75,7 +75,9 @@
 /* *************************************************/
 /* ***************** DEFINITIONS *******************/
 
-
+//OSD Hardware 
+#define ArduCAM328
+//#define MinimOSD
 
 #define TELEMETRY_SPEED  57600  // How fast our MAVLink telemetry is coming to Serial port
 #define BOOTTIME         2000   // Time in milliseconds that we show boot loading bar and wait user input
@@ -94,7 +96,9 @@ SimpleTimer  mavlinkTimer;
 
 void setup() 
 {
+#ifdef ArduCAM328
   pinMode(10, OUTPUT); // USB ArduCam Only
+#endif
   pinMode(MAX7456_SELECT,  OUTPUT); // OSD CS
 
   Serial.begin(TELEMETRY_SPEED);
@@ -141,7 +145,7 @@ void setup()
   cliCheckup();
 
   // Startup MAVLink timers  
-  mavlinkTimer.Set(&OnMavlinkTimer, 100);
+  mavlinkTimer.Set(&OnMavlinkTimer, 120);
 
   // House cleaning, clear display and enable timers
   osd.clear();
@@ -196,6 +200,8 @@ void OnMavlinkTimer()
 
 void unplugSlaves(){
   //Unplug list of SPI
-  //digitalWrite(10,  HIGH); // unplug USB HOST: ArduCam Only
+#ifdef ArduCAM328
+  digitalWrite(10,  HIGH); // unplug USB HOST: ArduCam Only
+#endif
   digitalWrite(MAX7456_SELECT,  HIGH); // unplug OSD
 }

@@ -74,7 +74,7 @@ void setup()
 {
   byte spi_junk;
   int x;
-  Serial.begin(9600);
+  Serial.begin(38400);
   Serial.flush();
 
   digitalWrite(USBSELECT,HIGH); //disable USB chip

@@ -15,9 +15,10 @@ void startPanels(){
 
 void writePanels(){
   if(millis() < (lastMAVBeat + 2000)){
-
+    //osd.clear();
     //Testing bits from 8 bit register A 
-    if(ISa(Cen_BIT)) panCenter(panCenter_XY[0], (panCenter_XY[1] + osd.getCenter()));   //4x2
+    //if(ISa(Cen_BIT)) panCenter(panCenter_XY[0], (panCenter_XY[1] + osd.getCenter()));   //4x2
+    panHorizon(8, (osd.getCenter() - 1));   //4x2
     if(ISa(Pit_BIT)) panPitch(panPitch_XY[0], panPitch_XY[1]);               //5x1
     if(ISa(Rol_BIT)) panRoll(panRoll_XY[0], panRoll_XY[1]);         //5x1
     if(ISa(Bat_BIT)) panBattery(panBattery_XY[0], panBattery_XY[1]);         //7x1
@@ -81,7 +82,7 @@ void panAlt(int first_col, int first_line){
 void panVel(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c%5.0f%c ",0x86,(double)osd_groundspeed,0x88);
+  osd.printf("%c%3.0f%c ",0x86,(double)osd_groundspeed,0x88);
   osd.closePanel();
 }
 
@@ -95,7 +96,7 @@ void panVel(int first_col, int first_line){
 void panThr(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c%5.0i%c",0x87,osd_throttle,0x25);
+  osd.printf("%c%3.0i%c",0x87,osd_throttle,0x25);
   osd.closePanel();
 }
 
@@ -128,6 +129,25 @@ void panCenter(int first_col, int first_line){
 }
 
 /* **************************************************************** */
+// Panel  : panHorizon
+// Needs  : X, Y locations
+// Output : 12 x 4 Horizon line surrounded by 2 cols (left/right rules)
+// Size   : 14 x 4  (rows x chars)
+// Staus  : done
+
+void panHorizon(int first_col, int first_line){
+  osd.setPanel(first_col, first_line);
+  osd.openPanel();
+  osd.printf_P(PSTR("\xc8\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\xc9|"));
+  osd.printf_P(PSTR("\xc8\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\xc9|"));
+  osd.printf_P(PSTR("\xd8\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\xd9|"));
+  osd.printf_P(PSTR("\xc8\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\xc9|"));
+  osd.printf_P(PSTR("\xc8\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\xc9"));
+  osd.closePanel();
+  showHorizon((first_col + 1), first_line);
+}
+
+/* **************************************************************** */
 // Panel  : panPitch
 // Needs  : X, Y locations
 // Output : -+ value of current Pitch from vehicle with degree symbols and pitch symbol
@@ -138,7 +158,6 @@ void panPitch(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
   osd.printf("%4i%c%c",osd_pitch,0xb0,0xb1);
-//  osd.printf("%c%4i%c",0xb1,osd_pitch,0xb0);
   osd.closePanel();
 }
 
@@ -281,13 +300,13 @@ void panGPS(int first_col, int first_line){
 // Panel  : panHeading
 // Needs  : X, Y locations
 // Output : Symbols with numeric compass heading value
-// Size   : 1 x 7  (rows x chars)
+// Size   : 1 x 5  (rows x chars)
 // Staus  : not ready
 
 void panHeading(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf(" %c%c%4.0f%c", 0xc8, 0xc9, (double)osd_heading, 0xb0);
+  osd.printf("%4.0f%c", (double)osd_heading, 0xb0);
   osd.closePanel();
 }
 
@@ -462,4 +481,69 @@ void showArrow() {
       osd.printf_P(PSTR("\xAE\xAF"));
       break;
   }  
+}
+
+// Calculate and shows Artificial Horizon
+void showHorizon(int start_col, int start_row) { 
+
+  int x, nose, row, minval, hit, subval = 0;
+  int cols = 12;
+  int rows = 5;
+  int col_hit[cols];
+  float  pitch, roll;
+   
+  (abs(osd_pitch) == 90)?pitch = 89.99 * (90/osd_pitch) * -0.017453293:pitch = osd_pitch * -0.017453293;
+  (abs(osd_roll) == 90)?roll = 89.99 * (90/osd_roll) * 0.017453293:roll = osd_roll * 0.017453293;
+
+  nose = round(tan(pitch) * (rows*9));
+  for(int col=1;col <= cols;col++){
+    x = (col * 12) - (cols * 6) - 6;//center X point at middle of each col
+    col_hit[col-1] = (tan(roll) * x) + nose + (rows*9) - 1;//calculating hit point on Y plus offset to eliminate negative values
+    //col_hit[(col-1)] = nose + (rows * 9);
+  }
+
+  for(int col=0;col < cols; col++){
+    hit = col_hit[col];
+    if(hit > 0 && hit < (rows * 18)){
+      row = rows - ((hit-1)/18);
+      minval = rows*18 - row*18 + 1;
+      subval = hit - minval;
+      subval = round((subval*9)/18);
+      if(subval == 0) subval = 1;
+      printHit(start_col + col, start_row + row - 1, subval);
+    }
+  }
+}
+
+void printHit(byte col, byte row, byte subval){
+  osd.openSingle(col, row);
+    switch (subval){
+      case 1:
+        osd.printf_P(PSTR("\x06"));
+        break;
+      case 2:
+        osd.printf_P(PSTR("\x07"));
+        break;
+      case 3:
+        osd.printf_P(PSTR("\x08"));
+        break;
+      case 4:
+        osd.printf_P(PSTR("\x09"));
+        break;
+      case 5:
+        osd.printf_P(PSTR("\x0a"));
+        break;
+      case 6:
+        osd.printf_P(PSTR("\x0b"));
+        break;
+      case 7:
+        osd.printf_P(PSTR("\x0c"));
+        break;
+      case 8:
+        osd.printf_P(PSTR("\x0d"));
+        break;
+      case 9:
+        osd.printf_P(PSTR("\x0e"));
+        break;
+    }
 }
