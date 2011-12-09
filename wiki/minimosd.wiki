@@ -1,4 +1,4 @@
-#summary DIYDrone's ArduPilot Mega OSB Board for FPV cameras.
+#summary MinimOSD: DIYDrone's ArduPilot Mega OSD Board for FPV cameras.
 
 = Introduction =
 
