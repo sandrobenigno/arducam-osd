@@ -1,4 +1,4 @@
-#summary How to wire DIYDrone's MinimOSD and attach it to !ArduPilot Mega board.
+#summary How to wire DIYDrone's MinimOSD and attach it to ArduPilot Mega board.
 
 == Basic wiring Diagram ==
 
