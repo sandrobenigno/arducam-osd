@@ -83,6 +83,7 @@ class OSD: public BetterStream
     void control(uint8_t ctrl);
     void detectMode(void);
     void setMode(int mode);
+    void openSingle(uint8_t x, uint8_t y);
     int getMode(void);
     int getCenter(void);
     virtual int     available(void);

@@ -59,9 +59,11 @@ void OSD::detectMode()
   else if((00000010 & osdstat_r) == 1){
     setMode(0);
   }
+#ifdef MinimOSD
   else if (digitalRead(3) == 1){
     setMode(1);
   }
+#endif
   else setMode(0);
   digitalWrite(MAX7456_SELECT,LOW);
 }
@@ -169,6 +171,30 @@ OSD::closePanel(void){
   digitalWrite(MAX7456_SELECT,HIGH);
   //Serial.println("close");
   row++; //only after finish the auto increment the new row will really act as desired
+}
+
+//------------------ write single char ---------------------------------------------
+
+void
+OSD::openSingle(uint8_t x, uint8_t y){
+  unsigned int linepos;
+  byte char_address_hi, char_address_lo;
+ 
+  //find [start address] position
+  linepos = y*30+x;
+  
+  // divide 16 bits into hi & lo byte
+  char_address_hi = linepos >> 8;
+  char_address_lo = linepos;
+  
+  digitalWrite(MAX7456_SELECT,LOW);
+  
+  Spi.transfer(MAX7456_DMAH_reg); // set start address high
+  Spi.transfer(char_address_hi);
+
+  Spi.transfer(MAX7456_DMAL_reg); // set start address low
+  Spi.transfer(char_address_lo);
+  //Serial.printf("setPos -> %d %d\n", col, row);
 }
 
 //------------------ write ---------------------------------------------------
