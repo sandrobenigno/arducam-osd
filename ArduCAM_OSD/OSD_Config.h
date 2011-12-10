@@ -4,7 +4,7 @@
 
 // Versio number, incrementing this will erase/upload factory settings.
 // Only devs should increment this
-#define VER 66
+#define VER 67
 
 //#define noMAG 0 // disable absolute heading. Status: not implemented yet
 #define noAIR 1 // disable airspeed sensor. Status: working

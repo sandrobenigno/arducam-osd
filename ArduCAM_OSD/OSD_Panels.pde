@@ -185,7 +185,7 @@ void panRoll(int first_col, int first_line){
 void panBattery(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%2.1f%c%c", (double)osd_vbat, 0x8E, 0xB4);
+  osd.printf("%2.1f%c%c", (double)osd_vbat, 0x8E, osd_battery_pic);
   osd.closePanel();
 }
 
@@ -412,7 +412,7 @@ void panFlightMode(int first_col, int first_line){
     if(osd_mode == 106 && osd_nav_mode == 2) osd.printf_P(PSTR("\xE0\xE4"));//Loiter
     if(osd_mode == 107 && osd_nav_mode == 5) osd.printf_P(PSTR("\xE0\xE5"));//Return to Launch
   }
-  else if(apm_mav_system == 7 && apm_mav_component == 0){//ArduPilot MEGA Fixed Wing
+  else if(apm_mav_system == 7 && apm_mav_component == 0){//ArduPilot MEGA Rotary Wing
     if(osd_mode == 100 && osd_nav_mode == 4) osd.printf_P(PSTR("\xE0\xE2"));//Stabilize
     if(osd_mode == 2 && osd_nav_mode == 4) osd.printf_P(PSTR("\xE0\xE3"));//Acrobatic
     if(osd_mode == 4 && osd_nav_mode == 2) osd.printf_P(PSTR("\xE0\xE4"));//Loiter
