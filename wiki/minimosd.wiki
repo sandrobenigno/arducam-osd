@@ -14,15 +14,18 @@ So, it also read [http://qgroundcontrol.org/mavlink/start MAVLink] messages from
 It also has the Max7456 chip, however, it's powered differently to avoid noises from servos attached to !ArduPilot Mega board.<br>
 It provides an extra clean power line to feed the FPV camera and video link.<br>
 
-The approach is to use two external power sources: 12V from a Lipo Battery and 5V from APM.
+The approach is to use two external power sources: 12V from a Lipo Battery and 5V from APM:
 
-*Raw 12V from Lipo Battery:* 
+http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
+
+*Raw 12V from Lipo Battery:*
         * Feeds directly FPV camera and video transmitter.
         * It also feeds Max7456's analog line (AVDD and AGND) by a 5V voltage regulator (avoiding noises from servos attached to APM). 
 *5V from APM telem port:*
         * Feeds the ATmega 328P and Max7456's digital line (DVDD and DGND);
- 
-Note.: Optionaly, you can use two solder jumps to "tie" digital and analog lines.
+
+<br><br>
+*Note:* Optionaly, you can use two solder jumps to "tie" digital and analog lines.
 
 http://arducam-osd.googlecode.com/svn/wiki/images/PowerTieMinimOSD.jpg
 
