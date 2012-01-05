@@ -6,6 +6,12 @@ This is a basic diagram for using the MinimOSD aboard:
 
 http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
 
+*OPTIONAL SETUP*
+
+The second stage regulator from the OSD board gets too hot on 12V video setup. If your frame has not a good air flow for cooling the OSD board you may want to feed the OSD entirely from APM. Probably it will add some noises from servos, but you'll be more safe by this way:
+
+http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD_OP.jpg
+
 == Using a GSC simultaneously ==
 
 MinimOSD's TX is NOT connected if there is also a "wireless serial link" in parallel (E.g.: XBee) in order to use a Ground Control Station simultaneously.<br>
