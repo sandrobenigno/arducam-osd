@@ -3,7 +3,7 @@
  Copyright (c) 2011.  All rights reserved.
  An Open Source Arduino based OSD and Camera Control project.
  
- Program  : ArduCAM-OSD (variant: minimOSD)
+ Program  : ArduCAM-OSD (Supports the variant: minimOSD)
  Version  : V1.0 Beta, 25 November 2011
  Author(s): Sandro Benigno
  Coauthor(s):
@@ -76,8 +76,8 @@
 /* ***************** DEFINITIONS *******************/
 
 //OSD Hardware 
-#define ArduCAM328
-//#define MinimOSD
+//#define ArduCAM328
+#define MinimOSD
 
 #define TELEMETRY_SPEED  57600  // How fast our MAVLink telemetry is coming to Serial port
 #define BOOTTIME         2000   // Time in milliseconds that we show boot loading bar and wait user input
