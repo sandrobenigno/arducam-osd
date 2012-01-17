@@ -82,7 +82,6 @@
 #define TELEMETRY_SPEED  57600  // How fast our MAVLink telemetry is coming to Serial port
 #define BOOTTIME         2000   // Time in milliseconds that we show boot loading bar and wait user input
 
-
 // Objects and Serial definitions
 FastSerialPort0(Serial);
 
