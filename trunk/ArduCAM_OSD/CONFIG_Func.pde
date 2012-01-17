@@ -1,17 +1,10 @@
 /* ******************************************************************/
 /* *********************** GENERAL FUNCTIONS ********************** */
 
-boolean ISa(byte whichBit) {
-  return getBit(panA_REG, whichBit);
-}
-
-boolean ISb(byte whichBit) {
-  return getBit(panB_REG, whichBit);
-}
-
-boolean ISc(byte whichBit) {
-  return getBit(panC_REG, whichBit);
-}
+//Extract functions (get bits from the positioning bytes
+#define ISa(whichBit) getBit(panA_REG, whichBit)
+#define ISb(whichBit) getBit(panB_REG, whichBit)
+#define ISc(whichBit) getBit(panC_REG, whichBit)
 
 boolean getBit(byte Reg, byte whichBit) {
   boolean State;
