@@ -14,7 +14,7 @@ Circuits At Home, LTD
 Web      :  http://www.circuitsathome.com
 e-mail   :  support@circuitsathome.com
 */
-#include "simpletimer.h"
+#include "simpleTimer.h"
 
 bool SimpleTimer::Set(TimerCallback task, uint32_t timeout, bool once)
 {
