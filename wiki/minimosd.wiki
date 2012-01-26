@@ -3,8 +3,8 @@
 = Introduction =
 
 MinimOSD has the half size of ArduCAM OSD 328p board.
-It's a super-tinny board designed to a clear target: RC FPV cameras and video links.
- 
+It's a super-tiny board designed to a clear target: RC FPV cameras and video links.
+
 It's intended to be a dedicated APM telemetry video output.
 So, it also read [http://qgroundcontrol.org/mavlink/start MAVLink] messages from its RX as well as request rates from APM if you connect its TX to the "telem" port.
 
@@ -34,3 +34,7 @@ It means extra free memory and also less timers on the main loop.<br>
 MinimOSD has no extra pins exposed, because the concept is "capturing all the needed data from MAVLink".<br>
 E.g.: to show RSSI from RC receiver, that info needs to be on msgs #35 and #36 (RC_CHANNELS "RAW" and "SCALED").<br>
 So, the analog reading of RSSI output from receiver needs to be done on APM analog ports and treated inside the APM code.
+
+= PAL vs NTSC=
+
+The format of the video does have an impact on how many characters the OSD can fit on the video feed. The MimimOSD will try to detect whether you are using a PAL or NTSC camera - however if it cannot for some reason (e.g there is no camera connected) then it will default to one mode or the other. This default mode can be set by soldering the appropriate solder jumper underneath the board
