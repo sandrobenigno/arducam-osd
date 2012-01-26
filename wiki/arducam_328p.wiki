@@ -5,7 +5,7 @@
 
 *Introduction and Features List*
 
-DIYDrone's !ArduCam OSD board was projected to be a DIY board very hackable and customizable to provide OSD and USB host. And the best part: it already have an Arduino based circuitry controlling the dedicated chips and give you access to everything.
+DIYDrone's !ArduCam OSD board was projected to be a DIY board very hackable and customizable to provide OSD and USB host. And the best part: it already has an Arduino based circuitry controlling the dedicated chips and give you access to everything.
 I sent the Eagle schematics to my friend Jordi Munõz and he did all his magic of reduction, routing it to a tiny all-in-one board. The board has just: 56 x 34 x 10mm (W x L x D).
 
 http://arducam-osd.googlecode.com/svn/wiki/images/ArduCamOSD_bootloader_pic.jpg
