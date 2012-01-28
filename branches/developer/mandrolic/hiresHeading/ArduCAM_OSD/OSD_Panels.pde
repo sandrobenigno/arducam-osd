@@ -26,7 +26,11 @@ void writePanels(){
     if(ISa(GPS_BIT)) panGPS(panGPS_XY[0], panGPS_XY[1]);            //12x3
   
     //Testing bits from 8 bit register B
-    if(ISb(Rose_BIT)) panRose(panRose_XY[0], panRose_XY[1]);        //13x3
+    //if(ISb(Rose_BIT)) panRose(panRose_XY[0], panRose_XY[1]);        //13x3
+    // AR: switching to Hi Res Rose
+    if(ISb(Rose_BIT)) panHiResRose(panRose_XY[0], panRose_XY[1]);        //13x3
+    
+    
     if(ISb(Head_BIT)) panHeading(panHeading_XY[0], panHeading_XY[1]); //13x3
     if(ISb(MavB_BIT)) panMavBeat(panMavBeat_XY[0], panMavBeat_XY[1]); //13x3
 
@@ -325,6 +329,23 @@ void panRose(int first_col, int first_line){
   osd.closePanel();
 }
 
+
+/* **************************************************************** */
+// Panel  : panHiResRose
+// Needs  : X, Y locations
+// Output : a dynamic compass rose that changes along the heading information
+//          (Hi resolution version)
+// Size   : 2 x 13  (rows x chars)
+// Staus  : done
+
+void panHiResRose(int first_col, int first_line){
+  osd.setPanel(first_col, first_line);
+  osd.openPanel();
+  //osd_heading  = osd_yaw;
+  //if(osd_yaw < 0) osd_heading = 360 + osd_yaw;
+  osd.printf("%s|%c%s%c", "\x20\xc0\xc0\xc0\xc0\xc0\xc7\xc0\xc0\xc0\xc0\xc0\x20", 0xd0, current_heading_bytes, 0xd1);
+  osd.closePanel();
+}
 
 /* **************************************************************** */
 // Panel  : panBoot
