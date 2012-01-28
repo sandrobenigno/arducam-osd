@@ -187,8 +187,9 @@ void loop()
 /* ******** functions used in main loop() ******** */
 void OnMavlinkTimer()
 {
-  setHeadingPatern();  // generate the heading patern
-
+  //setHeadingPatern();  // generate the heading patern
+  setHeadingPaternHd(); // AR: generate the Hi res timer
+  
   setBatteryPic();     // battery remmaning picture
 
   setHomeVars(osd);   // calculate and set Distance from home and Direction to home
