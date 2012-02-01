@@ -36,7 +36,7 @@ void writeEEPROM(byte value, int address) {
 
 void InitializeOSD() {
   
-  cliCheckup();
+  loadBar();
   delay(500);
 
   writeEEPROM(42, CHK1);
@@ -60,18 +60,21 @@ void writeSettings() {
  //  - Enable/Disable
  //  - X coordinate on screen
  //  - Y coordinate on screen
- writeEEPROM(on, panCenter_en_ADDR);
+ writeEEPROM(off, panCenter_en_ADDR);
  writeEEPROM(13, panCenter_x_ADDR);
- writeEEPROM(0,  panCenter_y_ADDR);//calculated in runtime (0 + autodetect center)
+ writeEEPROM(0,  panCenter_y_ADDR);//calculated in runtime (autodetects y center)
  writeEEPROM(on, panPitch_en_ADDR);
  writeEEPROM(22, panPitch_x_ADDR);
  writeEEPROM(9,  panPitch_y_ADDR);
  writeEEPROM(on, panRoll_en_ADDR);
  writeEEPROM(11, panRoll_x_ADDR);
  writeEEPROM(1,  panRoll_y_ADDR);
- writeEEPROM(on, panBattery_en_ADDR);
- writeEEPROM(22, panBattery_x_ADDR);
- writeEEPROM(1,  panBattery_y_ADDR);
+ writeEEPROM(on, panBatt_A_en_ADDR);
+ writeEEPROM(22, panBatt_A_x_ADDR);
+ writeEEPROM(1,  panBatt_A_y_ADDR);
+ //writeEEPROM(on, panBatt_B_en_ADDR);
+ //writeEEPROM(22, panBatt_B_x_ADDR);
+ //writeEEPROM(3,  panBatt_B_y_ADDR);
  writeEEPROM(on, panGPSats_en_ADDR);
  writeEEPROM(2,  panGPSats_x_ADDR);
  writeEEPROM(13, panGPSats_y_ADDR);
@@ -102,12 +105,16 @@ void writeSettings() {
  writeEEPROM(off,panWPDis_en_ADDR);
  writeEEPROM(0,  panWPDis_x_ADDR);
  writeEEPROM(0,  panWPDis_y_ADDR);
- writeEEPROM(on, panNav_en_ADDR);
- writeEEPROM(22, panNav_x_ADDR);
- writeEEPROM(3,  panNav_y_ADDR);
- writeEEPROM(on, panMod_en_ADDR);
- writeEEPROM(22, panMod_x_ADDR);
- writeEEPROM(4,  panMod_y_ADDR);
+ //writeEEPROM(on, panRSSI_en_ADDR);
+ //writeEEPROM(22, panRSSI_x_ADDR);
+ //writeEEPROM(5,  panRSSI_y_ADDR);
+ 
+ //writeEEPROM(on, panCur_A_en_ADDR);
+ //writeEEPROM(22, panCur_A_x_ADDR);
+ //writeEEPROM(2,  panCur_A_y_ADDR);
+ //writeEEPROM(on, panCur_B_en_ADDR);
+ //writeEEPROM(22, panCur_B_x_ADDR);
+ //writeEEPROM(2,  panCur_B_y_ADDR);
  writeEEPROM(on, panAlt_en_ADDR);
  writeEEPROM(2,  panAlt_x_ADDR);
  writeEEPROM(2,  panAlt_y_ADDR);
@@ -119,12 +126,16 @@ void writeSettings() {
  writeEEPROM(4,  panThr_y_ADDR);
  writeEEPROM(on, panFMod_en_ADDR);
  writeEEPROM(2,  panFMod_x_ADDR);
- writeEEPROM(10,  panFMod_y_ADDR);
+ writeEEPROM(10, panFMod_y_ADDR);
+ writeEEPROM(on, panHorizon_en_ADDR);
+ writeEEPROM(8,  panHorizon_x_ADDR);
+ writeEEPROM(0,  panHorizon_y_ADDR);//calculated in runtime (autodetects y center)
 }
 
 void readSettings() {
   
-  // First set of 8 Panels
+  //****** First set of 8 Panels ******
+  
   setBit(panA_REG, Cen_BIT, readEEPROM(panCenter_en_ADDR));
   panCenter_XY[0] = readEEPROM(panCenter_x_ADDR);
   panCenter_XY[1] = readEEPROM(panCenter_y_ADDR);
@@ -137,9 +148,13 @@ void readSettings() {
   panRoll_XY[0] = readEEPROM(panRoll_x_ADDR);
   panRoll_XY[1] = checkPAL(readEEPROM(panRoll_y_ADDR));
   
-  setBit(panA_REG, Bat_BIT, readEEPROM(panBattery_en_ADDR));
-  panBattery_XY[0] = readEEPROM(panBattery_x_ADDR);
-  panBattery_XY[1] = checkPAL(readEEPROM(panBattery_y_ADDR));
+  setBit(panA_REG, BatA_BIT, readEEPROM(panBatt_A_en_ADDR));
+  panBatt_A_XY[0] = readEEPROM(panBatt_A_x_ADDR);
+  panBatt_A_XY[1] = checkPAL(readEEPROM(panBatt_A_y_ADDR));
+
+  //setBit(panA_REG, BatB_BIT, readEEPROM(panBatt_B_en_ADDR));
+  //panBatt_B_XY[0] = readEEPROM(panBatt_B_x_ADDR);
+  //panBatt_B_XY[1] = checkPAL(readEEPROM(panBatt_B_y_ADDR));
   
   setBit(panA_REG, GPSats_BIT, readEEPROM(panGPSats_en_ADDR));
   panGPSats_XY[0] = readEEPROM(panGPSats_x_ADDR);
@@ -153,7 +168,8 @@ void readSettings() {
   panGPS_XY[0] = readEEPROM(panGPS_x_ADDR);
   panGPS_XY[1] = checkPAL(readEEPROM(panGPS_y_ADDR));
 
-  // Second set of 8 Panels
+  //****** Second set of 8 Panels ******
+  
   setBit(panB_REG, Rose_BIT, readEEPROM(panRose_en_ADDR));
   panRose_XY[0] = readEEPROM(panRose_x_ADDR);
   panRose_XY[1] = checkPAL(readEEPROM(panRose_y_ADDR));
@@ -174,14 +190,19 @@ void readSettings() {
   panHomeDir_XY[0] = readEEPROM(panHomeDir_x_ADDR);
   panHomeDir_XY[1] = checkPAL(readEEPROM(panHomeDir_y_ADDR));
 
-  // Third set of 8 Panels
-  setBit(panC_REG, Nav_BIT, readEEPROM(panNav_en_ADDR));
-  panNav_XY[0] = readEEPROM(panNav_x_ADDR);
-  panNav_XY[1] = checkPAL(readEEPROM(panNav_y_ADDR));
+  //setBit(panB_REG, RSSI_BIT, readEEPROM(panRSSI_en_ADDR));
+  //panRSSI_XY[0] = readEEPROM(panRSSI_x_ADDR);
+  //panRSSI_XY[1] = checkPAL(readEEPROM(panRSSI_y_ADDR));
 
-  setBit(panC_REG, Mod_BIT, readEEPROM(panMod_en_ADDR));
-  panMod_XY[0] = readEEPROM(panMod_x_ADDR);
-  panMod_XY[1] = checkPAL(readEEPROM(panMod_y_ADDR));
+  //****** Third set of 8 Panels ******
+
+  //setBit(panC_REG, CurA_BIT, readEEPROM(panCur_A_en_ADDR));
+  //panCur_A_XY[0] = readEEPROM(panCur_A_x_ADDR);
+  //panCur_A_XY[1] = checkPAL(readEEPROM(panCur_A_y_ADDR));
+
+  //setBit(panC_REG, CurB_BIT, readEEPROM(panCur_B_en_ADDR));
+  //panCur_B_XY[0] = readEEPROM(panCur_B_x_ADDR);
+  //panCur_B_XY[1] = checkPAL(readEEPROM(panCur_B_y_ADDR));
 
   setBit(panC_REG, Alt_BIT, readEEPROM(panAlt_en_ADDR));
   panAlt_XY[0] = readEEPROM(panAlt_x_ADDR);
@@ -198,6 +219,10 @@ void readSettings() {
   setBit(panC_REG, FMod_BIT, readEEPROM(panFMod_en_ADDR));
   panFMod_XY[0] = readEEPROM(panFMod_x_ADDR);
   panFMod_XY[1] = checkPAL(readEEPROM(panFMod_y_ADDR));
+
+  setBit(panC_REG, Hor_BIT, readEEPROM(panHorizon_en_ADDR));
+  panHorizon_XY[0] = readEEPROM(panHorizon_x_ADDR);
+  panHorizon_XY[1] = checkPAL(readEEPROM(panHorizon_y_ADDR));
 
 }
 

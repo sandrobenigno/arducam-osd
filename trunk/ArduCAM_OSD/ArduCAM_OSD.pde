@@ -4,10 +4,11 @@
  An Open Source Arduino based OSD and Camera Control project.
  
  Program  : ArduCAM-OSD (Supports the variant: minimOSD)
- Version  : V1.0 Beta, 25 November 2011
+ Version  : V1.5, 01 January 2012
  Author(s): Sandro Benigno
  Coauthor(s):
    Jani Hirvinen   (All the EEPROM routines)
+   Michael Oborne  (OSD Configutator)
    Mike Smith      (BetterStream and Fast Serial libraries)
  Special Contribuitor:
    Andrew Tridgell by all the support on MAVLink
@@ -42,8 +43,10 @@
 #undef PSTR 
 #define PSTR(s) (__extension__({static prog_char __c[] PROGMEM = (s); &__c[0];})) 
 
-#define ToRad(x) ((x)*0.01745329252)  // *pi/180
-#define ToDeg(x) ((x)*57.2957795131)  // *180/pi
+#define MAVLINK10
+
+/*#define ToRad(x) ((x)*0.01745329252)  // *pi/180
+#define ToDeg(x) ((x)*57.2957795131)  // *180/pi*/
 
 /* **********************************************/
 /* ***************** INCLUDES *******************/
@@ -141,7 +144,7 @@ void setup()
   readSettings();
   
   // Show bootloader bar
-  cliCheckup();
+  loadBar();
 
   // Startup MAVLink timers  
   mavlinkTimer.Set(&OnMavlinkTimer, 120);

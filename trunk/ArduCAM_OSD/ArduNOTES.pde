@@ -14,8 +14,8 @@
   panA_REG.0    01    panCenter       "IIII" \r "IIII"  - Center xrosshair 
   panA_REG.1    02    panPitch        "DDDDII"          - Pitch angle with symbols
   panA_REG.2    03    panRoll         "DDDDII"          - Roll angle with symbols
-  panA_REG.3    04    panBattery      "DD.DII"          - Battery symbol with voltage reading
-  panA_REG.4    05    -----
+  panA_REG.3    04    panBattery1     "DD.DII"          - Voltage sensing #1 symbol with voltage reading
+  panA_REG.4    05    panBattery2     "DD.DII"          - Voltage sensing #2 symbol with voltage reading  (!Not Implemented)
   panA_REG.5    06    panGPSats       "I  CC"           - Amount of locked satelliset with symbols
   panA_REG.6    07    panGPL          "II"              - GPS Lock symbol
   panA_REG.7    08    panGPS          "I DDD.DDDDDD" \r "I DDD.DDDDDD" - GPS location data (lat/lon)
@@ -25,17 +25,17 @@
   panB_REG.2    11    panMavBeat      "II"              - MAVLink heartbeat
   panB_REG.3    12    panHomeDir      "II"      N/Y     - Home location arrows
   panB_REG.4    13    panHomeDis      "IDDDDDI" N/Y     - Distance to home
-  panB_REG.5    14    panWPDir        "II"      N/Y     - Waypoint location arrows
-  panB_REG.6    15    panWPDis        "IDDDDDI"         - Distance to next waypoint
-  panB_REG.7    16    --
+  panB_REG.5    14    panWPDir        "II"      N/Y     - Waypoint location arrows (!Not Implemented)
+  panB_REG.6    15    panWPDis        "IDDDDDI"         - Distance to next waypoint (!Not Implemented)
+  panB_REG.7    16    panRSSI                           - RSSI data from RC (!Not Implemented)
   
-  panC_REG.0    17    panNav                            - MAVLink Nav debug data
-  panC_REG.1    18    panMod                            - MAVLink Mode debug data
+  panC_REG.0    17    panCurrent1                       - Current sensing #1  (!Not Implemented)
+  panC_REG.1    18    panCurrent2                       - Current sensing #2 (!Not Implemented)
   panC_REG.2    19    panAlt          "IDDDDDI"         - Altitude information
   panC_REG.3    20    panVel          "IDDDDDI"         - Velocity information
   panC_REG.4    21    panThr          "IDDDDDI"         - MAVLink Throttle data
   panC_REG.5    22    panFMod         "II"              - Flight mode display
-  panC_REG.6    23    --
+  panC_REG.6    05    panHorizon                        - Artificial Horizon
   panC_REG.7    24    --
 
 
@@ -49,21 +49,6 @@ N/C = Not Confirmed
 Screen sizes: 
 PAL   15 Rows x 32 Chars
 NTSC  13 Rows x 30 Chars
-
-
-- Configuring
-
- On serial monitor send following command to move/enable/disable different panels.
- 
- Command starts with !! [0/1 as dis/ena] [panel nr, two digit] [Column coord, two digit] [Row coord, two digit]
-
- Example to move Pitch panel to location Col 8, Row 12 command will be:
- 
-  !!1020812      (!! 1=Enable, 02=Panel 2, 08=Col 8, 12=Row 12)
-  
-  Battery monitor to Col 10, row 2: !!1041002
-
-  Reset to default screen is: !!199
  
 
 

@@ -4,10 +4,7 @@
 
 // Versio number, incrementing this will erase/upload factory settings.
 // Only devs should increment this
-#define VER 67
-
-//#define noMAG 0 // disable absolute heading. Status: not implemented yet
-#define noAIR 1 // disable airspeed sensor. Status: working
+#define VER 70
 
 // EEPROM Stepping, be careful not to overstep. 
 // We reserved floats for just to be sure if some values needs to be
@@ -21,8 +18,8 @@
 #define Cen_BIT        0
 #define Pit_BIT        1
 #define Rol_BIT        2
-#define Bat_BIT        3
-//#define XXA_BIT      4
+#define BatA_BIT       3
+#define BatB_BIT       4  //(!Not implemented)
 #define GPSats_BIT     5
 #define GPL_BIT        6
 #define GPS_BIT        7
@@ -33,20 +30,19 @@
 #define MavB_BIT       2
 #define HDir_BIT       3
 #define HDis_BIT       4
-#define WDir_BIT       5
-#define WDis_BIT       6
-//#define XXB_BIT        7
+#define WDir_BIT       5 //(!Not implemented)
+#define WDis_BIT       6 //(!Not implemented)
+#define RSSI_BIT       7 //(!Not implemented)
 
 // panC_REG Byte has:
-#define Nav_BIT        0
-#define Mod_BIT        1
+#define CurA_BIT       0 //(!Not implemented)
+#define CurB_BIT       1 //(!Not implemented)
 #define Alt_BIT        2
 #define Vel_BIT        3
 #define Thr_BIT        4
 #define FMod_BIT       5
-//#define XXC_BIT        6
-//#define XXC_BIT        7
-
+#define Hor_BIT        6
+//#define XXC_BIT      7 //Free
 
 
 /* *********************************************** */
@@ -62,12 +58,12 @@
 #define panRoll_en_ADDR 12
 #define panRoll_x_ADDR 14
 #define panRoll_y_ADDR 16
-#define panBattery_en_ADDR 18
-#define panBattery_x_ADDR 20
-#define panBattery_y_ADDR 22
-
-// Reserved 24, 26, 28
-
+#define panBatt_A_en_ADDR 18
+#define panBatt_A_x_ADDR 20
+#define panBatt_A_y_ADDR 22
+#define panBatt_B_en_ADDR 24
+#define panBatt_B_x_ADDR 26
+#define panBatt_B_y_ADDR 28
 #define panGPSats_en_ADDR 30
 #define panGPSats_x_ADDR 32
 #define panGPSats_y_ADDR 34
@@ -94,22 +90,23 @@
 #define panHomeDis_en_ADDR 72
 #define panHomeDis_x_ADDR 74
 #define panHomeDis_y_ADDR 76
-#define panWPDir_en_ADDR 80
-#define panWPDir_x_ADDR 82
-#define panWPDir_y_ADDR 84
-#define panWPDis_en_ADDR 86
-#define panWPDis_x_ADDR 88
-#define panWPDis_y_ADDR 90
-
-// Reserved 92,94,96
+#define panWPDir_en_ADDR 80 //(!Not implemented)
+#define panWPDir_x_ADDR 82  //
+#define panWPDir_y_ADDR 84  //
+#define panWPDis_en_ADDR 86 //(!Not implemented)
+#define panWPDis_x_ADDR 88  //
+#define panWPDis_y_ADDR 90  //
+#define panRSSI_en_ADDR 92 //(!Not implemented)
+#define panRSSI_x_ADDR 94  //
+#define panRSSI_y_ADDR 96  //
 
 // Third set of 8 panels
-#define panNav_en_ADDR 98
-#define panNav_x_ADDR 100
-#define panNav_y_ADDR 102
-#define panMod_en_ADDR 104
-#define panMod_x_ADDR 106
-#define panMod_y_ADDR 108
+#define panCurA_en_ADDR 98 //(!Not implemented)
+#define panCurA_x_ADDR 100 //
+#define panCurA_y_ADDR 102 //
+#define panCurB_en_ADDR 104 //(!Not implemented)
+#define panCurB_x_ADDR 106 //
+#define panCurB_y_ADDR 108 //
 #define panAlt_en_ADDR 110
 #define panAlt_x_ADDR 112
 #define panAlt_y_ADDR 114
@@ -122,7 +119,9 @@
 #define panFMod_en_ADDR 128
 #define panFMod_x_ADDR 130
 #define panFMod_y_ADDR 132
-
+#define panHorizon_en_ADDR 134
+#define panHorizon_x_ADDR 136
+#define panHorizon_y_ADDR 138
 
 #define CHK1 1000
 #define CHK2 1006
