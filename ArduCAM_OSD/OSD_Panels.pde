@@ -2,10 +2,6 @@
 
 void startPanels(){
   osd.clear();
-  
-  panCenter_XY[0] = readEEPROM(panCenter_x_ADDR);
-  panCenter_XY[1] = readEEPROM(panCenter_y_ADDR);
-  
   // Display our logo  
   panLogo(10,5);
 }
@@ -16,14 +12,14 @@ void writePanels(){
   if(millis() < (lastMAVBeat + 2000)){
     //osd.clear();
     //Testing bits from 8 bit register A 
-    //if(ISa(Cen_BIT)) panCenter(panCenter_XY[0], (panCenter_XY[1] + osd.getCenter()));   //4x2
-    panHorizon(8, (osd.getCenter() - 1));   //4x2
-    if(ISa(Pit_BIT)) panPitch(panPitch_XY[0], panPitch_XY[1]);               //5x1
-    if(ISa(Rol_BIT)) panRoll(panRoll_XY[0], panRoll_XY[1]);         //5x1
-    if(ISa(Bat_BIT)) panBattery(panBattery_XY[0], panBattery_XY[1]);         //7x1
-    if(ISa(GPSats_BIT)) panGPSats(panGPSats_XY[0], panGPSats_XY[1]);
-    if(ISa(GPL_BIT)) panGPL(panGPL_XY[0], panGPL_XY[1]);            //1x1
-    if(ISa(GPS_BIT)) panGPS(panGPS_XY[0], panGPS_XY[1]);            //12x3
+    if(ISa(Cen_BIT)) panCenter(panCenter_XY[0], (panCenter_XY[1] + osd.getCenter()));   //4x2
+    if(ISa(Pit_BIT)) panPitch(panPitch_XY[0], panPitch_XY[1]); //5x1
+    if(ISa(Rol_BIT)) panRoll(panRoll_XY[0], panRoll_XY[1]); //5x1
+    if(ISa(BatA_BIT)) panBatt_A(panBatt_A_XY[0], panBatt_A_XY[1]); //7x1
+//  if(ISa(BatB_BIT)) panBatt_B(panBatt_B_XY[0], panBatt_B_XY[1]); //7x1
+    if(ISa(GPSats_BIT)) panGPSats(panGPSats_XY[0], panGPSats_XY[1]); //5x1
+    if(ISa(GPL_BIT)) panGPL(panGPL_XY[0], panGPL_XY[1]); //2x1
+    if(ISa(GPS_BIT)) panGPS(panGPS_XY[0], panGPS_XY[1]); //12x3
   
     //Testing bits from 8 bit register B
     if(ISb(Rose_BIT)) panRose(panRose_XY[0], panRose_XY[1]);        //13x3
@@ -31,19 +27,21 @@ void writePanels(){
     if(ISb(MavB_BIT)) panMavBeat(panMavBeat_XY[0], panMavBeat_XY[1]); //13x3
 
     if(osd_got_home == 1){
-      if(ISb(HDis_BIT)) panHomeDis(panHomeDis_XY[0], panHomeDis_XY[1]);        //13x3
-      if(ISb(HDir_BIT)) panHomeDir(panHomeDir_XY[0], panHomeDir_XY[1]);        //13x3
+      if(ISb(HDis_BIT)) panHomeDis(panHomeDis_XY[0], panHomeDis_XY[1]); //13x3
+      if(ISb(HDir_BIT)) panHomeDir(panHomeDir_XY[0], panHomeDir_XY[1]); //13x3
     }
-    //Testing bits from 8 bit register C 
-    //if(ISc(Mod_BIT)) panMod(panMod_XY[0], panMod_XY[1]); //7x1 Debug Mod
-    //if(ISc(Nav_BIT)) panNav(panNav_XY[0], panNav_XY[1]); //7x1 Debug Nav 
-    if(osd_got_home == 1){
-      if(ISc(Alt_BIT)) panAlt(panAlt_XY[0], panAlt_XY[1]);
-      if(ISc(Vel_BIT)) panVel(panVel_XY[0], panVel_XY[1]);
-    }
-    if(ISc(Thr_BIT)) panThr(panThr_XY[0], panThr_XY[1]);
-    if(ISc(FMod_BIT)) panFlightMode(panFMod_XY[0], panFMod_XY[1]); 
+//  if(ISb(WDir_BIT)) panWayPDir(panWayPDir_XY[0], panWayPDir_XY[1]); //??x??
+//  if(ISb(WDis_BIT)) panWayPDis(panWayPDis_XY[0], panWayPDis_XY[1]); //??x??
+//  if(ISb(WRSSI_BIT)) panRSSI(panRSSI_XY[0], panRSSI_XY[1]); //??x??
 
+    //Testing bits from 8 bit register C 
+    if(osd_got_home == 1){
+      if(ISc(Alt_BIT)) panAlt(panAlt_XY[0], panAlt_XY[1]); //
+      if(ISc(Vel_BIT)) panVel(panVel_XY[0], panVel_XY[1]); //
+    }
+    if(ISc(Thr_BIT)) panThr(panThr_XY[0], panThr_XY[1]); //
+    if(ISc(FMod_BIT)) panFlightMode(panFMod_XY[0], panFMod_XY[1]);  //
+    if(ISc(Hor_BIT)) panHorizon(8, (osd.getCenter() - 1)); //14x5
   }
   else{
     osd.clear();
@@ -74,7 +72,7 @@ void panAlt(int first_col, int first_line){
 /* **************************************************************** */
 // Panel  : panVel
 // Needs  : X, Y locations
-// Output : Throttle value from MAVlink with symbols
+// Output : Velocity value from MAVlink with symbols
 // Size   : 1 x 7  (rows x chars)
 // Staus  : done
 
@@ -175,44 +173,16 @@ void panRoll(int first_col, int first_line){
 }
 
 /* **************************************************************** */
-// Panel  : panBattery
+// Panel  : panBattery A (Voltage 1)
 // Needs  : X, Y locations
 // Output : Voltage value as in XX.X and symbol of over all battery status
 // Size   : 1 x 5  (rows x chars)
 // Staus  : done
 
-void panBattery(int first_col, int first_line){
+void panBatt_A(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
   osd.printf("%2.1f%c%c", (double)osd_vbat, 0x8E, osd_battery_pic);
-  osd.closePanel();
-}
-
-/* **************************************************************** */
-// Panel  : panMod
-// Needs  : X, Y locations
-// Output : Text field with numeric output to show current flight mode, needs osd nav mode to be complete.
-// Size   : 1 x 9  (rows x chars)
-// Staus  : done
-
-void panMod(int first_col, int first_line){
-  osd.setPanel(first_col, first_line);
-  osd.openPanel();
-  osd.printf("%s%1.0i","Mod:",osd_mode);
-  osd.closePanel();
-}
-
-/* **************************************************************** */
-// Panel  : panNav
-// Needs  : X, Y locations
-// Output : Text field and numeric value to show osd navigation mode, works along with osd mode
-// Size   : 1 x 9  (rows x chars)
-// Staus  : done
-
-void panNav(int first_col, int first_line){
-  osd.setPanel(first_col, first_line);
-  osd.openPanel();
-  osd.printf("%s%1.0i","Nav:", osd_nav_mode);
   osd.closePanel();
 }
 
@@ -228,6 +198,7 @@ void panLogo(int first_col, int first_line){
 //------------------ Panel: Waiting for MAVLink HeartBeats -------------------------------
 
 void panWaitMAVBeats(int first_col, int first_line){
+  panLogo(10,5);
   osd.setPanel(first_col, first_line);
   osd.openPanel();
   osd.printf_P(PSTR("Waiting for|MAVLink heartbeats..."));

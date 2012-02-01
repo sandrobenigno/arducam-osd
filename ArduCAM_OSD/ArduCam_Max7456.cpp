@@ -53,10 +53,10 @@ void OSD::detectMode()
   Spi.transfer(MAX7456_STAT_reg_read);//status register
   byte osdstat_r = Spi.transfer(0xff);
 
-  if ((00000001 & osdstat_r) == 1){
+  if ((B00000001 & osdstat_r) == 1){
     setMode(1);  
   }
-  else if((00000010 & osdstat_r) == 1){
+  else if((B00000010 & osdstat_r) == 1){
     setMode(0);
   }
 #ifdef MinimOSD

@@ -55,8 +55,8 @@ int tempvar;      // Temporary variable used on many places around the OSD
 byte panCenter_XY[2]; // = { 13,7,0 };
 byte panPitch_XY[2]; // = { 11,1 };
 byte panRoll_XY[2]; // = { 23,7 };
-byte panBattery_XY[2]; // = { 23,1 };
-//byte pan--_XY[2] = { 0,0 };
+byte panBatt_A_XY[2]; // = { 23,1 };
+//byte panBatt_B_XY[2]; // = { 23,3 };
 byte panGPSats_XY[2]; // = { 2,12 };
 byte panGPL_XY[2]; // = { 2,11 };
 byte panGPS_XY[2]; // = { 2,13 };
@@ -69,16 +69,16 @@ byte panHomeDir_XY[2]; // = { 0,0 };
 byte panHomeDis_XY[2]; // = { 0,0 };
 byte panWPDir_XY[2]; // = { 0,0 };
 byte panWPDis_XY[2]; // = { 0,0 };
-//byte pan---_XY[2] = { 0,0 };
+//byte panRSSI_XY[2] = { 0,0 };
 
 // Third set of panels and their X,Y coordinate holders
-byte panNav_XY[2]; // = { 0,0 };
-byte panMod_XY[2]; // = { 0,0 };
+//byte panCur_A_XY[2]; // = { 23,1 };
+//byte panCur_B_XY[2]; // = { 23,3 };
 byte panAlt_XY[2]; // = { 0,0 };
 byte panVel_XY[2]; // = { 0,0 };
 byte panThr_XY[2]; // = { 0,0 };
 byte panFMod_XY[2]; // = { 0,0 };
-//byte panXXX_XY[2] = { 0,0 };
+byte panHorizon_XY[2]; // = {8,centercalc}
 //byte panXXX_XY[2] = { 0,0 };
 
 

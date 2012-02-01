@@ -1,25 +1,22 @@
 
 
 /* ******************************************************************/
-/* *********************** GENERAL FUNCTIONS ********************** */
+/* *********************** BOOT UP FUNCTIONS ********************** */
 
 
 ///////////////////////////////////////////////////////
-// Function: cliCheckup(void)
+// Function: loadBar(void)
 //
-// On bootup time we will show loading bar and wait
-// user input on Serial port, if no input in 2 seconds
-// we will continue in normal mode eg starting to listen
-// MAVLink commands
+// On bootup time we will show loading bar for defined BOOTTIME seconds
+// This is interesting to avoid writing to APM during bootup if OSD's TX is connected
+// After that, it continue in normal mode eg starting to listen MAVLink commands
 
 #define barX 5
 #define barY 12
 
-void cliCheckup() {
+void loadBar() { //change name due we don't have CLI anymore
   int waitTimer;
   byte barStep = 0;
-//  byte c;
-
 
   // Write plain panel to let users know what to do
   panBoot(barX,barY);
@@ -77,55 +74,3 @@ void cliCheckup() {
 }
 
 
-/* ********************************************** */
-/* ************** ReadSettings ****************** */
-void ReadSettings() {
-  byte chr_index = 0;
-  byte loopcount = 0;
-  char cmd_char[8] = "";
- 
-  do {
-    if (Serial.available() == 0) {
-      delay(10);
-      loopcount++;
-    } else {
-      cmd_char[chr_index] = Serial.read();
-      loopcount = 0;
-      chr_index++;
-    }
-  } while ((cmd_char[constrain(chr_index-1, 0, 8)] != '\r') && (loopcount < 5) && (chr_index < 8));
-  
-  // Variable banging.. Reusing old variables so be aware.  
-  cmd_char[0] = cmd_char[0] - 48;
-  tempvar = ((cmd_char[1] - 48 ) * 10) + (cmd_char[2] - 48);
-  cmd_char[1] = tempvar;
-  
-  if(cmd_char[1] == 99) {
-    writeSettings();
-    osd.clear();
-    readSettings();    
-    return;
-  }
-  if(cmd_char[1] == 98) {
-    for(tempvar = 0; tempvar == 255; tempvar++) {
-      Serial.println(readEEPROM(tempvar), DEC);   
-      return; 
-    }  
-  }
-  tempvar = ((cmd_char[3] - 48 ) * 10) + (cmd_char[4] - 48);
-  cmd_char[2] = tempvar;
-  tempvar = ((cmd_char[5] - 48 ) * 10) + (cmd_char[6] - 48);
-  cmd_char[3] = tempvar;
-
-Serial.print(cmd_char[2], DEC);
-Serial.print(",");
-Serial.println(cmd_char[3],DEC);
-     
-  // data[0] = enable/disable  (0/1)
-  // data[1] = panel number
-  // data[2] = panel_x coordinates
-  // data[3] = panel_y coordinates
-
-  // Let's update EEPROM values
-   updateSettings(cmd_char[1], cmd_char[2], cmd_char[3], cmd_char[0]);
-}
