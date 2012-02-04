@@ -62,7 +62,7 @@ void writeSettings() {
  //  - Y coordinate on screen
  writeEEPROM(off, panCenter_en_ADDR);
  writeEEPROM(13, panCenter_x_ADDR);
- writeEEPROM(0,  panCenter_y_ADDR);//calculated in runtime (autodetects y center)
+ writeEEPROM(7,  panCenter_y_ADDR);
  writeEEPROM(on, panPitch_en_ADDR);
  writeEEPROM(22, panPitch_x_ADDR);
  writeEEPROM(9,  panPitch_y_ADDR);
@@ -79,8 +79,8 @@ void writeSettings() {
  writeEEPROM(2,  panGPSats_x_ADDR);
  writeEEPROM(13, panGPSats_y_ADDR);
  writeEEPROM(on, panGPL_en_ADDR);
- writeEEPROM(2,  panGPL_x_ADDR);
- writeEEPROM(12, panGPL_y_ADDR);
+ writeEEPROM(7,  panGPL_x_ADDR);
+ writeEEPROM(13, panGPL_y_ADDR);
  writeEEPROM(on, panGPS_en_ADDR);
  writeEEPROM(2,  panGPS_x_ADDR);
  writeEEPROM(14, panGPS_y_ADDR);
@@ -125,11 +125,11 @@ void writeSettings() {
  writeEEPROM(2,  panThr_x_ADDR);
  writeEEPROM(4,  panThr_y_ADDR);
  writeEEPROM(on, panFMod_en_ADDR);
- writeEEPROM(2,  panFMod_x_ADDR);
- writeEEPROM(10, panFMod_y_ADDR);
+ writeEEPROM(17,  panFMod_x_ADDR);
+ writeEEPROM(13, panFMod_y_ADDR);
  writeEEPROM(on, panHorizon_en_ADDR);
  writeEEPROM(8,  panHorizon_x_ADDR);
- writeEEPROM(0,  panHorizon_y_ADDR);//calculated in runtime (autodetects y center)
+ writeEEPROM(6,  panHorizon_y_ADDR);
 }
 
 void readSettings() {
@@ -138,7 +138,7 @@ void readSettings() {
   
   setBit(panA_REG, Cen_BIT, readEEPROM(panCenter_en_ADDR));
   panCenter_XY[0] = readEEPROM(panCenter_x_ADDR);
-  panCenter_XY[1] = readEEPROM(panCenter_y_ADDR);
+  panCenter_XY[1] = checkPAL(readEEPROM(panCenter_y_ADDR));
   
   setBit(panA_REG, Pit_BIT, readEEPROM(panPitch_en_ADDR));
   panPitch_XY[0] = readEEPROM(panPitch_x_ADDR);
