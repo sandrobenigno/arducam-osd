@@ -18,7 +18,7 @@ namespace OSD
         //max 7456 datasheet pg 10
         //pal  = 16r 30 char
         //ntsc = 13r 30 char
-        Size basesize = new Size(30 * 12, 16 * 18);
+        Size basesize = new Size(30, 16);
         /// <summary>
         /// the un-scaled font render image
         /// </summary>
@@ -94,19 +94,26 @@ namespace OSD
         {
             if (pal)
             {
-                basesize = new Size(30 * 12, 16 * 18);
+                basesize = new Size(30, 16);
 
                 screen = new Bitmap(30 * 12, 16 * 18);
                 image = new Bitmap(30 * 12, 16 * 18);
+
+                numericUpDown1.Maximum = 29;
+                numericUpDown2.Maximum = 15;
             }
             else
             {
-                basesize = new Size(30 * 12, 13 * 18);
+                basesize = new Size(30, 13);
 
                 screen = new Bitmap(30 * 12, 13 * 18);
                 image = new Bitmap(30 * 12, 13 * 18);
+
+                numericUpDown1.Maximum = 29;
+                numericUpDown2.Maximum = 12;
             }
 
+            
         }
 
         void setupFunctions()
@@ -247,20 +254,25 @@ namespace OSD
                         gr.DrawRectangle(Pens.Red, (this.x + r * 12), (this.y + d * 18), 12, 18);
                     }
 
-                    // check if this box has bene used
-                    if (used[this.x / 12 + r * 12 / 12][this.y / 18 + d * 18 / 18] != null)
-                    {
-                        //System.Diagnostics.Debug.WriteLine("'" + used[this.x / 12 + r * 12 / 12][this.y / 18 + d * 18 / 18] + "'");
-                    }
-                    else
-                    {
-                        gr.DrawImage(chars[ch], (this.x + r * 12), (this.y + d * 18), 12, 18);
-                    }
+                    int w1 = this.x / 12 + r;
+                    int h1 = this.y / 18 + d;
 
-                    used[this.x / 12 + r * 12 / 12][this.y / 18 + d * 18 / 18] = processingpanel;
+                    if (w1 < basesize.Width && h1 < basesize.Height)
+                    {
+                        // check if this box has bene used
+                        if (used[w1][h1] != null)
+                        {
+                            //System.Diagnostics.Debug.WriteLine("'" + used[this.x / 12 + r * 12 / 12][this.y / 18 + d * 18 / 18] + "'");
+                        }
+                        else
+                        {
+                            gr.DrawImage(chars[ch], (this.x + r * 12), (this.y + d * 18), 12, 18);
+                        }
 
+                        used[w1][h1] = processingpanel;
+                    }
                 }
-                catch { return; }
+                catch { System.Diagnostics.Debug.WriteLine("printf exception"); }
                 r++;
             }
         }
@@ -283,8 +295,8 @@ namespace OSD
         void getCharLoc(int x, int y,out int xpos, out int ypos)
         {
 
-            float scaleW = pictureBox1.Width / (float)basesize.Width;
-            float scaleH = pictureBox1.Height / (float)basesize.Height;
+            float scaleW = pictureBox1.Width / (float)screen.Width;
+            float scaleH = pictureBox1.Height / (float)screen.Height;
 
             int ansW = (int)((x / scaleW / 12) % 30);
             int ansH = 0;
@@ -297,8 +309,8 @@ namespace OSD
                 ansH = (int)((y / scaleH / 18) % 13);
             }
 
-            xpos = ansW;
-            ypos = ansH;
+            xpos = Constrain(ansW,0,basesize.Width -1);
+            ypos = Constrain(ansH,0,basesize.Height - 1);
         }
 
         public void printf_P(string format, params object[] args)
@@ -324,8 +336,8 @@ namespace OSD
 
             image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
-            float scaleW = pictureBox1.Width / (float)basesize.Width;
-            float scaleH = pictureBox1.Height / (float)basesize.Height;
+            float scaleW = pictureBox1.Width / (float)screen.Width;
+            float scaleH = pictureBox1.Height / (float)screen.Height;
 
             screen = new Bitmap(screen.Width, screen.Height);
 
@@ -401,12 +413,28 @@ namespace OSD
             pictureBox1.Image = image;
         }
 
+        int Constrain(double value, double min, double max)
+        {
+            if (value < min)
+                return (int)min;
+            if (value > max)
+                return (int)max;
+
+            return (int)value;
+        }
+
         private void OSD_Load(object sender, EventArgs e)
         {
 
             string strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             this.Text = this.Text + " " + strVersion;
 
+            comboBox1.Items.AddRange(GetPortNames());
+
+            int todo;
+            // add saving to application config.
+            if (comboBox1.Items.Count > 0)
+                comboBox1.SelectedIndex = 0;
 
             osdDraw();
         }
@@ -423,12 +451,8 @@ namespace OSD
             {
                 if (thing != null && thing.Item1 == item)
                 {
-                    try
-                    {
-                        numericUpDown1.Value = thing.Item3;
-                        numericUpDown2.Value = thing.Item4;
-                    }
-                    catch { }
+                        numericUpDown1.Value = Constrain(thing.Item3,0,basesize.Width -1);
+                        numericUpDown2.Value = Constrain(thing.Item4,0,basesize.Height -1);
                 }
             }
         }
@@ -895,8 +919,9 @@ namespace OSD
                 {
                     ansH += 3;
                 }
-                numericUpDown1.Value = ansW;
-                numericUpDown2.Value = ansH;
+
+                numericUpDown1.Value = Constrain(ansW, 0, basesize.Width -1);
+                numericUpDown2.Value = Constrain(ansH, 0, basesize.Height -1);
 
                 pictureBox1.Focus();
             }
