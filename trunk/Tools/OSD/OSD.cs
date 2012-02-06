@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.IO.Ports;
 using System.IO;
 using ArdupilotMega;
+using System.Xml;
 
 namespace OSD
 {
@@ -59,6 +60,8 @@ namespace OSD
         /// background image
         /// </summary>
         Image bgpicture;
+
+        SerialPort comPort = new SerialPort();
 
         Panels pan;
 
@@ -110,7 +113,7 @@ namespace OSD
                 image = new Bitmap(30 * 12, 13 * 18);
 
                 numericUpDown1.Maximum = 29;
-                numericUpDown2.Maximum = 12;
+                numericUpDown2.Maximum = 15;
             }
 
             
@@ -295,6 +298,9 @@ namespace OSD
         void getCharLoc(int x, int y,out int xpos, out int ypos)
         {
 
+            x = Constrain(x, 0, pictureBox1.Width - 1);
+            y = Constrain(y, 0, pictureBox1.Height - 1);
+
             float scaleW = pictureBox1.Width / (float)screen.Width;
             float scaleH = pictureBox1.Height / (float)screen.Height;
 
@@ -309,8 +315,8 @@ namespace OSD
                 ansH = (int)((y / scaleH / 18) % 13);
             }
 
-            xpos = Constrain(ansW,0,basesize.Width -1);
-            ypos = Constrain(ansH,0,basesize.Height - 1);
+            xpos = Constrain(ansW,0,30 -1);
+            ypos = Constrain(ansH,0,16 - 1);
         }
 
         public void printf_P(string format, params object[] args)
@@ -431,10 +437,10 @@ namespace OSD
 
             comboBox1.Items.AddRange(GetPortNames());
 
-            int todo;
-            // add saving to application config.
             if (comboBox1.Items.Count > 0)
                 comboBox1.SelectedIndex = 0;
+
+            xmlconfig(false);
 
             osdDraw();
         }
@@ -452,7 +458,7 @@ namespace OSD
                 if (thing != null && thing.Item1 == item)
                 {
                         numericUpDown1.Value = Constrain(thing.Item3,0,basesize.Width -1);
-                        numericUpDown2.Value = Constrain(thing.Item4,0,basesize.Height -1);
+                        numericUpDown2.Value = Constrain(thing.Item4,0,16 -1);
                 }
             }
         }
@@ -554,6 +560,9 @@ namespace OSD
 
             try
             {
+                if (comPort.IsOpen)
+                    comPort.Close();
+
                 sp = new ArduinoSTK();
                 sp.PortName = comboBox1.Text;
                 sp.BaudRate = 57600;
@@ -698,6 +707,9 @@ namespace OSD
 
             try
             {
+                if (comPort.IsOpen)
+                    comPort.Close();
+
                 sp = new ArduinoSTK();
                 sp.PortName = comboBox1.Text;
                 sp.BaudRate = 57600;
@@ -921,7 +933,7 @@ namespace OSD
                 }
 
                 numericUpDown1.Value = Constrain(ansW, 0, basesize.Width -1);
-                numericUpDown2.Value = Constrain(ansH, 0, basesize.Height -1);
+                numericUpDown2.Value = Constrain(ansH, 0, 16 -1);
 
                 pictureBox1.Focus();
             }
@@ -952,6 +964,9 @@ namespace OSD
 
                 try
                 {
+                    if (comPort.IsOpen)
+                        comPort.Close();
+
                     sp = new ArduinoSTK();
                     sp.PortName = comboBox1.Text;
                     sp.BaudRate = 57600;
@@ -1002,5 +1017,115 @@ namespace OSD
                 osdDraw();
             }
         }
+
+        private void sendTLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Tlog|*.tlog";
+
+            ofd.ShowDialog();
+
+            if (ofd.FileName != "")
+            {
+                if (comPort.IsOpen)
+                    comPort.Close();
+
+                try
+                {
+
+                    comPort.PortName = comboBox1.Text;
+                    comPort.BaudRate = 57600;
+
+                    comPort.Open();
+
+                }
+                catch { MessageBox.Show("Error opening com port"); return; }
+
+                BinaryReader br = new BinaryReader(ofd.OpenFile());
+
+                while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
+                {
+                    try
+                    {
+                        byte[] bytes = br.ReadBytes(20);
+
+                        comPort.Write(bytes, 0, bytes.Length);
+
+                        System.Threading.Thread.Sleep(5);
+
+                    }
+                    catch { break; }
+
+                    Application.DoEvents();
+                }
+            }
+        }
+
+        private void OSD_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            xmlconfig(true);
+
+        }
+
+        private void xmlconfig(bool write)
+        {
+            if (write || !File.Exists(Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + @"config.xml"))
+            {
+                try
+                {
+                    XmlTextWriter xmlwriter = new XmlTextWriter(Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + @"config.xml", Encoding.ASCII);
+                    xmlwriter.Formatting = Formatting.Indented;
+
+                    xmlwriter.WriteStartDocument();
+
+                    xmlwriter.WriteStartElement("Config");
+
+                    xmlwriter.WriteElementString("comport", comboBox1.Text);
+
+
+                    xmlwriter.WriteEndElement();
+
+                    xmlwriter.WriteEndDocument();
+                    xmlwriter.Close();
+
+                    //appconfig.Save();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            }
+            else
+            {
+                try
+                {
+                    using (XmlTextReader xmlreader = new XmlTextReader(Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + @"config.xml"))
+                    {
+                        while (xmlreader.Read())
+                        {
+                            xmlreader.MoveToElement();
+                            try
+                            {
+                                switch (xmlreader.Name)
+                                {
+                                    case "comport":
+                                        string temp = xmlreader.ReadString();
+                                        comboBox1.Text = temp;
+                                        break;
+                                    case "Config":
+                                        break;
+                                    case "xml":
+                                        break;
+                                    default:
+                                        if (xmlreader.Name == "") // line feeds
+                                            break;
+                                        break;
+                                }
+                            }
+                            catch (Exception ee) { Console.WriteLine(ee.Message); } // silent fail on bad entry
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine("Bad Config File: " + ex.ToString()); } // bad config file
+            }
+        } 
     }
 }
