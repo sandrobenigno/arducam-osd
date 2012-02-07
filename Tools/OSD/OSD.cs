@@ -61,6 +61,8 @@ namespace OSD
         /// </summary>
         Image bgpicture;
 
+        bool mousedown = false;
+
         SerialPort comPort = new SerialPort();
 
         Panels pan;
@@ -254,11 +256,11 @@ namespace OSD
                     // draw red boxs
                     if (selectedrectangle)
                     {
-                        gr.DrawRectangle(Pens.Red, (this.x + r * 12), (this.y + d * 18), 12, 18);
+                        gr.DrawRectangle(Pens.Red, (this.x + r * 12) % screen.Width, (this.y + d * 18), 12, 18);
                     }
 
-                    int w1 = this.x / 12 + r;
-                    int h1 = this.y / 18 + d;
+                    int w1 = (this.x / 12 + r) % basesize.Width;
+                    int h1 = (this.y / 18 + d);
 
                     if (w1 < basesize.Width && h1 < basesize.Height)
                     {
@@ -269,7 +271,7 @@ namespace OSD
                         }
                         else
                         {
-                            gr.DrawImage(chars[ch], (this.x + r * 12), (this.y + d * 18), 12, 18);
+                            gr.DrawImage(chars[ch], (this.x + r * 12) % screen.Width, (this.y + d * 18), 12, 18);
                         }
 
                         used[w1][h1] = processingpanel;
@@ -566,7 +568,6 @@ namespace OSD
                 sp = new ArduinoSTK();
                 sp.PortName = comboBox1.Text;
                 sp.BaudRate = 57600;
-                sp.DtrEnable = true;
 
                 sp.Open();
             }
@@ -702,7 +703,7 @@ namespace OSD
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            bool fail = false;
             ArduinoSTK sp;
 
             try
@@ -713,7 +714,6 @@ namespace OSD
                 sp = new ArduinoSTK();
                 sp.PortName = comboBox1.Text;
                 sp.BaudRate = 57600;
-                sp.DtrEnable = true;
 
                 sp.Open();
             }
@@ -726,21 +726,28 @@ namespace OSD
             else
             {
                 MessageBox.Show("Failed to talk to bootloader");
+                fail = true;
             }
 
             sp.Close();
 
-            for (int a = 0; a < items.Length; a++)
+            if (!fail)
             {
-                if (items[a] != null)
-                {
-                    if (items[a].Item5 >= 0)
-                        LIST_items.SetItemCheckState(a, eeprom[items[a].Item5] == 0 ? CheckState.Unchecked : CheckState.Checked);
 
-                    if (items[a].Item7 >= 0 || items[a].Item6 >= 0)
-                        items[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(items[a].Item1, items[a].Item2, eeprom[items[a].Item6], eeprom[items[a].Item7], items[a].Item5, items[a].Item6, items[a].Item7);
+                for (int a = 0; a < items.Length; a++)
+                {
+                    if (items[a] != null)
+                    {
+                        if (items[a].Item5 >= 0)
+                            LIST_items.SetItemCheckState(a, eeprom[items[a].Item5] == 0 ? CheckState.Unchecked : CheckState.Checked);
+
+                        if (items[a].Item7 >= 0 || items[a].Item6 >= 0)
+                            items[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(items[a].Item1, items[a].Item2, eeprom[items[a].Item6], eeprom[items[a].Item7], items[a].Item5, items[a].Item6, items[a].Item7);
+                    }
                 }
             }
+
+            osdDraw();
 
             MessageBox.Show("Done!");
         }
@@ -818,7 +825,10 @@ namespace OSD
 
         void sp_Progress(int progress)
         {
+            toolStripStatusLabel1.Text = "Uploading " + progress + " %";
             toolStripProgressBar1.Value = progress;
+
+            statusStrip1.Refresh();
         }
 
         private void CHK_pal_CheckedChanged(object sender, EventArgs e)
@@ -919,29 +929,37 @@ namespace OSD
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             getMouseOverItem(e.X, e.Y);
+
+            mousedown = false;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && mousedown == true)
             {
-                int ansW,ansH;
+                int ansW, ansH;
                 getCharLoc(e.X, e.Y, out ansW, out ansH);
                 if (ansH >= getCenter() && !CHK_pal.Checked)
                 {
                     ansH += 3;
                 }
 
-                numericUpDown1.Value = Constrain(ansW, 0, basesize.Width -1);
-                numericUpDown2.Value = Constrain(ansH, 0, 16 -1);
+                numericUpDown1.Value = Constrain(ansW, 0, basesize.Width - 1);
+                numericUpDown2.Value = Constrain(ansH, 0, 16 - 1);
 
                 pictureBox1.Focus();
+            }
+            else
+            {
+                mousedown = false;
             }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             currentlyselected = getMouseOverItem(e.X, e.Y);
+            
+            mousedown = true;
         }
 
         private void updateFirmwareToolStripMenuItem_Click(object sender, EventArgs e)
@@ -956,6 +974,10 @@ namespace OSD
                 byte[] FLASH;
                 try
                 {
+                    toolStripStatusLabel1.Text = "Reading Hex File";
+
+                    statusStrip1.Refresh();
+
                     FLASH = readIntelHEXv2(new StreamReader(ofd.FileName));
                 }
                 catch { MessageBox.Show("Bad Hex File"); return; }
@@ -970,11 +992,12 @@ namespace OSD
                     sp = new ArduinoSTK();
                     sp.PortName = comboBox1.Text;
                     sp.BaudRate = 57600;
-                    sp.DtrEnable = true;
 
                     sp.Open();
                 }
                 catch { MessageBox.Show("Error opening com port"); return; }
+
+                toolStripStatusLabel1.Text = "Connecting to Board";
 
                 if (sp.connectAP())
                 {
@@ -993,6 +1016,8 @@ namespace OSD
                 }
 
                 sp.Close();
+
+                toolStripStatusLabel1.Text = "Done";
 
                 MessageBox.Show("Done!");
             }
@@ -1036,7 +1061,6 @@ namespace OSD
 
                     comPort.PortName = comboBox1.Text;
                     comPort.BaudRate = 57600;
-
                     comPort.Open();
 
                 }
@@ -1083,6 +1107,7 @@ namespace OSD
 
                     xmlwriter.WriteElementString("comport", comboBox1.Text);
 
+                    xmlwriter.WriteElementString("Pal", CHK_pal.Checked.ToString());
 
                     xmlwriter.WriteEndElement();
 
@@ -1109,6 +1134,10 @@ namespace OSD
                                     case "comport":
                                         string temp = xmlreader.ReadString();
                                         comboBox1.Text = temp;
+                                        break;
+                                    case "Pal":
+                                        string temp2 = xmlreader.ReadString();
+                                        CHK_pal.Checked = (temp2 == "True");
                                         break;
                                     case "Config":
                                         break;
