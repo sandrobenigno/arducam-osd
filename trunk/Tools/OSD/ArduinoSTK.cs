@@ -22,14 +22,20 @@ namespace ArdupilotMega
 
             base.Open();
 
-            // let it settle
-            System.Threading.Thread.Sleep(50);
+            base.Close();
 
             base.DtrEnable = false;
             base.RtsEnable = false;
 
+            base.Open();
+
             // let it settle
-            System.Threading.Thread.Sleep(50);
+            //System.Threading.Thread.Sleep(50);
+
+ 
+
+            // let it settle
+            //System.Threading.Thread.Sleep(50);
         }
 
         /// <summary>
@@ -61,6 +67,7 @@ namespace ArdupilotMega
                     }
                 }
             }
+
             return false;
         }
 
@@ -325,8 +332,8 @@ namespace ArdupilotMega
             if (base.IsOpen)
                 base.Close();
 
-            //this.DtrEnable = false;
-            //this.RtsEnable = false;
+            this.DtrEnable = false;
+            this.RtsEnable = false;
             return true;
         }
     }

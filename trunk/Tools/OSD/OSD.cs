@@ -567,6 +567,7 @@ namespace OSD
                 sp = new ArduinoSTK();
                 sp.PortName = CMB_ComPort.Text;
                 sp.BaudRate = 57600;
+                sp.DtrEnable = true;
 
                 sp.Open();
             }
@@ -719,6 +720,7 @@ namespace OSD
                 sp = new ArduinoSTK();
                 sp.PortName = CMB_ComPort.Text;
                 sp.BaudRate = 57600;
+                sp.DtrEnable = true;
 
                 sp.Open();
             }
@@ -1006,6 +1008,7 @@ namespace OSD
                     sp = new ArduinoSTK();
                     sp.PortName = CMB_ComPort.Text;
                     sp.BaudRate = 57600;
+                    sp.DtrEnable = true;
 
                     sp.Open();
                 }
@@ -1185,6 +1188,12 @@ namespace OSD
                 }
                 catch (Exception ex) { Console.WriteLine("Bad Config File: " + ex.ToString()); } // bad config file
             }
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DTR d = new DTR();
+            d.Show();
         } 
     }
 }
