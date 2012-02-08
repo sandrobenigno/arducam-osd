@@ -33,13 +33,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.NUM_Y = new System.Windows.Forms.NumericUpDown();
+            this.NUM_X = new System.Windows.Forms.NumericUpDown();
+            this.BUT_WriteOSD = new System.Windows.Forms.Button();
+            this.CMB_ComPort = new System.Windows.Forms.ComboBox();
+            this.BUT_ReadOSD = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,11 +57,10 @@
             this.updateFirmwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customBGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendTLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_Y)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_X)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -94,8 +94,8 @@
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.NUM_Y);
+            this.groupBox1.Controls.Add(this.NUM_X);
             this.groupBox1.Location = new System.Drawing.Point(13, 315);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(138, 82);
@@ -120,64 +120,64 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "X";
             // 
-            // numericUpDown2
+            // NUM_Y
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(30, 46);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.NUM_Y.Location = new System.Drawing.Point(30, 46);
+            this.NUM_Y.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown2.TabIndex = 1;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.NUM_Y.Name = "NUM_Y";
+            this.NUM_Y.Size = new System.Drawing.Size(91, 20);
+            this.NUM_Y.TabIndex = 1;
+            this.NUM_Y.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
-            // numericUpDown1
+            // NUM_X
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(30, 20);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.NUM_X.Location = new System.Drawing.Point(30, 20);
+            this.NUM_X.Maximum = new decimal(new int[] {
             29,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(91, 20);
-            this.numericUpDown1.TabIndex = 0;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.NUM_X.Name = "NUM_X";
+            this.NUM_X.Size = new System.Drawing.Size(91, 20);
+            this.NUM_X.TabIndex = 0;
+            this.NUM_X.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // button1
+            // BUT_WriteOSD
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(555, 376);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Save to OSD";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BUT_WriteOSD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BUT_WriteOSD.Location = new System.Drawing.Point(555, 376);
+            this.BUT_WriteOSD.Name = "BUT_WriteOSD";
+            this.BUT_WriteOSD.Size = new System.Drawing.Size(100, 23);
+            this.BUT_WriteOSD.TabIndex = 2;
+            this.BUT_WriteOSD.Text = "Save to OSD";
+            this.BUT_WriteOSD.UseVisualStyleBackColor = true;
+            this.BUT_WriteOSD.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // CMB_ComPort
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(346, 376);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(98, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
+            this.CMB_ComPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CMB_ComPort.FormattingEnabled = true;
+            this.CMB_ComPort.Location = new System.Drawing.Point(346, 376);
+            this.CMB_ComPort.Name = "CMB_ComPort";
+            this.CMB_ComPort.Size = new System.Drawing.Size(98, 21);
+            this.CMB_ComPort.TabIndex = 4;
+            this.CMB_ComPort.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.CMB_ComPort.Click += new System.EventHandler(this.comboBox1_Click);
             // 
-            // button2
+            // BUT_ReadOSD
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(449, 376);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Read From OSD";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.BUT_ReadOSD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BUT_ReadOSD.Location = new System.Drawing.Point(449, 376);
+            this.BUT_ReadOSD.Name = "BUT_ReadOSD";
+            this.BUT_ReadOSD.Size = new System.Drawing.Size(100, 23);
+            this.BUT_ReadOSD.TabIndex = 6;
+            this.BUT_ReadOSD.Text = "Read From OSD";
+            this.BUT_ReadOSD.UseVisualStyleBackColor = true;
+            this.BUT_ReadOSD.Click += new System.EventHandler(this.button2_Click);
             // 
             // statusStrip1
             // 
@@ -194,6 +194,11 @@
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(500, 16);
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // menuStrip1
             // 
@@ -328,11 +333,6 @@
             this.sendTLogToolStripMenuItem.Text = "Send TLog";
             this.sendTLogToolStripMenuItem.Click += new System.EventHandler(this.sendTLogToolStripMenuItem_Click);
             // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
             // OSD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,9 +340,9 @@
             this.ClientSize = new System.Drawing.Size(667, 425);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BUT_ReadOSD);
+            this.Controls.Add(this.CMB_ComPort);
+            this.Controls.Add(this.BUT_WriteOSD);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LIST_items);
             this.Controls.Add(this.pictureBox1);
@@ -355,8 +355,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_Y)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_X)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -371,13 +371,13 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckedListBox LIST_items;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown NUM_Y;
+        private System.Windows.Forms.NumericUpDown NUM_X;
+        private System.Windows.Forms.Button BUT_WriteOSD;
+        private System.Windows.Forms.ComboBox CMB_ComPort;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BUT_ReadOSD;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.MenuStrip menuStrip1;
