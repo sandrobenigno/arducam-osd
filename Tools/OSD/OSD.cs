@@ -35,7 +35,7 @@ namespace OSD
         /// <summary>
         /// record of what panel is using what squares
         /// </summary>
-        string[][] used = new string[30][];
+        string[][] usedPostion = new string[30][];
         /// <summary>
         /// used to track currently selected panel across calls
         /// </summary>
@@ -67,7 +67,7 @@ namespace OSD
 
         Panels pan;
 
-        Tuple<string, Func<int, int, int>, int, int, int, int, int>[] items = new Tuple<string, Func<int, int, int>, int, int, int, int, int>[30];
+        Tuple<string, Func<int, int, int>, int, int, int, int, int>[] panelItems = new Tuple<string, Func<int, int, int>, int, int, int, int, int>[30];
 
         Graphics gr;
 
@@ -104,8 +104,8 @@ namespace OSD
                 screen = new Bitmap(30 * 12, 16 * 18);
                 image = new Bitmap(30 * 12, 16 * 18);
 
-                numericUpDown1.Maximum = 29;
-                numericUpDown2.Maximum = 15;
+                NUM_X.Maximum = 29;
+                NUM_Y.Maximum = 15;
             }
             else
             {
@@ -114,8 +114,8 @@ namespace OSD
                 screen = new Bitmap(30 * 12, 13 * 18);
                 image = new Bitmap(30 * 12, 13 * 18);
 
-                numericUpDown1.Maximum = 29;
-                numericUpDown2.Maximum = 15;
+                NUM_X.Maximum = 29;
+                NUM_Y.Maximum = 15;
             }
 
             
@@ -128,46 +128,46 @@ namespace OSD
 
             int a = 0;
 
-            for (a = 0; a < used.Length; a++)
+            for (a = 0; a < usedPostion.Length; a++)
             {
-                used[a] = new string[16];
+                usedPostion[a] = new string[16];
             }
 
             a = 0;
 
             // first 8
             // Display name,printfunction,X,Y,ENaddress,Xaddress,Yaddress
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Center", pan.panCenter, 13, 8, panCenter_en_ADDR, panCenter_x_ADDR, panCenter_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Pitch", pan.panPitch, 22, 9, panPitch_en_ADDR, panPitch_x_ADDR, panPitch_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Roll", pan.panRoll, 11, 1, panRoll_en_ADDR, panRoll_x_ADDR, panRoll_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery A", pan.panBatt_A, 22, 1, panBatt_A_en_ADDR, panBatt_A_x_ADDR, panBatt_A_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Center", pan.panCenter, 13, 8, panCenter_en_ADDR, panCenter_x_ADDR, panCenter_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Pitch", pan.panPitch, 22, 9, panPitch_en_ADDR, panPitch_x_ADDR, panPitch_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Roll", pan.panRoll, 11, 1, panRoll_en_ADDR, panRoll_x_ADDR, panRoll_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery A", pan.panBatt_A, 22, 1, panBatt_A_en_ADDR, panBatt_A_x_ADDR, panBatt_A_y_ADDR);
             //items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery B", pan.panBatt_B, 22, 1, panBatt_B_en_ADDR, panBatt_B_x_ADDR, panBatt_B_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Visible Sats", pan.panGPSats, 2, 13, panGPSats_en_ADDR, panGPSats_x_ADDR, panGPSats_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("GPS Lock", pan.panGPL, 7, 13, panGPL_en_ADDR, panGPL_x_ADDR, panGPL_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("GPS Coord", pan.panGPS, 2, 14, panGPS_en_ADDR, panGPS_x_ADDR, panGPS_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Visible Sats", pan.panGPSats, 2, 13, panGPSats_en_ADDR, panGPSats_x_ADDR, panGPSats_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("GPS Lock", pan.panGPL, 7, 13, panGPL_en_ADDR, panGPL_x_ADDR, panGPL_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("GPS Coord", pan.panGPS, 2, 14, panGPS_en_ADDR, panGPS_x_ADDR, panGPS_y_ADDR);
 
             //second 8
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Heading Rose", pan.panRose, 16, 14, panRose_en_ADDR, panRose_x_ADDR, panRose_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Heading", pan.panHeading, 24, 13, panHeading_en_ADDR, panHeading_x_ADDR, panHeading_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Heart Beat", pan.panMavBeat, 2, 9, panMavBeat_en_ADDR, panMavBeat_x_ADDR, panMavBeat_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Home Direction", pan.panHomeDir, 14, 3, panHomeDir_en_ADDR, panHomeDir_x_ADDR, panHomeDir_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Home Distance", pan.panHomeDis, 2, 1, panHomeDis_en_ADDR, panHomeDis_x_ADDR, panHomeDis_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Heading Rose", pan.panRose, 16, 14, panRose_en_ADDR, panRose_x_ADDR, panRose_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Heading", pan.panHeading, 24, 13, panHeading_en_ADDR, panHeading_x_ADDR, panHeading_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Heart Beat", pan.panMavBeat, 2, 9, panMavBeat_en_ADDR, panMavBeat_x_ADDR, panMavBeat_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Home Direction", pan.panHomeDir, 14, 3, panHomeDir_en_ADDR, panHomeDir_x_ADDR, panHomeDir_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Home Distance", pan.panHomeDis, 2, 1, panHomeDis_en_ADDR, panHomeDis_x_ADDR, panHomeDis_y_ADDR);
             //items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("WP Dir", pan.panWPDir, 14, 4, panWPDir_en_ADDR, panWPDir_x_ADDR, panWPDir_y_ADDR);
             //items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("WP Dir", pan.panWPDis, 14, 4, panWPDis_en_ADDR, panWPDis_x_ADDR, panWPDis_y_ADDR);
             // rssi
 
             // third 8
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Altitude", pan.panAlt, 2, 2, panAlt_en_ADDR, panAlt_x_ADDR, panAlt_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Velocity", pan.panVel, 2, 3, panVel_en_ADDR, panVel_x_ADDR, panVel_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Throttle", pan.panThr, 2, 4, panThr_en_ADDR, panThr_x_ADDR, panThr_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Flight Mode", pan.panFlightMode, 17, 13, panFMod_en_ADDR, panFMod_x_ADDR, panFMod_y_ADDR);
-            items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Horizon", pan.panHorizon, 8, 7, panHorizon_en_ADDR, panHorizon_x_ADDR, panHorizon_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Altitude", pan.panAlt, 2, 2, panAlt_en_ADDR, panAlt_x_ADDR, panAlt_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Velocity", pan.panVel, 2, 3, panVel_en_ADDR, panVel_x_ADDR, panVel_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Throttle", pan.panThr, 2, 4, panThr_en_ADDR, panThr_x_ADDR, panThr_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Flight Mode", pan.panFlightMode, 17, 13, panFMod_en_ADDR, panFMod_x_ADDR, panFMod_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Horizon", pan.panHorizon, 8, 7, panHorizon_en_ADDR, panHorizon_x_ADDR, panHorizon_y_ADDR);
 
             LIST_items.Items.Clear();
 
             startup = true;
 
-            foreach (var thing in items)
+            foreach (var thing in panelItems)
             {
                 if (thing != null)
                 {
@@ -265,7 +265,7 @@ namespace OSD
                     if (w1 < basesize.Width && h1 < basesize.Height)
                     {
                         // check if this box has bene used
-                        if (used[w1][h1] != null)
+                        if (usedPostion[w1][h1] != null)
                         {
                             //System.Diagnostics.Debug.WriteLine("'" + used[this.x / 12 + r * 12 / 12][this.y / 18 + d * 18 / 18] + "'");
                         }
@@ -274,7 +274,7 @@ namespace OSD
                             gr.DrawImage(chars[ch], (this.x + r * 12) % screen.Width, (this.y + d * 18), 12, 18);
                         }
 
-                        used[w1][h1] = processingpanel;
+                        usedPostion[w1][h1] = processingpanel;
                     }
                 }
                 catch { System.Diagnostics.Debug.WriteLine("printf exception"); }
@@ -288,10 +288,10 @@ namespace OSD
 
             getCharLoc(x, y, out ansW, out ansH);
 
-            if (used[ansW][ansH] != null && used[ansW][ansH] != "")
+            if (usedPostion[ansW][ansH] != null && usedPostion[ansW][ansH] != "")
             {
-                LIST_items.SelectedIndex = LIST_items.Items.IndexOf(used[ansW][ansH]);
-                return used[ansW][ansH];
+                LIST_items.SelectedIndex = LIST_items.Items.IndexOf(usedPostion[ansW][ansH]);
+                return usedPostion[ansW][ansH];
             }
 
             return "";
@@ -337,9 +337,9 @@ namespace OSD
             if (startup)
                 return;
 
-            for (int b = 0; b < used.Length; b++)
+            for (int b = 0; b < usedPostion.Length; b++)
             {
-                used[b] = new string[16];
+                usedPostion[b] = new string[16];
             }
 
             image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -387,7 +387,7 @@ namespace OSD
 
             foreach (string it in list)
             {
-                foreach (var thing in items)
+                foreach (var thing in panelItems)
                 {
                     selectedrectangle = false;
                     if (thing != null)
@@ -437,10 +437,10 @@ namespace OSD
             string strVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             this.Text = this.Text + " " + strVersion;
 
-            comboBox1.Items.AddRange(GetPortNames());
+            CMB_ComPort.Items.AddRange(GetPortNames());
 
-            if (comboBox1.Items.Count > 0)
-                comboBox1.SelectedIndex = 0;
+            if (CMB_ComPort.Items.Count > 0)
+                CMB_ComPort.SelectedIndex = 0;
 
             xmlconfig(false);
 
@@ -455,12 +455,12 @@ namespace OSD
 
             osdDraw();
 
-            foreach (var thing in items)
+            foreach (var thing in panelItems)
             {
                 if (thing != null && thing.Item1 == item)
                 {
-                        numericUpDown1.Value = Constrain(thing.Item3,0,basesize.Width -1);
-                        numericUpDown2.Value = Constrain(thing.Item4,0,16 -1);
+                        NUM_X.Value = Constrain(thing.Item3,0,basesize.Width -1);
+                        NUM_Y.Value = Constrain(thing.Item4,0,16 -1);
                 }
             }
         }
@@ -508,11 +508,11 @@ namespace OSD
             }
             catch { return; }
 
-            for (int a = 0; a < items.Length; a++)
+            for (int a = 0; a < panelItems.Length; a++)
             {
-                if (items[a] != null && items[a].Item1 == item)
+                if (panelItems[a] != null && panelItems[a].Item1 == item)
                 {
-                    items[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(items[a].Item1, items[a].Item2, (int)numericUpDown1.Value, items[a].Item4, items[a].Item5, items[a].Item6, items[a].Item7);
+                    panelItems[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(panelItems[a].Item1, panelItems[a].Item2, (int)NUM_X.Value, panelItems[a].Item4, panelItems[a].Item5, panelItems[a].Item6, panelItems[a].Item7);
                 }
             }
 
@@ -528,11 +528,11 @@ namespace OSD
             }
             catch { return; }
 
-            for (int a = 0; a < items.Length; a++)
+            for (int a = 0; a < panelItems.Length; a++)
             {
-                if (items[a] != null && items[a].Item1 == item)
+                if (panelItems[a] != null && panelItems[a].Item1 == item)
                 {
-                    items[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(items[a].Item1, items[a].Item2, items[a].Item3, (int)numericUpDown2.Value, items[a].Item5, items[a].Item6, items[a].Item7);
+                    panelItems[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(panelItems[a].Item1, panelItems[a].Item2, panelItems[a].Item3, (int)NUM_Y.Value, panelItems[a].Item5, panelItems[a].Item6, panelItems[a].Item7);
 
                 }
             }
@@ -544,7 +544,7 @@ namespace OSD
         {
             foreach (string str in this.LIST_items.Items)
             {
-                foreach (var tuple in this.items)
+                foreach (var tuple in this.panelItems)
                 {
                     if ((tuple != null) && ((tuple.Item1 == str)) && tuple.Item5 != -1)
                     {
@@ -557,7 +557,6 @@ namespace OSD
                 }
             }
 
-
             ArduinoSTK sp;
 
             try
@@ -566,7 +565,7 @@ namespace OSD
                     comPort.Close();
 
                 sp = new ArduinoSTK();
-                sp.PortName = comboBox1.Text;
+                sp.PortName = CMB_ComPort.Text;
                 sp.BaudRate = 57600;
 
                 sp.Open();
@@ -575,13 +574,19 @@ namespace OSD
 
             if (sp.connectAP())
             {
-                if (sp.upload(eeprom, 0, 200, 0))
+                try
                 {
-                    MessageBox.Show("Done!");
-                }
-                else
-                {
-                    MessageBox.Show("Failed to upload new settings");
+                    if (sp.upload(eeprom, 0, 200, 0))
+                    {
+                        MessageBox.Show("Done!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to upload new settings");
+                    }
+                }                 
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -599,8 +604,8 @@ namespace OSD
 
         private void comboBox1_Click(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(GetPortNames());
+            CMB_ComPort.Items.Clear();
+            CMB_ComPort.Items.AddRange(GetPortNames());
         }
 
 
@@ -712,7 +717,7 @@ namespace OSD
                     comPort.Close();
 
                 sp = new ArduinoSTK();
-                sp.PortName = comboBox1.Text;
+                sp.PortName = CMB_ComPort.Text;
                 sp.BaudRate = 57600;
 
                 sp.Open();
@@ -721,7 +726,14 @@ namespace OSD
 
             if (sp.connectAP())
             {
-                eeprom = sp.download(1024);
+                try
+                {
+                    eeprom = sp.download(1024);
+                }
+                catch (Exception ex) {
+                    fail = true;
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -734,22 +746,23 @@ namespace OSD
             if (!fail)
             {
 
-                for (int a = 0; a < items.Length; a++)
+                for (int a = 0; a < panelItems.Length; a++)
                 {
-                    if (items[a] != null)
+                    if (panelItems[a] != null)
                     {
-                        if (items[a].Item5 >= 0)
-                            LIST_items.SetItemCheckState(a, eeprom[items[a].Item5] == 0 ? CheckState.Unchecked : CheckState.Checked);
+                        if (panelItems[a].Item5 >= 0)
+                            LIST_items.SetItemCheckState(a, eeprom[panelItems[a].Item5] == 0 ? CheckState.Unchecked : CheckState.Checked);
 
-                        if (items[a].Item7 >= 0 || items[a].Item6 >= 0)
-                            items[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(items[a].Item1, items[a].Item2, eeprom[items[a].Item6], eeprom[items[a].Item7], items[a].Item5, items[a].Item6, items[a].Item7);
+                        if (panelItems[a].Item7 >= 0 || panelItems[a].Item6 >= 0)
+                            panelItems[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(panelItems[a].Item1, panelItems[a].Item2, eeprom[panelItems[a].Item6], eeprom[panelItems[a].Item7], panelItems[a].Item5, panelItems[a].Item6, panelItems[a].Item7);
                     }
                 }
             }
 
             osdDraw();
 
-            MessageBox.Show("Done!");
+            if (!fail)
+                MessageBox.Show("Done!");
         }
 
 
@@ -861,7 +874,7 @@ namespace OSD
                     using (StreamWriter sw = new StreamWriter(sfd.OpenFile()))
                     {
 
-                        foreach (var item in items)
+                        foreach (var item in panelItems)
                         {
                             if (item != null)
                                 sw.WriteLine("{0}\t{1}\t{2}", item.Item1, item.Item3, item.Item4);
@@ -892,14 +905,14 @@ namespace OSD
                         {
                             string[] strings = sr.ReadLine().Split(new char[] {'\t'},StringSplitOptions.RemoveEmptyEntries);
 
-                            for (int a = 0; a < items.Length; a++)
+                            for (int a = 0; a < panelItems.Length; a++)
                             {
-                                if (items[a] != null && items[a].Item1 == strings[0])
+                                if (panelItems[a] != null && panelItems[a].Item1 == strings[0])
                                 {
                                     // incase there is an invalid line number or to shore
                                     try
                                     {
-                                        items[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(items[a].Item1, items[a].Item2, int.Parse(strings[1]), int.Parse(strings[2]), items[a].Item5, items[a].Item6, items[a].Item7);
+                                        panelItems[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(panelItems[a].Item1, panelItems[a].Item2, int.Parse(strings[1]), int.Parse(strings[2]), panelItems[a].Item5, panelItems[a].Item6, panelItems[a].Item7);
                                     }
                                     catch { }
                                 }
@@ -944,8 +957,8 @@ namespace OSD
                     ansH += 3;
                 }
 
-                numericUpDown1.Value = Constrain(ansW, 0, basesize.Width - 1);
-                numericUpDown2.Value = Constrain(ansH, 0, 16 - 1);
+                NUM_X.Value = Constrain(ansW, 0, basesize.Width - 1);
+                NUM_Y.Value = Constrain(ansH, 0, 16 - 1);
 
                 pictureBox1.Focus();
             }
@@ -982,6 +995,7 @@ namespace OSD
                 }
                 catch { MessageBox.Show("Bad Hex File"); return; }
 
+                bool fail = false;
                 ArduinoSTK sp;
 
                 try
@@ -990,7 +1004,7 @@ namespace OSD
                         comPort.Close();
 
                     sp = new ArduinoSTK();
-                    sp.PortName = comboBox1.Text;
+                    sp.PortName = CMB_ComPort.Text;
                     sp.BaudRate = 57600;
 
                     sp.Open();
@@ -1001,14 +1015,22 @@ namespace OSD
 
                 if (sp.connectAP())
                 {
-                    sp.Progress += new ProgressEventHandler(sp_Progress);
-
-                    if (!sp.uploadflash(FLASH, 0, FLASH.Length, 0))
+                    sp.Progress += new ArduinoSTK.ProgressEventHandler(sp_Progress);
+                    try
                     {
-                        if (sp.IsOpen)
-                            sp.Close();
-                        MessageBox.Show("Upload failed. Lost sync. Try Arduino!!");
+                        if (!sp.uploadflash(FLASH, 0, FLASH.Length, 0))
+                        {
+                            if (sp.IsOpen)
+                                sp.Close();
+                            MessageBox.Show("Upload failed. Lost sync. Try Arduino!!");
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        fail = true;
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
                 else
                 {
@@ -1017,9 +1039,17 @@ namespace OSD
 
                 sp.Close();
 
-                toolStripStatusLabel1.Text = "Done";
+                if (!fail)
+                {
 
-                MessageBox.Show("Done!");
+                    toolStripStatusLabel1.Text = "Done";
+
+                    MessageBox.Show("Done!");
+                }
+                else
+                {
+                    toolStripStatusLabel1.Text = "Failed";
+                }
             }
         }
 
@@ -1059,7 +1089,7 @@ namespace OSD
                 try
                 {
 
-                    comPort.PortName = comboBox1.Text;
+                    comPort.PortName = CMB_ComPort.Text;
                     comPort.BaudRate = 57600;
                     comPort.Open();
 
@@ -1105,7 +1135,7 @@ namespace OSD
 
                     xmlwriter.WriteStartElement("Config");
 
-                    xmlwriter.WriteElementString("comport", comboBox1.Text);
+                    xmlwriter.WriteElementString("comport", CMB_ComPort.Text);
 
                     xmlwriter.WriteElementString("Pal", CHK_pal.Checked.ToString());
 
@@ -1133,7 +1163,7 @@ namespace OSD
                                 {
                                     case "comport":
                                         string temp = xmlreader.ReadString();
-                                        comboBox1.Text = temp;
+                                        CMB_ComPort.Text = temp;
                                         break;
                                     case "Pal":
                                         string temp2 = xmlreader.ReadString();
