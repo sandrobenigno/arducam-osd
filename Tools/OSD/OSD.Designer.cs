@@ -57,7 +57,7 @@
             this.updateFirmwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customBGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendTLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Y)).BeginInit();
@@ -299,7 +299,7 @@
             this.updateFirmwareToolStripMenuItem,
             this.customBGPictureToolStripMenuItem,
             this.sendTLogToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.updateFontToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -335,12 +335,12 @@
             this.sendTLogToolStripMenuItem.Text = "Send TLog";
             this.sendTLogToolStripMenuItem.Click += new System.EventHandler(this.sendTLogToolStripMenuItem_Click);
             // 
-            // testToolStripMenuItem
+            // updateFontToolStripMenuItem
             // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.testToolStripMenuItem.Text = "Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            this.updateFontToolStripMenuItem.Name = "updateFontToolStripMenuItem";
+            this.updateFontToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.updateFontToolStripMenuItem.Text = "Update Font";
+            this.updateFontToolStripMenuItem.Click += new System.EventHandler(this.updateFontToolStripMenuItem_Click);
             // 
             // OSD
             // 
@@ -406,7 +406,7 @@
         private System.Windows.Forms.ToolStripMenuItem customBGPictureToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendTLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateFontToolStripMenuItem;
     }
 }
 
