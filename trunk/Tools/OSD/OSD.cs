@@ -1194,6 +1194,98 @@ namespace OSD
         {
             DTR d = new DTR();
             d.Show();
+        }
+
+        private void updateFontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "mcm|*.mcm";
+
+            ofd.ShowDialog();
+
+            if (ofd.FileName != "")
+            {
+                if (comPort.IsOpen)
+                    comPort.Close();
+
+                try
+                {
+
+                    comPort.PortName = CMB_ComPort.Text;
+                    comPort.BaudRate = 57600;
+                    comPort.DtrEnable = true;
+
+                    comPort.Open();
+
+                    System.Threading.Thread.Sleep(2000);
+
+                    comPort.ReadExisting();
+
+                    comPort.WriteLine("");
+                    comPort.WriteLine("");
+                    comPort.WriteLine("");
+                    comPort.WriteLine("");
+                    comPort.WriteLine("");
+
+                    while (comPort.BytesToRead == 0)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                        Console.WriteLine("Waiting...");
+                    }
+
+                    StreamReader sr = new StreamReader(comPort.BaseStream);
+
+                    Console.Write(sr.ReadLine());
+                }
+                catch { MessageBox.Show("Error opening com port"); return; }
+
+                BinaryReader br = new BinaryReader(ofd.OpenFile());
+                StreamReader sr2 = new StreamReader(br.BaseStream);
+
+                string device = sr2.ReadLine();
+
+                if (device != "MAX7456")
+                {
+                    MessageBox.Show("Invalid MCM");
+                    comPort.Close();
+                    return;
+                }
+
+                long length = br.BaseStream.Length;
+
+                while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
+                {
+                    try
+                    {
+                        toolStripProgressBar1.Value = (int)((br.BaseStream.Position / (float)br.BaseStream.Length) * 100);
+
+                        int read = 256 * 3; // more than i need
+                        if ((br.BaseStream.Position + read) > br.BaseStream.Length)
+                        {
+                            read = (int)(br.BaseStream.Length - br.BaseStream.Position);
+                        }
+                        length -= read;
+
+                        byte[] bytes = br.ReadBytes(read);
+
+                        comPort.Write(bytes, 0, bytes.Length);
+
+
+                        System.Threading.Thread.Sleep(15);
+
+
+                    }
+                    catch { break; }
+
+                    Application.DoEvents();
+                }
+
+                comPort.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+                comPort.Close();
+
+                toolStripProgressBar1.Value = 100;
+            }
         } 
     }
 }

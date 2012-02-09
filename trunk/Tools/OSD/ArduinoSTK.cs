@@ -17,25 +17,19 @@ namespace ArdupilotMega
         public new void Open()
         {
             // default dtr status is false
-            base.DtrEnable = true;
-            base.RtsEnable = true;
 
+            //from http://svn.savannah.nongnu.org/viewvc/RELEASE_5_11_0/arduino.c?root=avrdude&view=markup
             base.Open();
-
-            base.Close();
 
             base.DtrEnable = false;
             base.RtsEnable = false;
 
-            base.Open();
+            System.Threading.Thread.Sleep(50);
 
-            // let it settle
-            //System.Threading.Thread.Sleep(50);
+            base.DtrEnable = true;
+            base.RtsEnable = true;
 
- 
-
-            // let it settle
-            //System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(50);
         }
 
         /// <summary>
