@@ -879,7 +879,7 @@ namespace OSD
                         foreach (var item in panelItems)
                         {
                             if (item != null)
-                                sw.WriteLine("{0}\t{1}\t{2}", item.Item1, item.Item3, item.Item4);
+                                sw.WriteLine("{0}\t{1}\t{2}\t{3}", item.Item1, item.Item3, item.Item4, LIST_items.GetItemChecked(LIST_items.Items.IndexOf(item.Item1)).ToString());
                         }
                         sw.Close();
                     }
@@ -915,6 +915,8 @@ namespace OSD
                                     try
                                     {
                                         panelItems[a] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>(panelItems[a].Item1, panelItems[a].Item2, int.Parse(strings[1]), int.Parse(strings[2]), panelItems[a].Item5, panelItems[a].Item6, panelItems[a].Item7);
+
+                                        LIST_items.SetItemChecked(a, strings[3] == "True");
                                     }
                                     catch { }
                                 }
