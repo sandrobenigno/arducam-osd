@@ -156,7 +156,7 @@
             this.BUT_WriteOSD.TabIndex = 2;
             this.BUT_WriteOSD.Text = "Save to OSD";
             this.BUT_WriteOSD.UseVisualStyleBackColor = true;
-            this.BUT_WriteOSD.Click += new System.EventHandler(this.button1_Click);
+            this.BUT_WriteOSD.Click += new System.EventHandler(this.BUT_WriteOSD_Click);
             // 
             // CMB_ComPort
             // 
@@ -178,7 +178,7 @@
             this.BUT_ReadOSD.TabIndex = 6;
             this.BUT_ReadOSD.Text = "Read From OSD";
             this.BUT_ReadOSD.UseVisualStyleBackColor = true;
-            this.BUT_ReadOSD.Click += new System.EventHandler(this.button2_Click);
+            this.BUT_ReadOSD.Click += new System.EventHandler(this.BUT_ReadOSD_Click);
             // 
             // statusStrip1
             // 
