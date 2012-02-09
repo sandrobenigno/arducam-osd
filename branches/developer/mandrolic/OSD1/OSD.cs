@@ -540,8 +540,13 @@ namespace OSD
             osdDraw();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BUT_WriteOSD_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            this.toolStripStatusLabel1.Text = "";
+
+
+
             foreach (string str in this.LIST_items.Items)
             {
                 foreach (var tuple in this.panelItems)
@@ -571,7 +576,11 @@ namespace OSD
 
                 sp.Open();
             }
-            catch { MessageBox.Show("Error opening com port"); return; }
+            catch
+            {
+                MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                return;
+            }
 
             if (sp.connectAP())
             {
@@ -707,8 +716,11 @@ namespace OSD
             catch { }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BUT_ReadOSD_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            this.toolStripStatusLabel1.Text = "";
+
             bool fail = false;
             ArduinoSTK sp;
 
@@ -724,7 +736,11 @@ namespace OSD
 
                 sp.Open();
             }
-            catch { MessageBox.Show("Error opening com port"); return; }
+            catch
+            {
+                MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (sp.connectAP())
             {
@@ -770,6 +786,7 @@ namespace OSD
 
         byte[] readIntelHEXv2(StreamReader sr)
         {
+          
             byte[] FLASH = new byte[1024 * 1024];
 
             int optionoffset = 0;
@@ -981,8 +998,10 @@ namespace OSD
 
         private void updateFirmwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "*.hex|*.hex";
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            this.toolStripStatusLabel1.Text = "";
+
+            var ofd = new OpenFileDialog {Filter = "*.hex|*.hex"};
 
             ofd.ShowDialog();
 
@@ -1014,26 +1033,34 @@ namespace OSD
 
                     sp.Open();
                 }
-                catch { MessageBox.Show("Error opening com port"); return; }
+                catch
+                {
+                    MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 toolStripStatusLabel1.Text = "Connecting to Board";
 
                 if (sp.connectAP())
                 {
-                    sp.Progress += new ArduinoSTK.ProgressEventHandler(sp_Progress);
+                    sp.Progress += sp_Progress;
                     try
                     {
                         if (!sp.uploadflash(FLASH, 0, FLASH.Length, 0))
                         {
                             if (sp.IsOpen)
                                 sp.Close();
-                            MessageBox.Show("Upload failed. Lost sync. Try Arduino!!");
+
+                            MessageBox.Show("Upload failed. Lost sync. Try using Arduino to upload instead", 
+                                "Error", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Warning);
                         }
                     }
                     catch (Exception ex)
                     {
                         fail = true;
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -1080,46 +1107,54 @@ namespace OSD
 
         private void sendTLogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Tlog|*.tlog";
+            var ofd = new OpenFileDialog {Filter = "Tlog|*.tlog"};
 
             ofd.ShowDialog();
 
-            if (ofd.FileName != "")
+            if (ofd.FileName == "") 
+                return;
+            
+            if (comPort.IsOpen)
+                comPort.Close();
+
+            try
             {
-                if (comPort.IsOpen)
-                    comPort.Close();
+                comPort.PortName = CMB_ComPort.Text;
+                comPort.BaudRate = 57600;
+                comPort.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                try
-                {
+            using (var fstream = ofd.OpenFile())
+            {
+                var br = new BinaryReader(fstream);
 
-                    comPort.PortName = CMB_ComPort.Text;
-                    comPort.BaudRate = 57600;
-                    comPort.Open();
-
-                }
-                catch { MessageBox.Show("Error opening com port"); return; }
-
-                BinaryReader br = new BinaryReader(ofd.OpenFile());
+                this.toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
+                this.toolStripStatusLabel1.Text = "Sending TLOG data...";
 
                 while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
                 {
                     try
                     {
-                        byte[] bytes = br.ReadBytes(20);
-
-                        comPort.Write(bytes, 0, bytes.Length);
-
+                        var byteArray = br.ReadBytes(20);
+                        comPort.Write(byteArray, 0, byteArray.Length);
                         System.Threading.Thread.Sleep(5);
-
                     }
-                    catch { break; }
+                    catch
+                    {
+                        break;
+                    }
 
                     Application.DoEvents();
                 }
             }
         }
+
+
 
         private void OSD_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -1200,6 +1235,9 @@ namespace OSD
 
         private void updateFontToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+            this.toolStripStatusLabel1.Text = "";
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "mcm|*.mcm";
 
@@ -1259,7 +1297,10 @@ namespace OSD
                         return;
                     }
                 }
-                catch { MessageBox.Show("Error opening com port"); return; }
+                catch
+                {
+                    MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 BinaryReader br = new BinaryReader(ofd.OpenFile());
                 StreamReader sr2 = new StreamReader(br.BaseStream);
