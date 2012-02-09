@@ -76,10 +76,10 @@ void read_mavlink(){
           break;
         case MAVLINK_MSG_ID_SYS_STATUS:
           {
-            osd_vbat = (mavlink_msg_sys_status_get_vbat(&msg) / 1000.0f);
+            osd_vbat_A = (mavlink_msg_sys_status_get_vbat(&msg) / 1000.0f);
             osd_mode = mavlink_msg_sys_status_get_mode(&msg);
             osd_nav_mode = mavlink_msg_sys_status_get_nav_mode(&msg);
-            osd_battery_remaining = mavlink_msg_sys_status_get_battery_remaining(&msg);
+            osd_battery_remaining_A = mavlink_msg_sys_status_get_battery_remaining(&msg);
             //osd_mode = apm_mav_component;//Debug
             //osd_nav_mode = apm_mav_system;//Debug
           }

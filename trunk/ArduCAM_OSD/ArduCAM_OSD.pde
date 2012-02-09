@@ -4,7 +4,7 @@
  An Open Source Arduino based OSD and Camera Control project.
  
  Program  : ArduCAM-OSD (Supports the variant: minimOSD)
- Version  : V1.5, 01 January 2012
+ Version  : V1.8, 09 February 2012
  Author(s): Sandro Benigno
  Coauthor(s):
    Jani Hirvinen   (All the EEPROM routines)
@@ -44,9 +44,6 @@
 #define PSTR(s) (__extension__({static prog_char __c[] PROGMEM = (s); &__c[0];})) 
 
 #define MAVLINK10
-
-/*#define ToRad(x) ((x)*0.01745329252)  // *pi/180
-#define ToDeg(x) ((x)*57.2957795131)  // *180/pi*/
 
 /* **********************************************/
 /* ***************** INCLUDES *******************/
@@ -116,7 +113,7 @@ void setup()
   startPanels();
   delay(500);
 
-// OSD debug for development
+// OSD debug for development (Shown at start)
 #ifdef membug
      osd.setPanel(1,1);
      osd.openPanel();
@@ -192,8 +189,9 @@ void OnMavlinkTimer()
 {
   setHeadingPatern();  // generate the heading patern
 
-  setBatteryPic();     // battery remmaning picture
-
+  osd_battery_pic_A = setBatteryPic(osd_battery_remaining_A);     // battery A remmaning picture
+  //osd_battery_pic_B = setBatteryPic(osd_battery_remaining_B);     // battery B remmaning picture
+  
   setHomeVars(osd);   // calculate and set Distance from home and Direction to home
 
   writePanels();       // writing enabled panels (check OSD_Panels Tab)

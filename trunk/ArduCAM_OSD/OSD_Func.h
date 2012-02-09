@@ -20,24 +20,24 @@ void setHeadingPatern()
 
 //------------------ Battery Remaining Picture ----------------------------------
 
-void setBatteryPic()
+char setBatteryPic(uint16_t bat_level)
 {
-  if(osd_battery_remaining <= 270){
-    osd_battery_pic = 0xb4;
+  if(bat_level <= 270){
+    return 0xb4;
   }
-  else if(osd_battery_remaining <= 300){
-    osd_battery_pic = 0xb5;
+  else if(bat_level <= 300){
+    return 0xb5;
   }
-  else if(osd_battery_remaining <= 400){
-    osd_battery_pic = 0xb6;
+  else if(bat_level <= 400){
+    return 0xb6;
   }
-  else if(osd_battery_remaining <= 500){
-    osd_battery_pic = 0xb7;
+  else if(bat_level <= 500){
+    return 0xb7;
   }
-  else if(osd_battery_remaining <= 800){
-    osd_battery_pic = 0xb8;
+  else if(bat_level <= 800){
+    return 0xb8;
   }
-  else osd_battery_pic = 0xb9;
+  else return 0xb9;
 }
 
 //------------------ Home Distance and Direction Calculation ----------------------------------
