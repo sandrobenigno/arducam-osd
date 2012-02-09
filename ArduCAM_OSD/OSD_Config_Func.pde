@@ -129,7 +129,7 @@ void writeSettings() {
  writeEEPROM(13, panFMod_y_ADDR);
  writeEEPROM(on, panHorizon_en_ADDR);
  writeEEPROM(8,  panHorizon_x_ADDR);
- writeEEPROM(6,  panHorizon_y_ADDR);
+ writeEEPROM(7,  panHorizon_y_ADDR);
 }
 
 void readSettings() {

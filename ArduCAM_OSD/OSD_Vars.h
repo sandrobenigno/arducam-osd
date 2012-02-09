@@ -1,10 +1,14 @@
 /*Panels variables*/
 //Will come from APM telem port
 
-
-static float    osd_vbat = 0;                   // voltage in milivolt
-static uint16_t osd_battery_remaining = 0;      // 0 to 100 <=> 0 to 1000
-static uint8_t  osd_battery_pic = 0xb4;         // picture to show battery remaining
+static float    osd_vbat_A = 0;                 // Battery A voltage in milivolt
+//static float    osd_curr_A = 0;                 // Battery A current
+static uint16_t osd_battery_remaining_A = 0;    // 0 to 100 <=> 0 to 1000
+static uint8_t  osd_battery_pic_A = 0xb4;       // picture to show battery remaining
+//static float    osd_vbat_B = 0;               // voltage in milivolt
+//static float    osd_curr_B = 0;                 // Battery B current
+//static uint16_t osd_battery_remaining_B = 0;  // 0 to 100 <=> 0 to 1000
+//static uint8_t  osd_battery_pic_B = 0xb4;     // picture to show battery remaining
 
 static uint16_t osd_mode = 0;                   // Navigation mode from RC AC2 = CH5, APM = CH8
 static uint8_t  osd_nav_mode = 0;               // Navigation mode from RC AC2 = CH5, APM = CH8

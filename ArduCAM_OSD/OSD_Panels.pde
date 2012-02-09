@@ -49,6 +49,13 @@ void writePanels(){
     // Display our logo and wait... 
     panWaitMAVBeats(5,10); //Waiting for MAVBeats...
   }
+// OSD debug for development (Shown on top-middle panels) 
+#ifdef membug
+     osd.setPanel(13,4);
+     osd.openPanel();
+     osd.printf("%i",freeMem()); 
+     osd.closePanel();
+#endif
 }
 
 /******* PANELS - DEFINITION *******/
@@ -182,7 +189,7 @@ void panRoll(int first_col, int first_line){
 void panBatt_A(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%2.1f%c%c", (double)osd_vbat, 0x8E, osd_battery_pic);
+  osd.printf("%2.1f%c%c", (double)osd_vbat_A, 0x8E, osd_battery_pic_A);
   osd.closePanel();
 }
 
