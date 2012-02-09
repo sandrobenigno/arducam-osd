@@ -1213,9 +1213,16 @@ namespace OSD
 
                     comPort.PortName = CMB_ComPort.Text;
                     comPort.BaudRate = 57600;
-                    comPort.DtrEnable = true;
 
                     comPort.Open();
+
+                    comPort.DtrEnable = false;
+                    comPort.RtsEnable = false;
+
+                    System.Threading.Thread.Sleep(50);
+
+                    comPort.DtrEnable = true;
+                    comPort.RtsEnable = true;
 
                     System.Threading.Thread.Sleep(2000);
 
@@ -1227,15 +1234,28 @@ namespace OSD
                     comPort.WriteLine("");
                     comPort.WriteLine("");
 
+                    int timeout = 0;
+
                     while (comPort.BytesToRead == 0)
                     {
                         System.Threading.Thread.Sleep(500);
                         Console.WriteLine("Waiting...");
+                        timeout++;
+
+                        if (timeout > 6)
+                        {
+                            MessageBox.Show("Error entering font mode - No Data");
+                            comPort.Close();
+                            return;
+                        }
                     }
 
-                    StreamReader sr = new StreamReader(comPort.BaseStream);
-
-                    Console.Write(sr.ReadLine());
+                    if (!comPort.ReadLine().Contains("Ready for Font"))
+                    {
+                        MessageBox.Show("Error entering Font upload mode - invalid data");
+                        comPort.Close();
+                        return;
+                    }
                 }
                 catch { MessageBox.Show("Error opening com port"); return; }
 
@@ -1251,6 +1271,8 @@ namespace OSD
                     return;
                 }
 
+                br.BaseStream.Seek(0, SeekOrigin.Begin);
+
                 long length = br.BaseStream.Length;
 
                 while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
@@ -1258,8 +1280,10 @@ namespace OSD
                     try
                     {
                         toolStripProgressBar1.Value = (int)((br.BaseStream.Position / (float)br.BaseStream.Length) * 100);
+                        toolStripStatusLabel1.Text = "Font Uploading";
 
-                        int read = 256 * 3; // more than i need
+
+                        int read = 64 * 2; // more than i need
                         if ((br.BaseStream.Position + read) > br.BaseStream.Length)
                         {
                             read = (int)(br.BaseStream.Length - br.BaseStream.Position);
@@ -1271,7 +1295,7 @@ namespace OSD
                         comPort.Write(bytes, 0, bytes.Length);
 
 
-                        System.Threading.Thread.Sleep(15);
+                        System.Threading.Thread.Sleep(30);
 
 
                     }
@@ -1284,7 +1308,11 @@ namespace OSD
 
                 comPort.Close();
 
+                comPort.DtrEnable = false;
+                comPort.RtsEnable = false;
+
                 toolStripProgressBar1.Value = 100;
+                toolStripStatusLabel1.Text = "Font Done";
             }
         } 
     }
