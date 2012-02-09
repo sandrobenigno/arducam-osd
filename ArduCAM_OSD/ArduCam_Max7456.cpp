@@ -6,6 +6,8 @@
 #include "Spi.h"
 
 volatile int x;
+volatile int font_count;
+volatile byte character_bitmap[0x40];
 
 OSD::OSD()
 {
@@ -228,6 +230,46 @@ OSD::control(uint8_t ctrl){
       break;
   }
   digitalWrite(MAX7456_SELECT,HIGH);
+}
+
+void 
+OSD::write_NVM(void)
+{
+  byte x;
+  byte char_address_hi, char_address_lo;
+  byte screen_char;
+
+  char_address_hi = font_count;
+  char_address_lo = 0;
+ //Serial.println("write_new_screen");   
+
+  // disable display
+  digitalWrite(MAX7456_SELECT,LOW);
+  Spi.transfer(MAX7456_VM0_reg); 
+  Spi.transfer(MAX7456_DISABLE_display);
+
+  Spi.transfer(MAX7456_CMAH_reg); // set start address high
+  Spi.transfer(char_address_hi);
+
+  for(x = 0; x < NVM_ram_size; x++) // write out 54 (out of 64) bytes of character to shadow ram
+  {
+    screen_char = character_bitmap[x];
+    Spi.transfer(MAX7456_CMAL_reg); // set start address low
+    Spi.transfer(x);
+    Spi.transfer(MAX7456_CMDI_reg);
+    Spi.transfer(screen_char);
+  }
+
+  // transfer a 54 bytes from shadow ram to NVM
+  Spi.transfer(MAX7456_CMM_reg);
+  Spi.transfer(WRITE_nvr);
+  
+  // wait until bit 5 in the status register returns to 0 (12ms)
+  while ((Spi.transfer(MAX7456_STAT_reg_read) & STATUS_reg_nvr_busy) != 0x00);
+
+  Spi.transfer(MAX7456_VM0_reg); // turn on screen next vertical
+  Spi.transfer(MAX7456_ENABLE_display_vert);
+  digitalWrite(MAX7456_SELECT,HIGH);  
 }
 
 //------------------ pure virtual ones (just overriding) ---------------------
