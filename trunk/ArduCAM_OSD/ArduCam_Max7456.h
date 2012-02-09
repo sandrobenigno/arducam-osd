@@ -59,6 +59,10 @@
 #define MAX7456_WHITE_level_100 0x01
 #define MAX7456_WHITE_level_120 0x00
 
+#define NVM_ram_size 0x36
+#define WRITE_nvr 0xa0
+#define STATUS_reg_nvr_busy 0x20
+
 //If PAL
 #ifdef isPAL
   #define MAX7456_screen_size 480 //16x30
@@ -91,7 +95,10 @@ class OSD: public BetterStream
     virtual int     peek(void);
     virtual void    flush(void);
     virtual void write(uint8_t c);
+    void write_NVM(void);
     using BetterStream::write;
+    volatile byte character_bitmap[0x40];
+    volatile int font_count;
   private:
     uint8_t start_col, start_row, col, row, video_mode, video_center;
 };

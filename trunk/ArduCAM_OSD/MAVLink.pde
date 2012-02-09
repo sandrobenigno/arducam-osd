@@ -9,6 +9,10 @@
 // this might need to move to the flight software
 static mavlink_system_t mavlink_system = {12,1,0,0};
 
+// true when we have received at least 1 MAVLink packet
+static bool mavlink_active;
+static uint8_t crlf_count = 0;
+
 #include "../GCS_MAVLink/include/ardupilotmega/mavlink.h"
 
 static int packet_drops = 0;
@@ -39,6 +43,19 @@ void read_mavlink(){
   //grabing data 
   while(Serial.available() > 0) { 
     uint8_t c = Serial.read();
+    
+            /* allow CLI to be started by hitting enter 3 times, if no
+           heartbeat packets have been received */
+        if (mavlink_active == 0 && millis() < 20000) {
+            if (c == '\n' || c == '\r') {
+                crlf_count++;
+            } else {
+                crlf_count = 0;
+            }
+            if (crlf_count == 3) {
+              uploadFont();
+            }
+        }
     
     //trying to grab msg  
     if(mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) {
