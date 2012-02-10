@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>OSD.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -67,6 +67,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>osd.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -134,6 +137,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="osd.ico" />
     <Content Include="vlcsnap-2012-01-28-07h46m04s95.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
