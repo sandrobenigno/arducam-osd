@@ -5,9 +5,20 @@ void uploadFont()
   byte bit_count;
   byte ascii_binary[0x08];
   
-  Serial.print("Ready for Font\n");
+  // move these local to prevent ram usage
+  uint8_t character_bitmap[0x40];
+  int font_count = 0;
   
-                while(osd.font_count < 256) { 
+     osd.clear();
+     osd.setPanel(6,9);
+     osd.openPanel();
+     osd.printf_P(PSTR("Update CharSet")); 
+     osd.closePanel();
+  
+  
+  Serial.printf_P(PSTR("Ready for Font\n"));
+  
+                while(font_count < 256) { 
                 int8_t incomingByte = Serial.read();
     switch(incomingByte) // parse and decode mcm file
     {
@@ -17,7 +28,7 @@ void uploadFont()
        {
           // turn 8 ascii binary bytes to single byte '01010101' = 0x55
           // fill in 64 bytes of character data
-
+// made this local to prevent needing a global
   byte ascii_byte;
 
   ascii_byte = 0;
@@ -46,7 +57,7 @@ void uploadFont()
   if (ascii_binary[7] == 0x31)
     ascii_byte = ascii_byte + 1;
           
-         osd.character_bitmap[byte_count] = ascii_byte;
+         character_bitmap[byte_count] = ascii_byte;
          byte_count++;
          bit_count = 0;
        }
@@ -69,10 +80,10 @@ void uploadFont()
   // write the character to NVM 
   if(byte_count == 64)
   {
-    osd.write_NVM();    
+    osd.write_NVM(font_count, character_bitmap);    
     byte_count = 0;
-    osd.font_count++;
-    Serial.print("Char Done\n");
+    font_count++;
+    Serial.printf_P(PSTR("Char Done\n"));
   }
               }
   

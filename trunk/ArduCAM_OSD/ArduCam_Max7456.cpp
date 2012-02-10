@@ -233,7 +233,7 @@ OSD::control(uint8_t ctrl){
 }
 
 void 
-OSD::write_NVM(void)
+OSD::write_NVM(int font_count, uint8_t *character_bitmap)
 {
   byte x;
   byte char_address_hi, char_address_lo;

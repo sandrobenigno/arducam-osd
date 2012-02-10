@@ -9,9 +9,6 @@
 # include "../GCS_MAVLink/include/mavlink_types.h"
 #endif
 
-// tell mavlink how to write to serial ports
-#define comm_send_ch(chan, ch) Serial.write(ch)
-
 // true when we have received at least 1 MAVLink packet
 static bool mavlink_active;
 static uint8_t crlf_count = 0;
@@ -31,7 +28,6 @@ void request_mavlink_rates()
                                           MAV_DATA_STREAM_EXTRA1, 
                                           MAV_DATA_STREAM_EXTRA2};
   const uint16_t MAVRates[maxStreams] = {0x02, 0x02, 0x05, 0x02, 0x05, 0x02};
-  
   for (int i=0; i < maxStreams; i++) {
     	  mavlink_msg_request_data_stream_send(MAVLINK_COMM_0,
 					       apm_mav_system, apm_mav_component,

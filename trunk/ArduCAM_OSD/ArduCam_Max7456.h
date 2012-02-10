@@ -95,10 +95,8 @@ class OSD: public BetterStream
     virtual int     peek(void);
     virtual void    flush(void);
     virtual void write(uint8_t c);
-    void write_NVM(void);
+    void write_NVM(int font_count, uint8_t *character_bitmap);
     using BetterStream::write;
-    volatile byte character_bitmap[0x40];
-    volatile int font_count;
   private:
     uint8_t start_col, start_row, col, row, video_mode, video_center;
 };
