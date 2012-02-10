@@ -1,4 +1,4 @@
-#labels Configure,CharSet,character
+#labels Configure,CharSet,Character
 = Update MAX7456 Character Set =
 
 The ArduCAM OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
