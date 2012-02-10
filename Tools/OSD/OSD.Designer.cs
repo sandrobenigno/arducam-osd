@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OSD));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LIST_items = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -364,6 +365,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.LIST_items);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "OSD";
             this.Text = "ArduCAM OSD Config - By Michael Oborne";

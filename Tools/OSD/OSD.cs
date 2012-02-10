@@ -1129,11 +1129,22 @@ namespace OSD
 
                         System.Threading.Thread.Sleep(5);
 
+                        Console.Write(comPort.ReadExisting());
+
                     }
                     catch { break; }
 
                     Application.DoEvents();
                 }
+
+                try
+                {
+                    toolStripProgressBar1.Style = ProgressBarStyle.Continuous;
+                    toolStripStatusLabel1.Text = "";   
+
+                    comPort.Close();
+                }
+                catch { }
             }
         }
 
