@@ -11,7 +11,7 @@ Current Panels Set includes:
 
  * Home Distance
  * Home Direction
- * MAVLink HeartBeats
+ * MAVLink !HeartBeats
  * Throttle
  * Speed
  * Altitude
@@ -24,7 +24,7 @@ Current Panels Set includes:
  * Row angle
  * Heading angle
  * Compass rule
- * Flight Modes (ArduCopter and ArduPlane)
+ * Flight Modes (!ArduCopter and !ArduPlane)
 
 *USB Host and Camera Control*
 
