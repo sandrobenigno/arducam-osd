@@ -58,6 +58,7 @@
             this.customBGPictureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendTLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_Y)).BeginInit();
@@ -156,7 +157,7 @@
             this.BUT_WriteOSD.TabIndex = 2;
             this.BUT_WriteOSD.Text = "Save to OSD";
             this.BUT_WriteOSD.UseVisualStyleBackColor = true;
-            this.BUT_WriteOSD.Click += new System.EventHandler(this.button1_Click);
+            this.BUT_WriteOSD.Click += new System.EventHandler(this.BUT_WriteOSD_Click);
             // 
             // CMB_ComPort
             // 
@@ -178,7 +179,7 @@
             this.BUT_ReadOSD.TabIndex = 6;
             this.BUT_ReadOSD.Text = "Read From OSD";
             this.BUT_ReadOSD.UseVisualStyleBackColor = true;
-            this.BUT_ReadOSD.Click += new System.EventHandler(this.button2_Click);
+            this.BUT_ReadOSD.Click += new System.EventHandler(this.BUT_ReadOSD_Click);
             // 
             // statusStrip1
             // 
@@ -206,7 +207,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.videoModeToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.optionsToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(667, 24);
@@ -342,6 +344,13 @@
             this.updateFontToolStripMenuItem.Text = "Update Font";
             this.updateFontToolStripMenuItem.Click += new System.EventHandler(this.updateFontToolStripMenuItem_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // OSD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,6 +416,7 @@
         private System.Windows.Forms.ToolStripMenuItem sendTLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem updateFontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 
