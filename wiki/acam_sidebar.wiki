@@ -11,7 +11,7 @@
    * [How_to_start Quick Start Guide]
    * [media_files See it working]
    * [PTP_compatibility Does it suitable to my cam?]
- * [Update_CharSet Update !CharSet]
+ * [Update_CharSet Update CharSet]
  * [Update_Firmware Update Firmware]
  * Prototype Hardware
   * [hardware_current Breakout boards/shields]
