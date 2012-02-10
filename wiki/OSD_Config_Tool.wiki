@@ -1,0 +1,22 @@
+#summary A powerful OSD Tool Set.
+
+= ArduCAM OSD Config =
+
+Thanks to Michael Oborne, now we have now an incredible customization and an the easiest setup of all ArduCAM OSD's resources.<br>
+With ArduCAM OSD Config you can do all the job in just one place.<br>
+Everything, from update firmware or charset to enable/disable and positioning all the panels.
+
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/front.jpg
+
+== Select and Drag Panels ==
+Just click on a panel an drag it from its upper-left corner to positioning. Easy, eh!?
+
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/drag.jpg
+
+== Select, Enable or Disable Panels ==
+
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/select_list.jpg
+
+== Save and Load File Based Layouts ==
+
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/load_save_layout.jpg
