@@ -8,15 +8,17 @@ Everything, from update firmware or charset to enable/disable and positioning al
 
 http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/front.jpg
 
+== Select, Enable or Disable Panels ==
+Are you looking for customization? So, Make you own layout by enabling or disabling from the panel list.
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/select_list.jpg
+
 == Select and Drag Panels ==
 Just click on a panel an drag it from its upper-left corner to positioning. Easy, eh!?
 
 http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/drag.jpg
 
-== Select, Enable or Disable Panels ==
-
-http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/select_list.jpg
-
 == Save and Load File Based Layouts ==
+We can save our favorite layouts to share with our buddies.<br>
+You didn't save it? No problem. You can load direct from the board as well as save it on other one.
 
 http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/load_save_layout.jpg
