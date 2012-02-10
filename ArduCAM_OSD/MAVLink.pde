@@ -1,13 +1,12 @@
 #define MAVLINK_COMM_NUM_BUFFERS 1
 #define MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-#include "../GCS_MAVLink/include/mavlink_types.h"
+#include <GCS_MAVLink.h>
+
+#include "Mavlink_compat.h"
 
 // tell mavlink how to write to serial ports
 #define comm_send_ch(chan, ch) Serial.write(ch)
-
-// this might need to move to the flight software
-static mavlink_system_t mavlink_system = {12,1,0,0};
 
 // true when we have received at least 1 MAVLink packet
 static bool mavlink_active;
@@ -39,6 +38,9 @@ void request_mavlink_rates()
 void read_mavlink(){
   mavlink_message_t msg; 
   mavlink_status_t status;
+  
+  // this might need to move to the flight software
+  static mavlink_system_t mavlink_system = {12,1,0,0};
 
   //grabing data 
   while(Serial.available() > 0) { 
@@ -59,7 +61,7 @@ void read_mavlink(){
     
     //trying to grab msg  
     if(mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status)) {
-  
+       mavlink_active = 1;
       //handle msg
       switch(msg.msgid) {
         case MAVLINK_MSG_ID_HEARTBEAT:
