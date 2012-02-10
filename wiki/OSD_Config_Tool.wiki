@@ -2,7 +2,7 @@
 
 = ArduCAM OSD Config =
 
-Thanks to Michael Oborne, now we have now an incredible customization and an the easiest setup of all ArduCAM OSD's resources.<br>
+Thanks to Michael Oborne, we have now an incredible customization and an the easiest setup of all ArduCAM OSD's resources.<br>
 With ArduCAM OSD Config you can do all the job in just one place.<br>
 Everything, from update firmware or charset to enable/disable and positioning all the panels.
 
@@ -30,8 +30,8 @@ http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/switching_modes.jp
 
 == Plenty More Options ==
   * Set Grid ON/OFF;
-  * Update Firmware or CharSet;
+  * Update Firmware or !CharSet;
   * Change the Backgroud;
-  * Check the layout using !TLogs from !ArduPilot Mission Planner;
+  * Check the layout using TLogs from !ArduPilot Mission Planner;
 
 http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/menu_grid_log_updates.jpg
