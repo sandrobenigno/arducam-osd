@@ -46,7 +46,7 @@ namespace OSD
         //Will come from APM telem port
 
 
-        static float osd_vbat = 11.1f;                   // voltage in milivolt
+        static float osd_vbat = 11.61f;                   // voltage in milivolt
         static uint16_t osd_battery_remaining = 50;      // 0 to 100 <=> 0 to 1000
         static uint8_t osd_battery_pic = 0xb4;         // picture to show battery remaining
 
@@ -230,7 +230,7 @@ namespace OSD
         {
             osd.setPanel(first_col, first_line);
             osd.openPanel();
-            osd.printf("%2.1f%c%c", (double)osd_vbat, 0x8E, osd_battery_pic);
+            osd.printf("%2.2f%c%c", (double)osd_vbat, 0x8E, osd_battery_pic);
             osd.closePanel();
             return 0;
         }
