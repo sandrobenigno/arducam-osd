@@ -1,0 +1,20 @@
+= Update Firmware =
+
+This project is based on Arduino. So, you can down to the code, make tweaks, customize or just update the firmware through Arduino IDE.<br> All you need to do is checkout the source from our [http://code.google.com/p/arducam-osd/source/checkout SVN repository].
+
+If you just want to upload you OSD board, the easy way is using released .hex files from our Download Section and use our configuration tool like explained below.
+
+== ArduCAM OSD Config (Update Firmware) ==
+
+  # Connect your FTDI Serial adapter;
+  # Select the proper Serial COM Port (on the example bellow is COM12. Your adapter may use another one);
+  # Go to menu *Options* and select *Update Firmware*.
+  # Select the desired .hex file from your PC and press *Open*;
+
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/Serial.jpg
+
+When the process starts, you board will reboot and go to the upload process in few seconds.<br>
+If there is a video monitor attached to the OSD, the screen will turn to a blank state.<br>
+You have to observe the loading bar on the bottom of ArduCAM OSD Config screen.
+
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/UpFirmware.jpg
