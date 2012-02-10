@@ -1,42 +1,18 @@
 = Update MAX7456 Character Set =
 
-The !ArduCam OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
+The ArduCAM OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
 
+== ArduCAM OSD Config: !CharSet Update ==
 
-*Important Note!* You need to wire up the video-out from !ArduCam to a monitor. You will see the old character set on screen (when you start running the sketch "!Max_Char_Write") as well as the updated one, after restart the board (the last step of the updating process).
+  # Connect your FTDI Serial adapter;
+  # Select the proper Serial COM Port (on the example bellow is COM12. Your adapter may use another one);
+  # Go to menu *Options* and select *Update !CharSet*.
+  # Select the desired .mcm file from your PC and press *Open*;
 
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/Serial.jpg
 
+When the process starts, you board will reboot and go to the upload process in few seconds.<br>
+If there is a video monitor attached to the OSD, the screen will show the bootload screen and turn to black.<br>
+You have to observe the loading bar on the bottom of ArduCAM OSD Config screen.
 
-Looking at the SVN source, more specifically at the trunk, you will see the folder *[http://code.google.com/p/arducam-osd/source/browse/#svn%2Ftrunk%2FTools "Tools"]*. It has all you need to update the character set.
-
-
- * *"!Max_Char_Write"*
-
-This is an Arduino project folder, used to set the !ArduCam OSD board as a bridge to upload the new character set from your PC to the chip Max7456.
-
- * *Other files at the root of "Tools"*
-  * *"TERATERM.INI"* (modified to open more than default 4 serial ports)
-  * *"OSD_SA_v3.mcm"* (the !ArduCam OSD charset)
-  * *"MAX7456Charwizard.jar"* (used to see/change the charset)
-
-=== Character Set Editor ===
-
-  * A double click on the file "MAX7456Charwizard.jar" runs a JAVA based application.
-  * To visualize the character set file go to menu file/open and filnd the file "OSD_SA_v4.mcm".
-
-http://arducam-osd.googlecode.com/svn/wiki/images/CharSetEditor.png
-
-=== Terminal ===
-
-You will also need a good terminal software to "send file" through serial connection. I'm using "!TeraTerm Pro". It's free, from [http://hp.vector.co.jp/authors/VA002416/teraterm.html here].
-
- * Install !TeraTerm;
- * Replace the file "TERATERM.INI" in your program files "TTERMPRO" folder;
-
-=== The Arduino sketch ===
- * Copy the folder !Max_Char_Write to your Arduino scketch folder;
- * Upload the sketch "!Max_Char_Write" to !ArduCam OSD board;
-
-=== Send a new Character Set ===
- * Use !TeraTerm to send the file "OSD_SA_v4.mcm" to !ArduCam board;
- * When it finished sending it, you just need to reset Arduino. It will shows the new character set.
+http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/UpCharSet.jpg
