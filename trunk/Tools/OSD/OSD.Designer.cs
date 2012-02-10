@@ -341,7 +341,7 @@
             // 
             this.updateFontToolStripMenuItem.Name = "updateFontToolStripMenuItem";
             this.updateFontToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.updateFontToolStripMenuItem.Text = "Update Font";
+            this.updateFontToolStripMenuItem.Text = "Update CharSet";
             this.updateFontToolStripMenuItem.Click += new System.EventHandler(this.updateFontToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -366,7 +366,7 @@
             this.Controls.Add(this.pictureBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "OSD";
-            this.Text = "OSD Config - By Michael Oborne";
+            this.Text = "ArduCAM OSD Config - By Michael Oborne";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OSD_FormClosed);
             this.Load += new System.EventHandler(this.OSD_Load);
             this.Resize += new System.EventHandler(this.OSD_Resize);

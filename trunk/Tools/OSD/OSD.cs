@@ -1273,7 +1273,7 @@ namespace OSD
 
                     if (!comPort.ReadLine().Contains("Ready for Font"))
                     {
-                        MessageBox.Show("Error entering Font upload mode - invalid data");
+                        MessageBox.Show("Error entering CharSet upload mode - invalid data");
                         comPort.Close();
                         return;
                     }
@@ -1304,7 +1304,7 @@ namespace OSD
                         try
                         {
                             toolStripProgressBar1.Value = (int)((br.BaseStream.Position / (float)br.BaseStream.Length) * 100);
-                            toolStripStatusLabel1.Text = "Font Uploading";
+                            toolStripStatusLabel1.Text = "CharSet Uploading";
 
 
                             int read = 256 * 3;// 163847 / 256 + 1; // 163,847 font file
@@ -1327,7 +1327,7 @@ namespace OSD
 
                                 if (timeout > 10)
                                 {
-                                    MessageBox.Show("Font upload failed - no response");
+                                    MessageBox.Show("CharSet upload failed - no response");
                                     comPort.Close();
                                     return;
                                 }
@@ -1359,7 +1359,7 @@ namespace OSD
                     comPort.RtsEnable = false;
 
                     toolStripProgressBar1.Value = 100;
-                    toolStripStatusLabel1.Text = "Font Done";
+                    toolStripStatusLabel1.Text = "CharSet Done";
                 }
             }
         }
