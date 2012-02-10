@@ -540,8 +540,11 @@ namespace OSD
             osdDraw();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BUT_WriteOSD_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
+            this.toolStripStatusLabel1.Text = ""; 
+
             foreach (string str in this.LIST_items.Items)
             {
                 foreach (var tuple in this.panelItems)
@@ -571,7 +574,7 @@ namespace OSD
 
                 sp.Open();
             }
-            catch { MessageBox.Show("Error opening com port"); return; }
+            catch { MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
 
             if (sp.connectAP())
             {
@@ -707,8 +710,11 @@ namespace OSD
             catch { }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BUT_ReadOSD_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
+            this.toolStripStatusLabel1.Text = ""; 
+
             bool fail = false;
             ArduinoSTK sp;
 
@@ -724,7 +730,7 @@ namespace OSD
 
                 sp.Open();
             }
-            catch { MessageBox.Show("Error opening com port"); return; }
+            catch {  MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);        return; }
 
             if (sp.connectAP())
             {
@@ -981,6 +987,9 @@ namespace OSD
 
         private void updateFirmwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;      
+            this.toolStripStatusLabel1.Text = ""; 
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "*.hex|*.hex";
 
@@ -1014,7 +1023,7 @@ namespace OSD
 
                     sp.Open();
                 }
-                catch { MessageBox.Show("Error opening com port"); return; }
+                catch { MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
 
                 toolStripStatusLabel1.Text = "Connecting to Board";
 
@@ -1027,13 +1036,17 @@ namespace OSD
                         {
                             if (sp.IsOpen)
                                 sp.Close();
-                            MessageBox.Show("Upload failed. Lost sync. Try Arduino!!");
+
+                            MessageBox.Show("Upload failed. Lost sync. Try using Arduino to upload instead",                                    
+                                "Error",                            
+                                MessageBoxButtons.OK,        
+                                MessageBoxIcon.Warning); 
                         }
                     }
                     catch (Exception ex)
                     {
                         fail = true;
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -1099,9 +1112,12 @@ namespace OSD
                     comPort.Open();
 
                 }
-                catch { MessageBox.Show("Error opening com port"); return; }
+                catch { MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
 
                 BinaryReader br = new BinaryReader(ofd.OpenFile());
+
+                this.toolStripProgressBar1.Style = ProgressBarStyle.Marquee;        
+                this.toolStripStatusLabel1.Text = "Sending TLOG data..."; 
 
                 while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
                 {
@@ -1200,6 +1216,9 @@ namespace OSD
 
         private void updateFontToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
+            toolStripStatusLabel1.Text = "";        
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "mcm|*.mcm";
 
@@ -1259,63 +1278,99 @@ namespace OSD
                         return;
                     }
                 }
-                catch { MessageBox.Show("Error opening com port"); return; }
+                catch { MessageBox.Show("Error opening com port", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
 
-                BinaryReader br = new BinaryReader(ofd.OpenFile());
-                StreamReader sr2 = new StreamReader(br.BaseStream);
-
-                string device = sr2.ReadLine();
-
-                if (device != "MAX7456")
+                using (var stream = ofd.OpenFile())
                 {
-                    MessageBox.Show("Invalid MCM");
-                    comPort.Close();
-                    return;
-                }
 
-                br.BaseStream.Seek(0, SeekOrigin.Begin);
+                    BinaryReader br = new BinaryReader(stream);
+                    StreamReader sr2 = new StreamReader(br.BaseStream);
 
-                long length = br.BaseStream.Length;
+                    string device = sr2.ReadLine();
 
-                while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
-                {
-                    try
+                    if (device != "MAX7456")
                     {
-                        toolStripProgressBar1.Value = (int)((br.BaseStream.Position / (float)br.BaseStream.Length) * 100);
-                        toolStripStatusLabel1.Text = "Font Uploading";
-
-
-                        int read = 64 * 2; // more than i need
-                        if ((br.BaseStream.Position + read) > br.BaseStream.Length)
-                        {
-                            read = (int)(br.BaseStream.Length - br.BaseStream.Position);
-                        }
-                        length -= read;
-
-                        byte[] bytes = br.ReadBytes(read);
-
-                        comPort.Write(bytes, 0, bytes.Length);
-
-
-                        System.Threading.Thread.Sleep(30);
-
-
+                        MessageBox.Show("Invalid MCM");
+                        comPort.Close();
+                        return;
                     }
-                    catch { break; }
 
-                    Application.DoEvents();
+                    br.BaseStream.Seek(0, SeekOrigin.Begin);
+
+                    long length = br.BaseStream.Length;
+
+                    while (br.BaseStream.Position < br.BaseStream.Length && !this.IsDisposed)
+                    {
+                        try
+                        {
+                            toolStripProgressBar1.Value = (int)((br.BaseStream.Position / (float)br.BaseStream.Length) * 100);
+                            toolStripStatusLabel1.Text = "Font Uploading";
+
+
+                            int read = 256 * 3;// 163847 / 256 + 1; // 163,847 font file
+                            if ((br.BaseStream.Position + read) > br.BaseStream.Length)
+                            {
+                                read = (int)(br.BaseStream.Length - br.BaseStream.Position);
+                            }
+                            length -= read;
+
+                            byte[] buffer = br.ReadBytes(read);
+
+                            comPort.Write(buffer, 0, buffer.Length);
+
+                            int timeout = 0;
+
+                            while (comPort.BytesToRead == 0 && read == 768)
+                            {
+                                System.Threading.Thread.Sleep(10);
+                                timeout++;
+
+                                if (timeout > 10)
+                                {
+                                    MessageBox.Show("Font upload failed - no response");
+                                    comPort.Close();
+                                    return;
+                                }
+                            }
+
+                            Console.WriteLine(comPort.ReadExisting());
+
+                        }
+                        catch { break; }
+
+                        Application.DoEvents();
+                    }
+
+                    comPort.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+                    comPort.DtrEnable = false;
+                    comPort.RtsEnable = false;
+
+                    System.Threading.Thread.Sleep(50);
+
+                    comPort.DtrEnable = true;
+                    comPort.RtsEnable = true;
+
+                    System.Threading.Thread.Sleep(50);
+
+                    comPort.Close();
+
+                    comPort.DtrEnable = false;
+                    comPort.RtsEnable = false;
+
+                    toolStripProgressBar1.Value = 100;
+                    toolStripStatusLabel1.Text = "Font Done";
                 }
-
-                comPort.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-
-                comPort.Close();
-
-                comPort.DtrEnable = false;
-                comPort.RtsEnable = false;
-
-                toolStripProgressBar1.Value = 100;
-                toolStripStatusLabel1.Text = "Font Done";
             }
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://code.google.com/p/arducam-osd/wiki/arducam_osd?tm=6");
+            }
+            catch { MessageBox.Show("Webpage open failed... do you have a virus?"); }
         } 
     }
 }
