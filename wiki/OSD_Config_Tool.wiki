@@ -19,7 +19,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/drag.jpg
 
 == Save and Load Layouts from File ==
 We can save our favorite layouts to share with our buddies.<br>
-You didn't save it? No problem. You can load direct from the board as well as save it on other one.
+You didn't save it? No problem. You can load direct from the board as well as save it to another one.
 
 http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/load_save_layout.jpg
 
