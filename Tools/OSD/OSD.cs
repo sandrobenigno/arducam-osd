@@ -140,7 +140,7 @@ namespace OSD
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Center", pan.panCenter, 13, 8, panCenter_en_ADDR, panCenter_x_ADDR, panCenter_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Pitch", pan.panPitch, 22, 9, panPitch_en_ADDR, panPitch_x_ADDR, panPitch_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Roll", pan.panRoll, 11, 1, panRoll_en_ADDR, panRoll_x_ADDR, panRoll_y_ADDR);
-            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery A", pan.panBatt_A, 22, 1, panBatt_A_en_ADDR, panBatt_A_x_ADDR, panBatt_A_y_ADDR);
+            panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery A", pan.panBatt_A, 21, 1, panBatt_A_en_ADDR, panBatt_A_x_ADDR, panBatt_A_y_ADDR);
             //items[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Battery B", pan.panBatt_B, 22, 1, panBatt_B_en_ADDR, panBatt_B_x_ADDR, panBatt_B_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("Visible Sats", pan.panGPSats, 2, 13, panGPSats_en_ADDR, panGPSats_x_ADDR, panGPSats_y_ADDR);
             panelItems[a++] = new Tuple<string, Func<int, int, int>, int, int, int, int, int>("GPS Lock", pan.panGPL, 7, 13, panGPL_en_ADDR, panGPL_x_ADDR, panGPL_y_ADDR);
