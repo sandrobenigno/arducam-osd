@@ -102,6 +102,9 @@ void setup()
   pinMode(MAX7456_SELECT,  OUTPUT); // OSD CS
 
   Serial.begin(TELEMETRY_SPEED);
+  // setup mavlink port
+  mavlink_comm_0_port = &Serial;
+  
 #ifdef membug
   Serial.println(freeMem());
 #endif
