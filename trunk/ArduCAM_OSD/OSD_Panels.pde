@@ -35,10 +35,10 @@ void writePanels(){
 //  if(ISb(WRSSI_BIT)) panRSSI(panRSSI_XY[0], panRSSI_XY[1]); //??x??
 
     //Testing bits from 8 bit register C 
-    if(osd_got_home == 1){
+    //if(osd_got_home == 1){
       if(ISc(Alt_BIT)) panAlt(panAlt_XY[0], panAlt_XY[1]); //
       if(ISc(Vel_BIT)) panVel(panVel_XY[0], panVel_XY[1]); //
-    }
+    //}
     if(ISc(Thr_BIT)) panThr(panThr_XY[0], panThr_XY[1]); //
     if(ISc(FMod_BIT)) panFlightMode(panFMod_XY[0], panFMod_XY[1]);  //
     if(ISc(Hor_BIT)) panHorizon(panHorizon_XY[0], panHorizon_XY[1]); //14x5
@@ -86,7 +86,7 @@ void panAlt(int first_col, int first_line){
 void panVel(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c%3.0f%c ",0x86,(double)osd_groundspeed,0x88);
+  osd.printf("%c%3.0f%c",0x86,(double)osd_groundspeed,0x88);
   osd.closePanel();
 }
 
@@ -183,13 +183,23 @@ void panRoll(int first_col, int first_line){
 // Panel  : panBattery A (Voltage 1)
 // Needs  : X, Y locations
 // Output : Voltage value as in XX.X and symbol of over all battery status
-// Size   : 1 x 5  (rows x chars)
+// Size   : 1 x 8  (rows x chars)
 // Staus  : done
 
 void panBatt_A(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%2.1f%c%c", (double)osd_vbat_A, 0x8E, osd_battery_pic_A);
+#ifdef MAVLINK10
+  if(osd_battery_remaining_A > 100){
+    osd.printf(" %c%5.2f%c", 0xE2, (double)osd_vbat_A, 0x8E);
+  }
+#else
+  if(osd_battery_remaining_A > 1000){
+    osd.printf(" %c%5.2f%c", 0xE2, (double)osd_vbat_A, 0x8E);
+  }
+#endif //MAVLINK10
+  else osd.printf("%c%5.2f%c%c", 0xE2, (double)osd_vbat_A, 0x8E, osd_battery_pic_A);
+
   osd.closePanel();
 }
 
@@ -230,10 +240,10 @@ void panGPL(int first_col, int first_line){
       osd.printf_P(PSTR("\x10\x20"));
       break;
     case 2: 
-      osd.printf_P(PSTR("\x11\x20"));//If not APM, x01 could show 2D fix
+      osd.printf_P(PSTR("\x11\x20"));//If not APM, x01 would show 2D fix
       break;
     case 3: 
-      osd.printf_P(PSTR("\x11\x20"));//If not APM, x02 could show 3D fix
+      osd.printf_P(PSTR("\x11\x20"));//If not APM, x02 would show 3D fix
       break;
   }
     
@@ -255,7 +265,7 @@ void panGPL(int first_col, int first_line){
 void panGPSats(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
-  osd.printf("%c  %2.0i", 0x0f,osd_satellites_visible);
+  osd.printf("%c%2i", 0x0f,osd_satellites_visible);
   osd.closePanel();
 }
 
