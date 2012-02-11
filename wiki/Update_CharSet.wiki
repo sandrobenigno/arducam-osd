@@ -3,6 +3,8 @@
 
 The ArduCAM OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
 
+If you got a .mcm file from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] you can use our configuration tool as explained below.
+
 == ArduCAM OSD Config (Update !CharSet) ==
 
   # Connect your FTDI Serial adapter;
