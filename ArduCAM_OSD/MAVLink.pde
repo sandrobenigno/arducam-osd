@@ -123,6 +123,8 @@ void read_mavlink(){
             osd_groundspeed = mavlink_msg_vfr_hud_get_groundspeed(&msg);
             osd_heading = mavlink_msg_vfr_hud_get_heading(&msg);// * 3.60f;//0-100% of 360
             osd_throttle = mavlink_msg_vfr_hud_get_throttle(&msg);
+            if(osd_throttle < 0) osd_throttle = 0;
+            if(osd_throttle > 100) osd_throttle = 100;
             osd_alt = mavlink_msg_vfr_hud_get_alt(&msg);
           }
           break;
