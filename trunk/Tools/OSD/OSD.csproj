@@ -138,13 +138,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="osd.ico" />
+    <None Include="Resources\saveHS.png" />
+    <None Include="Resources\openHS.png" />
     <Content Include="vlcsnap-2012-01-28-07h46m04s95.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
