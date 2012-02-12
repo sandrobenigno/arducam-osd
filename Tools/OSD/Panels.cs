@@ -113,7 +113,7 @@ namespace OSD
         {
             osd.setPanel(first_col, first_line);
             osd.openPanel();
-            osd.printf("%c%3.0f%c ", 0x86, (double)osd_groundspeed, 0x88);
+            osd.printf("%c%3.0f%c", 0x86, (double)osd_groundspeed, 0x88);
             osd.closePanel();
             return 0;
         }
@@ -223,14 +223,14 @@ namespace OSD
         // Panel  : panBattery A (Voltage 1)
         // Needs  : X, Y locations
         // Output : Voltage value as in XX.X and symbol of over all battery status
-        // Size   : 1 x 5  (rows x chars)
+        // Size   : 1 x 8  (rows x chars)
         // Staus  : done
 
         public int panBatt_A(int first_col, int first_line)
         {
             osd.setPanel(first_col, first_line);
             osd.openPanel();
-            osd.printf("%2.2f%c%c", (double)osd_vbat, 0x8E, osd_battery_pic);
+            osd.printf("%c%5.2f%c%c", 0xE2,(double)osd_vbat, 0x8E, osd_battery_pic);
             osd.closePanel();
             return 0;
         }
@@ -278,10 +278,10 @@ namespace OSD
                     osd.printf_P(PSTR("\x10\x20"));
                     break;
                 case 2:
-                    osd.printf_P(PSTR("\x11\x20"));//If not APM, x01 could show 2D fix
+                    osd.printf_P(PSTR("\x11\x20"));//If not APM, x01 would show 2D fix
                     break;
                 case 3:
-                    osd.printf_P(PSTR("\x11\x20"));//If not APM, x02 could show 3D fix
+                    osd.printf_P(PSTR("\x11\x20"));//If not APM, x02 would show 3D fix
                     break;
             }
 
@@ -305,7 +305,7 @@ namespace OSD
         {
             osd.setPanel(first_col, first_line);
             osd.openPanel();
-            osd.printf("%c  %2.0i", 0x0f, osd_satellites_visible);
+            osd.printf("%c%2i", 0x0f, osd_satellites_visible);
             osd.closePanel();
             return 0;
         }
