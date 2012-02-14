@@ -4,7 +4,7 @@
  An Open Source Arduino based OSD and Camera Control project.
  
  Program  : ArduCAM-OSD (Supports the variant: minimOSD)
- Version  : V1.8, 09 February 2012
+ Version  : V1.9, 14 February 2012
  Author(s): Sandro Benigno
  Coauthor(s):
    Jani Hirvinen   (All the EEPROM routines)
@@ -54,6 +54,7 @@
 
 // AVR Includes
 #include <FastSerial.h>
+#include <AP_Math.h>
 #include <math.h>
 #include <inttypes.h>
 #include <avr/pgmspace.h>
@@ -72,13 +73,12 @@
 #include "OSD_Vars.h"
 #include "OSD_Func.h"
 
-
 /* *************************************************/
 /* ***************** DEFINITIONS *******************/
 
 //OSD Hardware 
-#define ArduCAM328
-//#define MinimOSD
+//#define ArduCAM328
+#define MinimOSD
 
 #define TELEMETRY_SPEED  57600  // How fast our MAVLink telemetry is coming to Serial port
 #define BOOTTIME         2000   // Time in milliseconds that we show boot loading bar and wait user input

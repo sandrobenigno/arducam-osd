@@ -189,6 +189,7 @@ void panRoll(int first_col, int first_line){
 void panBatt_A(int first_col, int first_line){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
+/*************** This commented code is for the next ArduPlane Version
 #ifdef MAVLINK10
   if(osd_battery_remaining_A > 100){
     osd.printf(" %c%5.2f%c", 0xE2, (double)osd_vbat_A, 0x8E);
@@ -199,7 +200,8 @@ void panBatt_A(int first_col, int first_line){
   }
 #endif //MAVLINK10
   else osd.printf("%c%5.2f%c%c", 0xE2, (double)osd_vbat_A, 0x8E, osd_battery_pic_A);
-
+*/
+  osd.printf(" %c%5.2f%c", 0xE2, (double)osd_vbat_A, 0x8E);
   osd.closePanel();
 }
 
