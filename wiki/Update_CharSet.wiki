@@ -6,8 +6,7 @@ The ArduCAM OSD base code has an optimized way to draw panels fast on screen. Th
 If you got a .mcm file from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] you can use our configuration tool as explained below.
 
 == ArduCAM OSD Config (Update !CharSet) ==
-
-  # Connect your FTDI Serial adapter;
+  # Connect your FTDI Serial adapter ([https://store.diydrones.com/FTDI_Cable_3_3V_p/ttl-232r-3v3.htm Like this one]);
   # Select the proper Serial COM Port (on the example bellow is COM12. Your adapter may use another one);
   # Go to menu *Options* and select *Update !CharSet*.
   # Select the desired .mcm file from your PC and press *Open*;
