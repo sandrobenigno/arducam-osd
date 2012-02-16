@@ -1,3 +1,4 @@
+#labels customers,setup,wiring
 == Table of Contents ==
 
  * *Introduction*
@@ -6,7 +7,8 @@
   * MinimOSD
    * [minimosd ArduPilot OSD for FPV]
    * [How_to_start_minim Quick Start Guide]
-  * ArduCAM OSD
+   * [Customers_Setup Setup from Customers]
+  * ArduCAM OSD (WIP)
    * [arducam_328p ArduCam OSD 328p]
    * [How_to_start Quick Start Guide]
    * [media_files See it working]
