@@ -7,6 +7,7 @@
   * MinimOSD
    * [minimosd ArduPilot OSD for FPV]
    * [How_to_start_minim Quick Start Guide]
+   * [GCS_usage Using a GCS Simultaneously]
    * [Customers_Setup Setup from Customers]
   * ArduCAM OSD (WIP)
    * [arducam_328p ArduCam OSD 328p]
