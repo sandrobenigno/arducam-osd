@@ -1,7 +1,9 @@
 #labels customers,setup,minimosd
 #Section showing how customers are wiring and using their MinimOSD boards.
 
-= How this section works =
+= Setup from Customers =
+
+== How this section works ==
 
 We pretend to post here relevant setup wiring diagrams or pictures from the community. Our objective here is share knowledge, help starters finding extra information and ideas from experienced users.
 
