@@ -2,8 +2,11 @@
 
 == Basic wiring Diagram ==
 
-This is a basic diagram for using the MinimOSD aboard:
+The orignal MinimOSD's power setup provides two stages to avoid noises coming from servos attached to your !ArduPilot boards. Those noises could introduce some glitches on video signal. The independent analog powering from a dedicated battery will heat the board considerably, but the video is the most clean as possible from MAX7456.
 
+Maybe you don't need to use the two stages. The way those noises would impact on the video signal will vary depending on a chain of aspects like servo's brand, model, cables length, etc. So, try yourself and see if it's important for your setup.
+
+Here is the basic diagram which uses two stages approach of MinimOSD board:
 http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
 
 *OPTIONAL SETUP (for critical cooling conditions)*
@@ -11,14 +14,3 @@ http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
 The second stage regulator from the OSD board gets too hot on 12V video setups. If your frame has not a good air flow for cooling the OSD board you may want to feed the OSD entirely from APM. Probably it will add some noises from servos, but you'll be more safe by this way:
 <br><br>
 http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD_OP.jpg
-
-== Using a GSC simultaneously ==
-
-MinimOSD's TX is NOT connected if there is also a "wireless serial link" in parallel (E.g.: XBee) in order to use a Ground Control Station simultaneously.<br>
-To use a wireless serial link and MinimOSD at same time, you need to make an "Y" cable or prepare your APM IMU board to have a parallel "mirror" connection.
-
-Bellow is a picture of a nice solution using bent 20mm long male pin-headers.<br>
- * *Upper mirror pins:* "TX" from MinimOSD is NOT connected on the APM's telemetry port input.
- * *Lower mirror pins:* all the four wires are connected to the wireless serial link.
-
-http://arducam-osd.googlecode.com/svn/wiki/images/Preparing_APM.jpg
