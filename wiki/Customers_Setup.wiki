@@ -1,7 +1,7 @@
 #labels customers,setup,minimosd
 #Section showing how customers are wiring and using their MinimOSD boards.
 
-= MinimOSD Setup from Customers =
+= MinimOSD - Setup from Customers =
 
 == How this section works ==
 
