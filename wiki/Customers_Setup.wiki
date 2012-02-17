@@ -19,5 +19,5 @@ Disclaimer: Though we do quick check for setup consistence, we cannot try all th
   * Video Bat: Turnigy 1300mAh 3S 20C Lipo Pack
   * Video Tx: ImmersionRC 600mW 5.8GHz. Frequencies: 5740, 5760, 5780, 5800, 5820, 5840, 5860MHz
 
-*[http://arducam-osd.googlecode.com/svn/wiki/images/custom/FPV168_Eagle_big.jpg >>>view full size<<<]*
+*[http://arducam-osd.googlecode.com/svn/wiki/images/custom/Connect_FPV168_big.jpg >>>view full size<<<]*
 http://arducam-osd.googlecode.com/svn/wiki/images/custom/FPV168_Eagle.jpg
