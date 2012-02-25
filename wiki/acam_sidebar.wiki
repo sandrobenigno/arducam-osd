@@ -22,3 +22,6 @@
   * [harware_reduced Small USB Host] 
  * *Whats going on?*
  * [project_goals Status and Goals]
+
+<br/>
+http://arducam-osd.googlecode.com/svn/wiki/images/OS_banner.jpg
