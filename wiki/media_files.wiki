@@ -11,14 +11,14 @@ The camera control works fine with latest PTP Remote controlled cameras from Can
 
 <wiki:video url="http://www.youtube.com/watch?v=e_8vO9JBHrw"/>
 
-The next challenge includes several changes to turn possible a !PTP solution based on CHDK. That's needed because Canon retired that !PTP resource from newer !PowerShot cams. 
+The next challenge includes several changes to turn possible a PTP solution based on CHDK. That's needed because Canon retired that PTP resource from newer !PowerShot cams. 
 
 <br/>
-Here you can see the !OSD solution working. <br/>
+Here you can see the OSD solution working. <br/>
 
 <wiki:video url="http://www.youtube.com/watch?v=gD1JAz4oEDI"/>
 
-MAVLink data is coming out from !ArduPilot !Mega's telemetry port and updating data in flight.
+MAVLink data is coming out from !ArduPilot Mega telemetry port and updating data in flight.
 
 <wiki:comment>
 <wiki:video url="http://www.youtube.com/watch?v=ovupihcE1uo"/> 
