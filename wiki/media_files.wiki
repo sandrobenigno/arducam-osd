@@ -21,6 +21,6 @@ Flight record from André Kjellstrup using MinimOSD.
 
 ==PTP Remote Control (WIP)==
 
-The camera control works fine with latest PTP Remote controlled cameras from Canon. The next challenge includes several changes to turn possible a PTP solution based on CHDK. That's needed because Canon retired the awesome PTP resource from newer !PowerShot cams.
+The camera control works fine with PTP Remote controlled cameras from Canon. However, the next challenge includes several changes to create a PTP solution based on CHDK. That's needed because Canon retired the awesome PTP resource from all the newest !PowerShot cams.
 
 <wiki:video url="http://www.youtube.com/watch?v=e_8vO9JBHrw"/>
