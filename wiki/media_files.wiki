@@ -18,7 +18,7 @@ Here you can see the OSD solution working. <br/>
 
 <wiki:video url="http://www.youtube.com/watch?v=gD1JAz4oEDI"/>
 
-MAVLink data is coming out from !ArduPilot Mega telemetry port and updating data in flight.
+MAVLink data is coming out from !ArduPilot Mega telemetry port and updating OSD panels in flight.
 
 <wiki:comment>
 <wiki:video url="http://www.youtube.com/watch?v=ovupihcE1uo"/> 
