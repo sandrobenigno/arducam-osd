@@ -3,6 +3,7 @@
 
  * *Introduction*
  * [arducam_osd About this Project]
+ * [media_files See it working]
  * *OSD Boards*
   * MinimOSD
    * [minimosd ArduPilot OSD for FPV]
@@ -12,7 +13,6 @@
   * ArduCAM OSD (WIP)
    * [arducam_328p ArduCam OSD 328p]
    * [How_to_start Quick Start Guide]
-   * [media_files See it working]
    * [PTP_compatibility Does it suitable to my cam?]
  * [OSD_Config_Tool OSD Config Features]
  * [Update_Firmware Update Firmware]
