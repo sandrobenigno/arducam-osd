@@ -4,18 +4,22 @@
 
 The APM that is mentioned at the end of video bellow is the awesome UAV platform [http://code.google.com/p/ardupilot-mega/wiki/home?tm=6 ArduPilot Mega].
 
-!ArduPilot Mega is the UAV platform used on the fantastic [http://code.google.com/p/arducopter/ ArduCopter].
+!ArduPilot Mega is the UAV platform used to control flying robots like !ArduPlane and !ArduCopter.
 
 <br/>
+The camera control works fine with latest PTP Remote controlled cameras from Canon.
 
 <wiki:video url="http://www.youtube.com/watch?v=e_8vO9JBHrw"/>
 
-The base code was finished. But it was not integrated with any external telemetry.
+The next challenge includes several changes to turn possible a !PTP solution based on CHDK. That's needed because Canon retired that !PTP resource from newer !PowerShot cams. 
 
-Here you can see some OSD panels simulating data coming from !ArduPilot Mega (It will be integrated by using MAVlink).
+<br/>
+Here you can see the !OSD solution working. <br/>
 
+<wiki:video url="http://www.youtube.com/watch?v=gD1JAz4oEDI"/>
+
+MAVLink data is coming out from !ArduPilot !Mega's telemetry port and updating data in flight.
+
+<wiki:comment>
 <wiki:video url="http://www.youtube.com/watch?v=ovupihcE1uo"/> 
-
-Even the camera control part need several changes to improve error tracking, to turn possible other PTP commands and so on.
-
-If you want to try the current code, just check it out from [http://code.google.com/p/arducam-osd/source/browse/trunk here]. 
+</wiki:comment>
