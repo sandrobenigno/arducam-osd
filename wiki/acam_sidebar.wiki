@@ -24,4 +24,4 @@
  * [project_goals Status and Goals]
 
 <br/>
-http://arducam-osd.googlecode.com/svn/wiki/images/OS_banner.jpg
+<wiki:comment>http://arducam-osd.googlecode.com/svn/wiki/images/OS_banner.jpg</wiki:comment>
