@@ -6,7 +6,7 @@
 BetterStream	*mavlink_comm_0_port;
 BetterStream	*mavlink_comm_1_port;
 
-mavlink_system_t mavlink_system = {7,1,0,0};
+mavlink_system_t mavlink_system = {12,1,0,0};
 
 #include "Mavlink_compat.h"
 
@@ -46,9 +46,6 @@ void read_mavlink(){
   mavlink_message_t msg; 
   mavlink_status_t status;
   
-  // this might need to move to the flight software
-  static mavlink_system_t mavlink_system = {12,1,0,0};
-
   //grabing data 
   while(Serial.available() > 0) { 
     uint8_t c = Serial.read();
@@ -106,8 +103,12 @@ void read_mavlink(){
           {
             osd_lat = mavlink_msg_gps_raw_get_lat(&msg);
             osd_lon = mavlink_msg_gps_raw_get_lon(&msg);
-            //osd_alt = mavlink_msg_gps_raw_get_alt(&msg);
             osd_fix_type = mavlink_msg_gps_raw_get_fix_type(&msg);
+          }
+          break;
+        case MAVLINK_MSG_ID_GPS_STATUS:
+          {
+            osd_satellites_visible = mavlink_msg_gps_status_get_satellites_visible(&msg);
           }
           break;
 #else
@@ -115,16 +116,12 @@ void read_mavlink(){
           {
             osd_lat = mavlink_msg_gps_raw_int_get_lat(&msg) / 10000000;
             osd_lon = mavlink_msg_gps_raw_int_get_lon(&msg) / 10000000;
-            //osd_alt = mavlink_msg_gps_raw_get_alt(&msg);
             osd_fix_type = mavlink_msg_gps_raw_int_get_fix_type(&msg);
+            osd_satellites_visible = mavlink_msg_gps_raw_int_get_satellites_visible(&msg);
           }
           break;
 #endif          
-        case MAVLINK_MSG_ID_GPS_STATUS:
-          {
-            osd_satellites_visible = mavlink_msg_gps_status_get_satellites_visible(&msg);
-          }
-          break;
+
         case MAVLINK_MSG_ID_VFR_HUD:
           {
             osd_groundspeed = mavlink_msg_vfr_hud_get_groundspeed(&msg);
