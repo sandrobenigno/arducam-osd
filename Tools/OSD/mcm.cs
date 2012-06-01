@@ -13,14 +13,14 @@ namespace OSD
         public static Bitmap[] readMCM(string file)
         {
             Bitmap[] imagearray = new Bitmap[256];
-            
+
             if (!File.Exists(file))
             {
                 System.Windows.Forms.MessageBox.Show("Font file does not exist : " + file);
                 return imagearray;
             }
 
-            for (int a = 0; a < imagearray.Length;a++ )
+            for (int a = 0; a < imagearray.Length; a++)
             {
                 imagearray[a] = new Bitmap(12, 18);
             }
@@ -31,7 +31,7 @@ namespace OSD
 
             // 00 black   10 white   x1 = trans/grey
 
-            int x=0, y=0;
+            int x = 0, y = 0;
 
             int image = 0;
 
@@ -50,7 +50,7 @@ namespace OSD
                             line = sr.ReadLine();
                             if (line == null)
                                 return imagearray;
-                            }
+                        }
 
                         string i1 = line.Substring((x % 4) * 2, 2);
 
@@ -75,7 +75,7 @@ namespace OSD
                 }
 
                 // left
-                int left = 256- 216;
+                int left = 256 - 216;
                 while ((left / 4) > 0)
                 {
                     sr.ReadLine(); // 1
