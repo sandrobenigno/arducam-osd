@@ -1219,12 +1219,6 @@ namespace OSD
             }
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DTR d = new DTR();
-            d.Show();
-        }
-
         private void updateFontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStripProgressBar1.Style = ProgressBarStyle.Continuous;        
