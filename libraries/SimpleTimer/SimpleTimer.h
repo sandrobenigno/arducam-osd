@@ -19,7 +19,12 @@ e-mail   :  support@circuitsathome.com
 
 #include <inttypes.h>
 #include <avr/pgmspace.h>
-#include "WProgram.h"
+// Get the common arduino functions
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "Arduino.h"
+#else
+	#include "wiring.h"
+#endif
 
 #define MSB_MASK	0x80000000
 

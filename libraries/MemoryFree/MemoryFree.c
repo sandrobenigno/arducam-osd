@@ -3,7 +3,12 @@
  * returns the number of free RAM bytes
 */
 
-#include "WProgram.h"  
+// Get the common arduino functions
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "Arduino.h"
+#else
+	#include "wiring.h"
+#endif
 #include "MemoryFree.h"
 
 extern unsigned int __data_start;

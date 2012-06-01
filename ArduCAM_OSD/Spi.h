@@ -1,7 +1,12 @@
 #ifndef Spi_h
 #define Spi_h
 
-#include "WProgram.h"
+// Get the common arduino functions
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "Arduino.h"
+#else
+	#include "wiring.h"
+#endif
 
 #define SCK_PIN   13
 #define MISO_PIN  12
