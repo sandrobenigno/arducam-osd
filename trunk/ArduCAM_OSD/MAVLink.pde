@@ -1,19 +1,26 @@
 #define MAVLINK_COMM_NUM_BUFFERS 1
 #define MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
+// this code was moved from libraries/GCS_MAVLink to allow compile
+// time selection of MAVLink 1.0
+BetterStream	*mavlink_comm_0_port;
+BetterStream	*mavlink_comm_1_port;
+
+mavlink_system_t mavlink_system = {7,1,0,0};
+
 #include "Mavlink_compat.h"
 
 #ifdef MAVLINK10
-# include "../GCS_MAVLink/include_v1.0/mavlink_types.h"
+#include "../GCS_MAVLink/include/mavlink/v1.0/mavlink_types.h"
+#include "../GCS_MAVLink/include/mavlink/v1.0/ardupilotmega/mavlink.h"
 #else
-# include "../GCS_MAVLink/include/mavlink_types.h"
+#include "../GCS_MAVLink/include/mavlink/v0.9/mavlink_types.h"
+#include "../GCS_MAVLink/include/mavlink/v0.9/ardupilotmega/mavlink.h"
 #endif
 
 // true when we have received at least 1 MAVLink packet
 static bool mavlink_active;
 static uint8_t crlf_count = 0;
-
-#include "../GCS_MAVLink/include/ardupilotmega/mavlink.h"
 
 static int packet_drops = 0;
 static int parse_error = 0;

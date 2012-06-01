@@ -86,7 +86,6 @@
 
 // Objects and Serial definitions
 FastSerialPort0(Serial);
-
 OSD osd; //OSD object 
 
 SimpleTimer  mavlinkTimer;
