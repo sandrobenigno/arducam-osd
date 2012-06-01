@@ -59,7 +59,12 @@
 #include <math.h>
 #include <inttypes.h>
 #include <avr/pgmspace.h>
-#include "WProgram.h"
+// Get the common arduino functions
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "Arduino.h"
+#else
+	#include "wiring.h"
+#endif
 #include <EEPROM.h>
 #include <SimpleTimer.h>
 #include <GCS_MAVLink.h>

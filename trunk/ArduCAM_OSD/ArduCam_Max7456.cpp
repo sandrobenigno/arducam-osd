@@ -2,7 +2,12 @@
 #include <FastSerial.h>
 
 #include "ArduCam_Max7456.h"
-#include "WProgram.h"
+// Get the common arduino functions
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "Arduino.h"
+#else
+	#include "wiring.h"
+#endif
 #include "Spi.h"
 
 volatile int x;
@@ -98,6 +103,7 @@ int OSD::getMode()
       return 1;
       break;
   }
+  return 0;
 }
 
 //------------------ Get Center (PAL/NTSC) ----------------------------------
@@ -201,7 +207,7 @@ OSD::openSingle(uint8_t x, uint8_t y){
 
 //------------------ write ---------------------------------------------------
 
-void
+size_t
 OSD::write(uint8_t c){
   if(c == '|'){
     closePanel(); //It does all needed to finish auto increment and change current row
@@ -211,6 +217,7 @@ OSD::write(uint8_t c){
     Spi.transfer(MAX7456_DMDI_reg);
     Spi.transfer(c);
   }
+  return 1;
 }
 
 //---------------------------------
