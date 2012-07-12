@@ -17,7 +17,7 @@
   * Prototype Hardware
    * [hardware_current Breakout boards/shields]
    * [harware_reduced Small USB Host]
-   * [arducam_328p ArduCam Prototype]
+   * [arducam_328p USB/OSD 328p Prototype]
    * [How_to_start Developer Quick Start Guide]
    * [PTP_compatibility Does it suitable to my cam?]
  * [project_goals Status and Goals]
