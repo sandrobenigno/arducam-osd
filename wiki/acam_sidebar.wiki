@@ -6,7 +6,7 @@
 
 ----
 
-*Products*
+===Products===
 
  * MinimOSD
   * [minimosd ArduPilotMega's OSD]
@@ -19,7 +19,7 @@
 
 ----
  
-*Development*
+===Development===
 
    * Prototype Hardware
     * [hardware_current Breakout boards/shields]
