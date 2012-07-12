@@ -9,10 +9,10 @@
   * [minimosd ArduPilotMega's OSD]
   * [How_to_start_minim Quick Start Guide]
   * [GCS_usage Using with a GCS]
-  * [Customers_Setup Setup from Customers]
   * [OSD_Config_Tool OSD Config Features]
   * [Update_Firmware Update Firmware]
   * [Update_CharSet Update CharSet]
+  * [Customers_Setup Setup from Customers]
 ----
  
 *Development*
