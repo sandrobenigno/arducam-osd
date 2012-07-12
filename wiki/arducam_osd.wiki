@@ -1,43 +1,14 @@
-#summary Main wiki page.
-
 http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 
-<br/>
+The project is about providing camera solutions for UAV projects as telemetry over OSD and/or camera control, etc.
+As the project is based on Arduino, it could be hacked to fit many other applications.
 
-= About the Project =
+==MinimOSD==
 
+http://arducam-osd.googlecode.com/svn/wiki/images/MinimOSD.jpg
 
-The project is about adding camera and OSD telemetry to UAV projects using [http://code.google.com/p/ardupilot-mega/wiki/home ArduPilot Mega], otherwise, it could be hacked to be used on every kind of projects.
+<br>
+*[minimosd MinimOSD:]* is a product board from DIYDrones and 3DRobotics which provides OSD telemetry out-of-the-box to [http://code.google.com/p/ardupilot-mega/wiki/home ArduPilot Mega].
 
-Depending on the hardware choice you can achieve OSD telemetry out-of-the-box or even communicate with external USB devices, like controlling digital cameras remotely using USB PTP commands.
-
-There are two kind of boards on this project.<br>
-Both are attached between the !ArduPilot and your video equipment:
-
- * *[arducam_328p ArduCAM OSD:]* APM OSD board and USB Host to PTP remote capable digital cameras
- * *[minimosd MinimOSD:]* APM OSD board to RC FPV cameras and video links
-
-Those two classes of board add telemetry data to the video signal coming from the camera aboard by reading !ArduPilot [http://qgroundcontrol.org/mavlink/start MAVLink] messages.
-
-Note: Optionally, you can use those boards on ground, using a wireless serial link between your APM and the OSD board. However, the digicam control is no long possible on this way.
-
-== Project History ==
-
-To use high quality digital cameras with full remote control in the air is a dream for a lot of people including me. Some time ago I started to read all I could find about it.
-
-In mean time I found a very interesting Linux project called GPhoto. After connecting my Cannon Power Shot S3is on the PC's USB and playing around with GPhoto, it brought the central question: "How can I replace the PC with something smaller and lighter?".
-
-After some time, the answer came from "Circuits at Home" page. The great guy --Oleg Mazurov-- not only created the "USB Host Shield" for Arduino, but even started to discuss about porting the PTP protocol to it. It was not long for  Oleg show us the fantastic PTP library and a Canon EOS implementation. I just bought my board and started to think about how to port it to smaller cams with addition of the OSD capacity. I read the EOS code and sent some questions by e-mail to Oleg. He helped me to start with the S3is, teach me how to understand the extracted USB dumps and give me all the orientation. Like I said, he is a great guy. At same time, I found the Max7456 breakout board. Well, all started from that point.
-
-
-Initially, the work will concentrate on PTP compatible Canon Power Shot cameras.
-
-The reason is:
-
- # it have A/V output separated from USB port;
- # it's capable to send video signal when in PTP remote controlling mode;
- # it tends to be smaller an more lightweight than EOS ones.
-
-In future, the project will need to expand the control to other Canon Power Shoot cameras that don't have PTP from factory, by inserting PTP commands on hacked firmwares like the awesome [http://chdk.wikia.com/wiki/CHDK CHDK].
-
-Maybe it will be possible trying to extend it to other camera brands by hacking their firmwares, but it's in a distant future of this project.
+MinimOSD is the perfect solution for attaching FPV cameras to your drones.
+It adds telemetry data to the video signal coming from the camera aboard by reading [http://qgroundcontrol.org/mavlink/start MAVLink] messages from !ArduPilot's telemetry port.
