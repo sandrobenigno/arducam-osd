@@ -1,9 +1,9 @@
 #labels customers,setup,wiring
- * ===ArduCAM OSD Project===
+ * ArduCAM OSD Project
  * [arducam_osd About this Project]
  * [media_files See it working]
-
- * ===Products===
+ * ----
+ * *Products*
  * MinimOSD
   * [minimosd ArduPilotMega's OSD]
   * [How_to_start_minim Quick Start Guide]
@@ -12,8 +12,8 @@
   * [Update_Firmware Update Firmware]
   * [Update_CharSet Update CharSet]
   * [Customers_Setup Setup from Customers]
-
- * ===Development===
+ * ----
+ * *Development*
   * Prototype Hardware
    * [hardware_current Breakout boards/shields]
    * [harware_reduced Small USB Host]
