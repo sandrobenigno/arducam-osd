@@ -1,5 +1,5 @@
 #labels customers,setup,wiring
- * ArduCAM OSD Project
+ * *ArduCAM OSD Project*
  * [arducam_osd About this Project]
  * [media_files See it working]
  * ----
