@@ -1,9 +1,9 @@
 #labels Configure,Update,Firmware
-= Updating Firmware =
+= Updating MinimOSD Firmware =
 
 If you just want to update your OSD board, the easiest way is using released .hex files from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] and use our configuration tool like explained below.
 
-== ArduCAM OSD Config (Update Firmware) ==
+== Using ArduCAM Config Tool ==
 
   # Connect your FTDI Serial adapter ([https://store.diydrones.com/FTDI_Cable_3_3V_p/ttl-232r-3v3.htm Like this one]);
   # Select the proper Serial COM Port (on the example bellow is COM12. Your adapter may use another one);
