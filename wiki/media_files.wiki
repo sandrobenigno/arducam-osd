@@ -10,7 +10,7 @@ The APM that is mentioned at the end of video bellow is the awesome UAV platform
 ==OSD solution==
 
 MAVLink data is coming out from !ArduPilot Mega telemetry port and updating OSD panels in flight. 
-Flight record from André Kjellstrup using MinimOSD.
+Flight record from André Kjellstrup using [minimosd MinimOSD].
 
 <wiki:video url="http://www.youtube.com/watch?v=gD1JAz4oEDI"/>
 
