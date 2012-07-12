@@ -5,7 +5,7 @@
  * ----
  * *Products*
  * MinimOSD
-  * [minimosd ArduPilotMega's OSD]
+  * [minimosd Introdution]
   * [How_to_start_minim Quick Start Guide]
   * [GCS_usage Using with a GCS]
   * [OSD_Config_Tool OSD Config Features]
