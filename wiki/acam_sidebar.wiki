@@ -4,8 +4,6 @@
  * [arducam_osd About this Project]
  * [media_files See it working]
 
-----
-
 ===Products===
 
  * MinimOSD
@@ -17,8 +15,6 @@
   * [Update_CharSet Update CharSet]
   * [Customers_Setup Setup from Customers]
 
-----
- 
 ===Development===
 
    * Prototype Hardware
