@@ -1,5 +1,5 @@
 #labels Configure,Update,Firmware
-= Update Firmware =
+= Updating Firmware =
 
 If you just want to update your OSD board, the easiest way is using released .hex files from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] and use our configuration tool like explained below.
 
