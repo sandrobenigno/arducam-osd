@@ -1,6 +1,6 @@
 #summary About DIYDrone's ArduCam OSD - Atmega328p.
 
-=!USB/OSD 328p Prototype Board (in development)=
+=USB/OSD 328p Prototype Board (in development)=
 
 
 *Introduction and Features List*
