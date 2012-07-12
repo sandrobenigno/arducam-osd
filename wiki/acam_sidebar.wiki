@@ -5,22 +5,24 @@
  * [arducam_osd About this Project]
  * [media_files See it working]
  * *Products*
-  * MinimOSD
-   * [minimosd ArduPilot OSD for FPV]
-   * [How_to_start_minim Quick Start Guide]
-   * [GCS_usage Using with a GCS]
-   * [Customers_Setup Setup from Customers]
-   * [OSD_Config_Tool OSD Config Features]
-   * [Update_Firmware Update Firmware]
-   * [Update_CharSet Update CharSet]
- * *Work in Progress*
- * Prototype Hardware
-  * [hardware_current Breakout boards/shields]
-  * [harware_reduced Small USB Host]
-  * [arducam_328p ArduCam OSD 328p]
-  * [How_to_start Quick Start Guide]
-  * [PTP_compatibility Does it suitable to my cam?]
- * [project_goals Status and Goals]
+ * MinimOSD
+  * [minimosd ArduPilot OSD for FPV]
+  * [How_to_start_minim Quick Start Guide]
+  * [GCS_usage Using with a GCS]
+  * [Customers_Setup Setup from Customers]
+  * [OSD_Config_Tool OSD Config Features]
+  * [Update_Firmware Update Firmware]
+  * [Update_CharSet Update CharSet]
+----
+ 
+*Development*
+   * Prototype Hardware
+    * [hardware_current Breakout boards/shields]
+    * [harware_reduced Small USB Host]
+    * [arducam_328p ArduCam OSD 328p]
+    * [How_to_start Quick Start Guide]
+    * [PTP_compatibility Does it suitable to my cam?]
+  * [project_goals Status and Goals]
 
 <br/>
 <wiki:comment>http://arducam-osd.googlecode.com/svn/wiki/images/OS_banner.jpg</wiki:comment>
