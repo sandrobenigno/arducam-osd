@@ -2,8 +2,8 @@ http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 
 The project is about providing camera solutions for UAV projects as telemetry over OSD and/or camera control, etc.
 As the project is based on Arduino, it could be hacked to fit many other applications.
-
-==MinimOSD==
+<br><br>
+==MinimOSD - The first product based on ArduCAM OSD Project==
 
 http://arducam-osd.googlecode.com/svn/wiki/images/MinimOSD.jpg
 
