@@ -6,7 +6,7 @@
  * [media_files See it working]
  * *Products*
  * MinimOSD
-  * [minimosd ArduPilot OSD for FPV]
+  * [minimosd ArduPilotMega's OSD]
   * [How_to_start_minim Quick Start Guide]
   * [GCS_usage Using with a GCS]
   * [Customers_Setup Setup from Customers]
