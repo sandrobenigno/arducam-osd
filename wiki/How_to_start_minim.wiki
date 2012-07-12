@@ -1,6 +1,6 @@
 #summary How to wire DIYDrone's MinimOSD and attach it to ArduPilot Mega board.
 
-== Basic wiring Diagram ==
+== MinimOSD - Basic wiring Diagram ==
 
 The orignal MinimOSD's power setup provides two stages to avoid noises coming from servos attached to your !ArduPilot boards. Those noises could introduce some glitches on video signal. The independent analog powering from a dedicated battery will heat the board considerably, but the video is the most clean as possible from MAX7456.
 
