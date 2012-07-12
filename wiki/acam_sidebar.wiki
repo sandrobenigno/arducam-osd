@@ -1,11 +1,8 @@
 #labels customers,setup,wiring
-== Table of Contents ==
-
  * [arducam_osd About this Project]
  * [media_files See it working]
 
 ===Products===
-
  * MinimOSD
   * [minimosd ArduPilotMega's OSD]
   * [How_to_start_minim Quick Start Guide]
@@ -16,14 +13,13 @@
   * [Customers_Setup Setup from Customers]
 
 ===Development===
-
-   * Prototype Hardware
-    * [hardware_current Breakout boards/shields]
-    * [harware_reduced Small USB Host]
-    * [arducam_328p ArduCam OSD 328p]
-    * [How_to_start Quick Start Guide]
-    * [PTP_compatibility Does it suitable to my cam?]
-  * [project_goals Status and Goals]
+  * Prototype Hardware
+   * [hardware_current Breakout boards/shields]
+   * [harware_reduced Small USB Host]
+   * [arducam_328p ArduCam OSD 328p]
+   * [How_to_start Quick Start Guide]
+   * [PTP_compatibility Does it suitable to my cam?]
+ * [project_goals Status and Goals]
 
 <br/>
 <wiki:comment>http://arducam-osd.googlecode.com/svn/wiki/images/OS_banner.jpg</wiki:comment>
