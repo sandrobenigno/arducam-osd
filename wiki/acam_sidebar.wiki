@@ -7,6 +7,7 @@
 ----
 
 *Products*
+
  * MinimOSD
   * [minimosd ArduPilotMega's OSD]
   * [How_to_start_minim Quick Start Guide]
@@ -19,6 +20,7 @@
 ----
  
 *Development*
+
    * Prototype Hardware
     * [hardware_current Breakout boards/shields]
     * [harware_reduced Small USB Host]
