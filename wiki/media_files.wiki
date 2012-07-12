@@ -9,17 +9,18 @@ The APM that is mentioned at the end of video bellow is the awesome UAV platform
 
 ==OSD solution==
 
-MAVLink data is coming out from !ArduPilot Mega telemetry port and updating OSD panels in flight.
+MAVLink data is coming out from !ArduPilot Mega telemetry port and updating OSD panels in flight. 
+Flight record from André Kjellstrup using MinimOSD.
 
 <wiki:video url="http://www.youtube.com/watch?v=gD1JAz4oEDI"/>
 
-Flight record from André Kjellstrup using MinimOSD.
+
 
 <wiki:comment>
 <wiki:video url="http://www.youtube.com/watch?v=ovupihcE1uo"/> 
 </wiki:comment>
 
-==PTP Remote Control (WIP)==
+==PTP Remote Control (work in progress)==
 
 The camera control works fine with PTP Remote controlled cameras from Canon. However, the next challenge includes several changes to create a PTP solution based on CHDK. That's needed because Canon retired the awesome PTP resource from all the newest !PowerShot cams.
 
