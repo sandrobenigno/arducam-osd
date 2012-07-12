@@ -12,7 +12,7 @@ So, it reads [http://qgroundcontrol.org/mavlink/start MAVLink] messages from its
 
 = Details =
 
-It also has the Max7456 chip, however, it's powered differently to avoid noises from servos attached to !ArduPilot Mega board.<br>
+It has the Max7456 chip powered by two stages to avoid noises from servos attached to !ArduPilot Mega board.<br>
 It provides an extra clean power line to feed the FPV camera and video link.<br>
 
 The approach is to use two external power sources: 12V from a Lipo Battery and 5V from APM:
@@ -30,8 +30,6 @@ http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
 
 http://arducam-osd.googlecode.com/svn/wiki/images/PowerTieMinimOSD.jpg
 
-There is no that USB host chip (Max3421), like on the ArduCAM OSD (for PTP digicams remote control).
-It means extra free memory and also less timers on the main loop.<br>
 MinimOSD has no extra pins exposed, because the concept is "capturing all the needed data from MAVLink".<br>
 E.g.: to show RSSI from RC receiver, that info needs to be on msgs #35 and #36 (RC_CHANNELS "RAW" and "SCALED").<br>
 So, the analog reading of RSSI output from receiver needs to be done on APM analog ports and treated inside the APM code.
