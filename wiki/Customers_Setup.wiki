@@ -13,10 +13,10 @@ Disclaimer: Though we do quick check for setup consistence, we cannot try all th
 
 == FPV168 ==
 
-  * *Aircraft:* HobbyKing FPV 168
+  * *Aircraft:* !HobbyKing FPV 168
   * *Camera:* GoPRO Hero
   * *Customer:* [http://diydrones.com/photo/connect-fpv168?context=user Eagle] (view original full size)
   * Video Bat: Turnigy 1300mAh 3S 20C Lipo Pack
-  * Video Tx: ImmersionRC 600mW 5.8GHz. Frequencies: 5740, 5760, 5780, 5800, 5820, 5840, 5860MHz
+  * Video Tx: !ImmersionRC 600mW 5.8GHz. Frequencies: 5740, 5760, 5780, 5800, 5820, 5840, 5860MHz
 
 http://arducam-osd.googlecode.com/svn/wiki/images/custom/FPV168_Eagle.jpg
