@@ -1,7 +1,5 @@
 #labels GCS,minimosd,wiring
-#How to use an OSD board with a Ground Control Station.
-
-= MinimOSD - Using a GSC simultaneously =
+= MinimOSD - Using simultaneously with a Ground Station =
 
 MinimOSD's TX is NOT connected if there is also a "wireless serial link" in parallel (E.g.: XBee) in order to use a Ground Control Station simultaneously.<br>
 To use a wireless serial link and MinimOSD at same time, you need to make an "Y" cable or prepare your APM IMU board to have a parallel "mirror" connection.
