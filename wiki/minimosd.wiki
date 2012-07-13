@@ -26,7 +26,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
         * Feeds the ATmega 328P and Max7456's digital line (DVDD and DGND);
 
 <br><br>
-*Note:* Optionaly, you can use two solder jumps to "tie" digital and analog lines.
+*Note:* Optionally, you can use two solder jumps to "tie" digital and analog lines.
 
 http://arducam-osd.googlecode.com/svn/wiki/images/PowerTieMinimOSD.jpg
 
