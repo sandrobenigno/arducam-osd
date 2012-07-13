@@ -1,5 +1,5 @@
 #labels customers,setup,minimosd
-#Section showing how customers are wiring and using their MinimOSD boards.
+(This section shows how customers have wired and used their own MinimOSD boards)
 
 = MinimOSD - Setup from Customers =
 
