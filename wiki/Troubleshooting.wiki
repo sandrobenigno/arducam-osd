@@ -2,4 +2,4 @@
 
 *MiniOSD won't connect to APM*
 
-This is probably due to an outdated firmware that does not support the current MAVLink 1.0 standard used by !ArduPlane and !ArduCopter. Upgrade your MinimOSD firmware to 1.9, which you can find [http://code.google.com/p/arducam-osd/downloads/list here]. Firmware upgrading instructions are [http://code.google.com/p/arducam-osd/wiki/Update_Firmware here].
+This is probably due to outdated firmware that does not support the current MAVLink 1.0 standard used by !ArduPlane and !ArduCopter. Upgrade your MinimOSD firmware to 1.9 or above, which you can find [http://code.google.com/p/arducam-osd/downloads/list here]. Firmware upgrading instructions are [http://code.google.com/p/arducam-osd/wiki/Update_Firmware here].
