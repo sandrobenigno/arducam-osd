@@ -11,6 +11,7 @@
   * [OSD_Config_Tool OSD Config Features]
   * [Update_Firmware Update Firmware]
   * [Update_CharSet Update CharSet]
+  * [Troubleshooting Troubleshooting]
   * [Customers_Setup Setup from Customers]
  * ----
  * *Development*
