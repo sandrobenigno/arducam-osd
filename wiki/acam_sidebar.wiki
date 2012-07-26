@@ -6,7 +6,7 @@
  * *Products*
  * MinimOSD
   * [minimosd Introduction]
-  * [How_to_start_minim Quick Start Guide]
+  * [How_to_start_minim Quick Installation Guide]
   * [GCS_usage Using with a GCS]
   * [OSD_Config_Tool OSD Config Features]
   * [Update_Firmware Update Firmware]
