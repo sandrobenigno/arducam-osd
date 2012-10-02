@@ -1,3 +1,4 @@
+
 //------------------ Heading and Compass ----------------------------------------
 
 static char buf_show[12];
@@ -50,11 +51,23 @@ void setHomeVars(OSD &osd)
   if(osd_got_home == 0 && osd_fix_type > 1){
     osd_home_lat = osd_lat;
     osd_home_lon = osd_lon;
-    osd_home_alt = osd_alt;
+    //osd_home_alt = osd_alt;
     osd_got_home = 1;
   }
   else if(osd_got_home == 1){
-    
+    // JRChange: osd_home_alt: check for stable osd_alt (must be stable for 25*120ms = 3s)
+    if(osd_alt_cnt < 25){
+      if(fabs(osd_alt_prev - osd_alt) > 0.5){
+        osd_alt_cnt = 0;
+        osd_alt_prev = osd_alt;
+      }
+      else
+      {
+        if(++osd_alt_cnt >= 25){
+          osd_home_alt = osd_alt;  // take this stable osd_alt as osd_home_alt
+        }
+      }
+    }
     // shrinking factor for longitude going to poles direction
     float rads = fabs(osd_home_lat) * 0.0174532925;
     double scaleLongDown = cos(rads);
@@ -78,4 +91,6 @@ void setHomeVars(OSD &osd)
     if(osd_home_direction > 16) osd_home_direction = 0;
 
   }
+
 }
+
