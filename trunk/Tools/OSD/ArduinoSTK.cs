@@ -14,6 +14,8 @@ namespace ArdupilotMega
 
         public event ProgressEventHandler Progress;
 
+        public bool down_flag = false;
+
         public new void Open()
         {
             // default dtr status is false
@@ -71,6 +73,10 @@ namespace ArdupilotMega
         /// <returns>true = passed, false = lost connection</returns>
         public bool keepalive()
         {
+            base.DtrEnable = false; //force ATmega reset
+            System.Threading.Thread.Sleep(50);
+            base.DtrEnable = true; 
+            System.Threading.Thread.Sleep(50);
             return connectAP();
         }
         /// <summary>
@@ -83,13 +89,14 @@ namespace ArdupilotMega
             {
                 return false;
             }
-            this.ReadTimeout = 1000;
+            this.ReadTimeout = 1000; 
             int f = 0;
             while (this.BytesToRead < 1)
             {
                 f++;
-                System.Threading.Thread.Sleep(1);
+                System.Threading.Thread.Sleep(1); 
                 if (f > 1000)
+                    //Console.WriteLine("no sync timeout (no data received)");
                     return false;
             }
             int a = 0;
@@ -107,7 +114,7 @@ namespace ArdupilotMega
                     }
                 }
                 Console.WriteLine("btr {0}", this.BytesToRead);
-                Thread.Sleep(10);
+                Thread.Sleep(20); //before 10
                 a++;
             }
             return false;
@@ -140,12 +147,19 @@ namespace ArdupilotMega
                 }
 
                 if (this.ReadByte() != 0x10)  // 0x10
-                    throw new Exception("Lost Sync 0x10");
+                {
+                    down_flag = false;
+                    return data;
+                    //throw new Exception("Lost Sync 0x10");
+                }
             }
             else
             {
-                throw new Exception("Lost Sync 0x14");
+                down_flag = false;
+                return data;
+                //throw new Exception("Lost Sync 0x14");
             }
+            down_flag = true;
             return data;
         }
 
@@ -227,6 +241,7 @@ namespace ArdupilotMega
                 if (!sync())
                 {
                     Console.WriteLine("No Sync");
+                    Progress(0); //reset progress bar
                     return false;
                 }
             }
@@ -274,8 +289,8 @@ namespace ArdupilotMega
             {
                 return false;
             }
-            int loops = (length / 0x100);
-            int totalleft = length;
+            int loops = ((int)length / 0x100); //0x100 = 256
+            int totalleft = (int)length;
             int sending = 0;
 
             for (int a = 0; a <= loops; a++)
@@ -290,7 +305,7 @@ namespace ArdupilotMega
                 }
 
                 if (sending == 0)
-                    return true;
+                    return true; //no more data to send
 
                 setaddress(startaddress);
                 startaddress += (short)sending;
@@ -306,7 +321,7 @@ namespace ArdupilotMega
 
                 if (!sync())
                 {
-                    Console.WriteLine("No Sync");
+                    Console.WriteLine("No Sync in loop count " + a + " of " + loops);
                     return false;
                 }
             }
