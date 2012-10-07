@@ -8,6 +8,8 @@ Thanks to Michael Oborne, we have now an incredible customization and the easies
 With ArduCAM OSD Config you can do all the job in just one place.<br>
 Everything, from update firmware or charset to enable/disable and positioning panels.
 
+Our friends from MinimOSD-Extra's project gave us some awesome contributions making it even more useful and powerful.
+
 You can download it from our [http://code.google.com/p/arducam-osd/downloads/list Download Section].
 
 http://arducam-osd.googlecode.com/svn/wiki/images/config_imgs/front.jpg
