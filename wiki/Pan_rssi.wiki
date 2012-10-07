@@ -6,4 +6,4 @@ RSSI panel indicates your radio signal strength (Received signal strength indica
 
 You need a receiver capable of sending analog RSSI information.
 
-Read more: * [RSSI here]
+Read more: * [Cfg_RSSI here]
