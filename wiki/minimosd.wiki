@@ -37,4 +37,4 @@ So, the analog reading of RSSI output from receiver needs to be done on APM anal
 
 = PAL vs NTSC=
 
-The format of the video does have an impact on how many characters the OSD can fit on the video feed. The MimimOSD will try to detect whether you are using a PAL or NTSC camera - however if it cannot for some reason (e.g there is no camera connected) then it will default to one mode or the other. This default mode can be set by soldering the appropriate solder jumper underneath the board
+The format of the video does have an impact on how many characters the OSD can fit on the video feed. The MimimOSD can be configured by the ArduCAM OSD Config Tool to work at PAL or NTSC. The "PAL" solder jumper underneath the board is not used anymore (Firmware 2.0 or above).
