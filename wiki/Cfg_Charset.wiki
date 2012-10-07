@@ -6,7 +6,7 @@ To upload you need a FTDI cable like this: http://store.diydrones.com/FTDI_Cable
 
 After you connect it, open the latest Config Tool, and select the right port.
 
-http://gabek.dyndns.org:28/wiki/2.PNG
+http://arducam-osd.googlecode.com/svn/wiki/images/frmv2/2.PNG
 
 Be sure that bough side of MinimOSD is powered. Otherwise it will not take.
 
@@ -15,7 +15,7 @@ Be sure that bough side of MinimOSD is powered. Otherwise it will not take.
 
 Click on "Options" menu and choose "Update charset".
 
-http://gabek.dyndns.org:28/wiki/3.PNG
+http://arducam-osd.googlecode.com/svn/wiki/images/frmv2/3.PNG
 
 The charset file is located in Config. Tool directory. (.mcm)
 MinimOSD will show the version of your charset on boot (1.8)

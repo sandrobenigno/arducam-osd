@@ -4,7 +4,7 @@ Overspeed warning is a configurable warning message.
 
 It can be set in CT and also from OSD menu.
 
-http://gabek.dyndns.org:28/wiki/7.PNG
+http://arducam-osd.googlecode.com/svn/wiki/images/frmv2/7.PNG
 
 Just Set the speed that you want MinimOSD to warn you.
 It is depending on your unit measurement setting.
