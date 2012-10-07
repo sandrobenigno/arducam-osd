@@ -1,6 +1,6 @@
 = Video Standards =
 
-Setting video standards is done trough CT.
+Setting video standards is done trough the OSD Config Tool.
 
 It can be set in the "Video Mode" menu.
 
