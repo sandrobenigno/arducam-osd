@@ -1,6 +1,6 @@
 = Introduction =
 
-You can set MinimOSD-Extra to show units that you re familiar with.
+You can set MinimOSD to show units that you re familiar with.
 
 http://gabek.dyndns.org:28/wiki/7.PNG
 
