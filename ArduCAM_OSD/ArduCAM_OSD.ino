@@ -3,19 +3,20 @@
 Copyright (c) 2011.  All rights reserved.
 An Open Source Arduino based OSD and Camera Control project.
 
-Program  : ArduCAM-OSD (Supports the variant: minimOSD)
-Version  : V1.9, 14 February 2012
+Program  : ArduCAM-OSD (MinimOSD [and variants] Firmware)
+Version  : V2.0, October 4th 2012
 Author(s): Sandro Benigno
 Coauthor(s):
 Jani Hirvinen   (All the EEPROM routines)
 Michael Oborne  (OSD Configutator)
+Zóltan Gábor, Pedro Santos and MinimOSD-Extra Team (Extra OSD Tools/Panels)
 Mike Smith      (BetterStream and Fast Serial libraries)
 Special Contribuitor:
 Andrew Tridgell by all the support on MAVLink
 Doug Weibel by his great orientation since the start of this project
 Contributors: James Goppert, Max Levine
 and all other members of DIY Drones Dev team
-Thanks to: Chris Anderson, Jordi Munoz
+Thanks to: Chris Anderson and Jordi Munoz
 
 
 This program is free software: you can redistribute it and/or modify
