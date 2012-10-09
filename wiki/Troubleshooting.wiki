@@ -8,7 +8,7 @@ This is probably due to outdated firmware that does not support the current MAVL
 
 Defective and fuzzy chars are the result of a faulty character updating.
 Max7456's internal memory is really picky about voltage level during a charset update. Usually it happens with some PCs with lower USB voltage.
-The only way to fix that is updating the charset by feeding the board properly. Just making sure it has around 5V there. E.g.: tying the two stages and feeding it by a external battery on the video IO pins.
+The only way to fix that is updating the charset by feeding the board properly. Just making sure it has around 5V there. E.g.: tying the two stages and feeding it by an external battery on the video IO pins.
 
 *Data is showing up only when MinimOSD's TX is connected to APM's RX*
 
