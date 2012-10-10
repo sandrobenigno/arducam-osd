@@ -249,7 +249,6 @@ namespace OSD
             startup = false;
 
 
-            BUT_ResetOSD_EEPROM();
             a = 0;
 
             // first 8
