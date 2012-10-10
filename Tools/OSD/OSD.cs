@@ -1466,8 +1466,9 @@ namespace OSD
 
             //Verify EEPROM version
             if (eeprom[CHK_VERSION] != VER) { // no match
+                MessageBox.Show("The EEPROM mapping is outdated! An automatic update will start.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BUT_ResetOSD_EEPROM(); //write defaults
-                MessageBox.Show("EEPROM Version Updated!", "Infor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("EEPROM mapping updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (!fail)
@@ -2231,7 +2232,7 @@ namespace OSD
                     comPort.DtrEnable = false;
                     comPort.RtsEnable = false;
 
-                    System.Threading.Thread.Sleep(50);
+                    //System.Threading.Thread.Sleep(2);
 
                     comPort.DtrEnable = true;
                     comPort.RtsEnable = true;
