@@ -629,9 +629,9 @@ void panBatt_A(int first_col, int first_line){
 //------------------ Panel: Startup ArduCam OSD LOGO -------------------------------
 
 void panLogo(){
-    osd.setPanel(5, 5);
+    osd.setPanel(7, 4);
     osd.openPanel();
-    osd.printf_P(PSTR("\x20\x20\x20\x20\x20\xba\xbb\xbc\xbd\xbe|\x20\x20\x20\x20\x20\xca\xcb\xcc\xcd\xce|MinimOSD Extra 2.1.1"));
+    osd.printf_P(PSTR("\x20\x20\x20\x20\x20\x20\xba\xbb\xbc\xbd\xbe|\x20\x20\x20\x20\x20\x20\xca\xcb\xcc\xcd\xce|ArduCAM OSD v2.0"));
     osd.closePanel();
 }
 

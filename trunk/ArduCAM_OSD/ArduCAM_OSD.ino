@@ -9,7 +9,7 @@ Author(s): Sandro Benigno
 Coauthor(s):
 Jani Hirvinen   (All the EEPROM routines)
 Michael Oborne  (OSD Configutator)
-Zóltan Gábor, Pedro Santos and MinimOSD-Extra Team (Extra OSD Tools/Panels)
+ZÃ³ltan GÃ¡bor, Pedro Santos and MinimOSD-Extra Team (Extra OSD Tools/Panels)
 Mike Smith      (BetterStream and Fast Serial libraries)
 Special Contribuitor:
 Andrew Tridgell by all the support on MAVLink
@@ -130,21 +130,15 @@ void setup()
     osd.closePanel();
 #endif
 
-    // Just to easy up development things
-#ifdef FORCEINIT
-    InitializeOSD();
-#endif
-
-
-    // Check EEPROM to see if we have initialized it already or not
-    // also checks if we have new version that needs EEPROM reset
-//    if(readEEPROM(CHK1) + readEEPROM(CHK2) != VER) {
-//        osd.setPanel(6,9);
-//        osd.openPanel();
-//        osd.printf_P(PSTR("Missing/Old Config")); 
-//        osd.closePanel();
-        //InitializeOSD();
-//    }
+    // Check EEPROM to for a new version that needs EEPROM reset
+    if(readEEPROM(CHK_VERSION) != VER) {
+        osd.setPanel(3,9);
+        osd.openPanel();
+        osd.printf_P(PSTR("EEPROM mapping outdated!|Update with the OSD Tool.")); 
+        osd.closePanel();
+        // run for ever until EEPROM version is OK 
+        for(;;) {}
+    }
 
     // Get correct panel settings from EEPROM
     readSettings();

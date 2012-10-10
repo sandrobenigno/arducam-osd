@@ -4,7 +4,7 @@
 
 // Version number, incrementing this will erase/upload factory settings.
 // Only devs should increment this
-#define VER 75
+#define VER 76
 
 // EEPROM Stepping, be careful not to overstep. 
 // We reserved floats for just to be sure if some values needs to be
@@ -180,8 +180,7 @@
 #define OSD_BATT_WARN_ADDR 914
 #define OSD_RSSI_WARN_ADDR 916
 
-#define CHK1 1000
-#define CHK2 1006
+#define CHK_VERSION 1010
 
 
 #define EEPROM_MAX_ADDR 1024 // this is 328 chip
