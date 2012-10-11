@@ -13,7 +13,6 @@ using ArdupilotMega;
 using System.Xml;
 using System.Globalization;
 
-
 namespace OSD
 {
     public partial class OSD : Form
@@ -2356,15 +2355,6 @@ namespace OSD
             }
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("https://code.google.com/p/arducam-osd/wiki/arducam_osd?tm=6");
-            }
-            catch { MessageBox.Show("Webpage open failed... do you have a virus?"); }
-        }
-
 
         private void STALL_numeric_ValueChanged(object sender, EventArgs e)
         {
@@ -2456,6 +2446,22 @@ namespace OSD
         private void BRIGHTNESScomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             pan.osd_brightness = (byte)BRIGHTNESScomboBox.SelectedIndex ;
+        }
+
+        private void gettingStartedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://code.google.com/p/arducam-osd/wiki/arducam_osd?tm=6");
+            }
+            catch { MessageBox.Show("Webpage open failed... do you have a virus?"); }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Author: Michael Oborne \nCo-authors: Pedro Santos \n Zoltán Gábor", "About ArduCAM OSD Config", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            AboutBox1 about = new AboutBox1();
+            about.Show();
         }
 
     }
