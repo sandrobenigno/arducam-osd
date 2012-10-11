@@ -105,6 +105,5 @@ namespace OSD
             this.Close() ;
         }
 
-
     }
 }
