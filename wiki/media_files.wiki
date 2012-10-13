@@ -7,7 +7,7 @@ The APM that is mentioned at the end of video bellow is the awesome UAV platform
 !ArduPilot Mega is the UAV platform used to control flying robots like !ArduPlane and !ArduCopter.
 </wiki:comment>
 
-==OSD solution==
+==OSD Solution==
 
 MAVLink data is coming out from !ArduPilot Mega telemetry port and updating OSD panels in flight. 
 Flight record from André Kjellstrup using [minimosd MinimOSD].
