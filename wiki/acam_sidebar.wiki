@@ -8,7 +8,7 @@
   * [minimosd Introduction]
   * [How_to_start_minim Quick Installation Guide]
   * [GCS_usage Using with a GCS]
-  * [OSD_Config_Tool Using Config Tool]
+  * [OSD_Config_Tool OSD Config Tool]
     * [Cfg_Standard Video Standards]
     * [Cfg_Managing_Panels Managing Panels]
     * [Cfg_Screen_Change Set screen change]
