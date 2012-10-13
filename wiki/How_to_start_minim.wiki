@@ -12,6 +12,6 @@ http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD.jpg
 <br>
 *OPTIONAL setup for critical cooling conditions :* (Hardware V0.1 and 1.0 only)
 
-The second stage regulator from the MinimOSD boards earlier than V1.5 gets too hot on 12V video setups. If your frame has not a good air flow for cooling the OSD board you may want to feed the OSD entirely from APM. Probably it will add some noises from servos, but you'll be more safe by this way:
+The second stage regulator from the MinimOSD boards earlier than V1.1 gets too hot on 12V video setups. If your frame has not a good air flow for cooling the OSD board you may want to feed the OSD entirely from APM. Probably it will add some noises from servos, but you'll be more safe by this way:
 <br><br>
 http://arducam-osd.googlecode.com/svn/wiki/images/DiagramaMinimOSD_OP.jpg
