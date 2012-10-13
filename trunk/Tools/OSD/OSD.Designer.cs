@@ -213,11 +213,11 @@
             // BUT_WriteOSD
             // 
             this.BUT_WriteOSD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BUT_WriteOSD.Location = new System.Drawing.Point(701, 522);
+            this.BUT_WriteOSD.Location = new System.Drawing.Point(683, 523);
             this.BUT_WriteOSD.Margin = new System.Windows.Forms.Padding(4);
-            this.BUT_WriteOSD.MinimumSize = new System.Drawing.Size(175, 0);
+            this.BUT_WriteOSD.MinimumSize = new System.Drawing.Size(200, 0);
             this.BUT_WriteOSD.Name = "BUT_WriteOSD";
-            this.BUT_WriteOSD.Size = new System.Drawing.Size(175, 28);
+            this.BUT_WriteOSD.Size = new System.Drawing.Size(202, 30);
             this.BUT_WriteOSD.TabIndex = 2;
             this.BUT_WriteOSD.Text = "Save current tab to OSD";
             this.BUT_WriteOSD.UseVisualStyleBackColor = true;
@@ -227,7 +227,7 @@
             // 
             this.CMB_ComPort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CMB_ComPort.FormattingEnabled = true;
-            this.CMB_ComPort.Location = new System.Drawing.Point(419, 522);
+            this.CMB_ComPort.Location = new System.Drawing.Point(386, 526);
             this.CMB_ComPort.Margin = new System.Windows.Forms.Padding(4);
             this.CMB_ComPort.Name = "CMB_ComPort";
             this.CMB_ComPort.Size = new System.Drawing.Size(129, 24);
@@ -237,10 +237,10 @@
             // BUT_ReadOSD
             // 
             this.BUT_ReadOSD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BUT_ReadOSD.Location = new System.Drawing.Point(559, 522);
+            this.BUT_ReadOSD.Location = new System.Drawing.Point(528, 523);
             this.BUT_ReadOSD.Margin = new System.Windows.Forms.Padding(4);
             this.BUT_ReadOSD.Name = "BUT_ReadOSD";
-            this.BUT_ReadOSD.Size = new System.Drawing.Size(133, 28);
+            this.BUT_ReadOSD.Size = new System.Drawing.Size(144, 30);
             this.BUT_ReadOSD.TabIndex = 6;
             this.BUT_ReadOSD.Text = "Read From OSD";
             this.BUT_ReadOSD.UseVisualStyleBackColor = true;
