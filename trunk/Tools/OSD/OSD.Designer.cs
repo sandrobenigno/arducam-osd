@@ -59,8 +59,8 @@
             this.sendTLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gettingStartedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PANEL_tabs = new System.Windows.Forms.TabControl();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
@@ -215,6 +215,7 @@
             this.BUT_WriteOSD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BUT_WriteOSD.Location = new System.Drawing.Point(701, 522);
             this.BUT_WriteOSD.Margin = new System.Windows.Forms.Padding(4);
+            this.BUT_WriteOSD.MinimumSize = new System.Drawing.Size(175, 0);
             this.BUT_WriteOSD.Name = "BUT_WriteOSD";
             this.BUT_WriteOSD.Size = new System.Drawing.Size(175, 28);
             this.BUT_WriteOSD.TabIndex = 2;
@@ -431,19 +432,19 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
-            this.aboutToolStripMenuItem.Text = "About ";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // gettingStartedToolStripMenuItem
             // 
             this.gettingStartedToolStripMenuItem.Name = "gettingStartedToolStripMenuItem";
             this.gettingStartedToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.gettingStartedToolStripMenuItem.Text = "Getting started";
             this.gettingStartedToolStripMenuItem.Click += new System.EventHandler(this.gettingStartedToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
+            this.aboutToolStripMenuItem.Text = "About ";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
