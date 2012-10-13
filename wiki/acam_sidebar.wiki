@@ -26,7 +26,7 @@
       * [Cfg_RSSI_warning RSSI]      
     * [Cfg_Update_Firmware Update Firmware]
     * [Cfg_Update_CharSet Update CharSet]
-  * Panel Descriptions
+  * Panels Description
     * [Pan_center Center]
     * [Pan_pitch Pitch]
     * [Pan_roll Roll]
