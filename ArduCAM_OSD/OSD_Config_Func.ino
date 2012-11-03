@@ -36,21 +36,23 @@ void readSettings() {
     stall = EEPROM.read(stall_ADDR);
     battv = EEPROM.read(battv_ADDR);
     switch_mode = EEPROM.read(switch_mode_ADDR);
-//    pal_ntsc = EEPROM.read(pal_ntsc_ADDR);
-//    if (EEPROM.read(ch_toggle_ADDR) < 4 || EEPROM.read(ch_toggle_ADDR) > 8){
-//     	EEPROM.write(ch_toggle_ADDR, 5);
-//	}
+
     ch_toggle = EEPROM.read(ch_toggle_ADDR);
-    //  battp = EEPROM.read(battp_ADDR);
-    if (EEPROM.read(panSetup_en_ADDR) != 1){
-        EEPROM.write(panSetup_en_ADDR, 1);
-    }
+
     rssical = EEPROM.read(OSD_RSSI_HIGH_ADDR);
     rssipersent = EEPROM.read(OSD_RSSI_LOW_ADDR);
     rssiraw_on = EEPROM.read(OSD_RSSI_RAW_ADDR);
 
     batt_warn_level = EEPROM.read(OSD_BATT_WARN_ADDR);
     rssi_warn_level = EEPROM.read(OSD_RSSI_WARN_ADDR);
+    int i;
+    for(i=0;i < OSD_CALL_SIGN_TOTAL;i++) 
+    {
+        char_call[i] = EEPROM.read(OSD_CALL_SIGN_ADDR + i);
+        if(char_call[i] == 0) break;
+    }
+    char_call[i+1] ='\0'; //null terminate the string 
+
 }
 
 void readPanelSettings() {
@@ -190,12 +192,13 @@ void readPanelSettings() {
     panTune_XY[0][panel] = readEEPROM(panTune_x_ADDR + offset);
     panTune_XY[1][panel] = checkPAL(readEEPROM(panTune_y_ADDR + offset));
 
-    setBit(panD_REG[panel], Setup_BIT, readEEPROM(panSetup_en_ADDR));
-    //panSetup_XY[0] = readEEPROM(panSetup_x_ADDR);
-    //panSetup_XY[1] = checkPAL(readEEPROM(panSetup_y_ADDR));
-    setBit(panD_REG[panel], RSSI_BIT, readEEPROM(panRSSI_en_ADDR + offset));
-    panRSSI_XY[0][panel] = readEEPROM(panRSSI_x_ADDR + offset);
-    panRSSI_XY[1][panel] = checkPAL(readEEPROM(panRSSI_y_ADDR + offset));
+    setBit(panD_REG[panel], Eff_BIT, readEEPROM(panEff_en_ADDR + offset));
+    panEff_XY[0][panel] = readEEPROM(panEff_x_ADDR + offset);
+    panEff_XY[1][panel] = checkPAL(readEEPROM(panEff_y_ADDR + offset));
+
+    setBit(panD_REG[panel], CALLSIGN_BIT, readEEPROM(panCALLSIGN_en_ADDR + offset));
+    panCALLSIGN_XY[0][panel] = readEEPROM(panCALLSIGN_x_ADDR + offset);
+    panCALLSIGN_XY[1][panel] = checkPAL(readEEPROM(panCALLSIGN_y_ADDR + offset));
 }
 
 int checkPAL(int line){
