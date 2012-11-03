@@ -548,7 +548,7 @@
             this.CALLSIGNmaskedText.AsciiOnly = true;
             this.CALLSIGNmaskedText.BeepOnError = true;
             this.CALLSIGNmaskedText.Location = new System.Drawing.Point(12, 46);
-            this.CALLSIGNmaskedText.Mask = "AAAAAA";
+            this.CALLSIGNmaskedText.Mask = "AAAAAAAA";
             this.CALLSIGNmaskedText.Name = "CALLSIGNmaskedText";
             this.CALLSIGNmaskedText.Size = new System.Drawing.Size(121, 22);
             this.CALLSIGNmaskedText.TabIndex = 11;
