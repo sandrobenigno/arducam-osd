@@ -6,6 +6,15 @@ void startPanels(){
     do_converts(); // load the unit conversion preferences
 }
 
+//------------------ Panel: Startup ArduCam OSD LOGO -------------------------------
+
+void panLogo(){
+    osd.setPanel(7, 4);
+    osd.openPanel();
+    osd.printf_P(PSTR("\x20\x20\x20\x20\x20\x20\xba\xbb\xbc\xbd\xbe|\x20\x20\x20\x20\x20\x20\xca\xcb\xcc\xcd\xce|ArduCAM OSD v2.1"));
+    osd.closePanel();
+}
+
 /******* PANELS - POSITION *******/
 
 void writePanels(){ 
@@ -60,9 +69,12 @@ void writePanels(){
                 if(ISd(panel,Climb_BIT)) panClimb(panClimb_XY[0][panel], panClimb_XY[1][panel]);
                 if(ISd(panel,Tune_BIT)) panTune(panTune_XY[0][panel], panTune_XY[1][panel]);
                 if(ISd(panel,RSSI_BIT)) panRSSI(panRSSI_XY[0][panel], panRSSI_XY[1][panel]); //??x??
-            } else { //panel == npanels
+                //if(ISd(panel,Eff_BIT)) panEff(panEff_XY[0][panel], panEff_XY[1][panel]);
+                if(ISd(panel,CALLSIGN_BIT)) panCALLSIGN(panCALLSIGN_XY[0][panel], panCALLSIGN_XY[1][panel]);
+           } else { //panel == npanels
                 if(ISd(0,Warn_BIT)) panWarn(panWarn_XY[0][0], panWarn_XY[1][0]); // this must be here so warnings are always checked
-            }
+                if(ISd(0,CALLSIGN_BIT)) panCALLSIGN(panCALLSIGN_XY[0][panel], panCALLSIGN_XY[1][panel]); //call sign even in off panel
+           }
         } else { // if (osd_on > 0)
             panSetup();
         }
@@ -89,6 +101,40 @@ void writePanels(){
 /******* PANELS - DEFINITION *******/
 
 /* **************************************************************** */
+// Panel  : efficiency
+// Needs  : X, Y locations
+// Output : 
+// Size   : 1 x 7Hea  (rows x chars)
+// Staus  : done
+
+void panEff(int first_col, int first_line){
+    osd.setPanel(first_col, first_line);
+    osd.openPanel();
+    if (osd_throttle > 2){
+        if (osd_groundspeed != 0) eff = (float(osd_curr_A * 10) / (osd_groundspeed * converts))* 0.5 + eff * 0.5;
+//        eff = eff * 0.2 + eff * 0.8;
+          if (eff > 0 && eff <= 9999) osd.printf("%c%4.0f%c", 0x17, (double)eff, 0x82);
+          
+    }else{
+        if (osd_climb < -0.05) {
+            
+          if (millis() - descendt > 0){
+            descendt = millis() + 5000;
+            descend = palt - (osd_alt - osd_home_alt);
+            palt = (osd_alt - osd_home_alt);
+            
+            if  (descend != 0 && (osd_alt - osd_home_alt) != 0) glide = ((((osd_home_alt - osd_alt) / (descend / 5)) * osd_groundspeed) * converth)* 0.2 + glide * 0.8;
+            }
+            osd.printf("%c%4.0f%c", 0x18, (double)glide, high);
+        } else if (osd_pitch <= 0){
+            osd.printf_P(PSTR("\x18\x20\x20\x90\x91\x20"));
+        }
+    }
+
+    osd.closePanel();
+}
+
+/* **************************************************************** */
 // Panel  : panRSSI
 // Needs  : X, Y locations
 // Output : Alt symbol and altitude value in meters from MAVLink
@@ -105,6 +151,20 @@ void panRSSI(int first_col, int first_line){
     if(!rssiraw_on) rssi = (int16_t)((float)(rssi - rssipersent)/(float)(rssical-rssipersent)*100.0f);
     if (rssi < -99) rssi = -99;
     osd.printf("%c%3i%c", 0xE1, rssi, 0x25); 
+    osd.closePanel();
+}
+
+/* **************************************************************** */
+// Panel  : panCALLSIGN
+// Needs  : X, Y locations
+// Output : Call sign identification
+// Size   : 1 x 6Hea  (rows x chars)
+// Staus  : done
+
+void panCALLSIGN(int first_col, int first_line){
+    osd.setPanel(first_col, first_line);
+    osd.openPanel();
+    osd.printf("%s", char_call); 
     osd.closePanel();
 }
 
@@ -623,15 +683,6 @@ void panBatt_A(int first_col, int first_line){
     else osd.printf("%c%5.2f%c%c", 0xE2, (double)osd_vbat_A, 0x8E, osd_battery_pic_A);
     */
     osd.printf("%c%5.2f%c", 0xE2, (double)osd_vbat_A, 0x8E);
-    osd.closePanel();
-}
-
-//------------------ Panel: Startup ArduCam OSD LOGO -------------------------------
-
-void panLogo(){
-    osd.setPanel(7, 4);
-    osd.openPanel();
-    osd.printf_P(PSTR("\x20\x20\x20\x20\x20\x20\xba\xbb\xbc\xbd\xbe|\x20\x20\x20\x20\x20\x20\xca\xcb\xcc\xcd\xce|ArduCAM OSD v2.0"));
     osd.closePanel();
 }
 

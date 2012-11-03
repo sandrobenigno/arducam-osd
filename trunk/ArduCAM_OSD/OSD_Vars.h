@@ -11,6 +11,7 @@ static uint8_t      wp_number = 0; // Current waypoint number
 static float	    alt_error = 0; // Current altitude error in meters
 static float        aspd_error = 0; // Current airspeed error in meters/second
 static float	    xtrack_error = 0; // Current crosstrack error on x-y plane in meters
+static float        eff = 0; //Efficiency
 
 static uint8_t      base_mode=0;
 static bool         motor_armed = 0;
@@ -22,7 +23,6 @@ static int16_t      chan2_raw_middle = 0;
 static uint8_t      ch_toggle = 0;
 static boolean      osd_set = 0;
 static boolean      switch_mode = 0;
-static boolean      pal_ntsc = 0;
 
 static int8_t       setup_menu = 0;
 static float        converts = 0;
@@ -56,7 +56,10 @@ static uint8_t      warning = 0;
 static uint8_t      osd_off_switch = 0;
 static uint8_t      osd_switch_last = 100;
 static unsigned long         osd_switch_time = 0;
+static unsigned long         descendt = 0;
+static unsigned long         palt = 0;
 static float        osd_climb = 0;
+static float        descend = 0;
 
 static float        osd_lat = 0;                    // latidude
 static float        osd_lon = 0;                    // longitude
@@ -69,6 +72,7 @@ static float        osd_home_lon = 0;               // home longitude
 static float        osd_home_alt = 0; 
 static long         osd_home_distance = 0;          // distance from home
 static uint8_t      osd_home_direction;             // Arrow direction pointing to home (1-16 to CW loop)
+static float        glide = 0;
 
 static int8_t       osd_pitch = 0;                  // pitch from DCM
 static int8_t       osd_roll = 0;                   // roll from DCM
@@ -88,6 +92,9 @@ static float        osd_alt_prev = 0;             // previous altitude
 static float        osd_groundspeed = 0;            // ground speed
 static uint16_t     osd_throttle = 0;               // throtle
 
+//Call sign variables
+static char         char_call[OSD_CALL_SIGN_TOTAL+1] = {0};
+
 //MAVLink session control
 static boolean      mavbeat = 0;
 static float        lastMAVBeat = 0;
@@ -106,9 +113,6 @@ byte panC_REG[npanels] = {0b00000000};
 byte panD_REG[npanels] = {0b00000000};
 
 byte modeScreen = 0; //NTSC:0, PAL:1
-
-//byte SerCMD1 = 0;
-//byte SerCMD2 = 0;
 
 // First 8 panels and their X,Y coordinate holders
 byte panCenter_XY[2][npanels]; // = { 13,7,0 };
@@ -150,8 +154,9 @@ byte panWarn_XY[2][npanels];
 byte panWindSpeed_XY[2][npanels];
 byte panClimb_XY[2][npanels];
 byte panTune_XY[2][npanels];
-//byte panSetup_XY[2];
+byte panEff_XY[2][npanels];
 byte panRSSI_XY[2][npanels];
+byte panCALLSIGN_XY[2][npanels];
 
 //*************************************************************************************************************
 //rssi varables
@@ -167,3 +172,4 @@ static uint16_t     osd_chan5_raw = 1000;
 static uint16_t     osd_chan6_raw = 1000;
 static uint16_t     osd_chan7_raw = 1000;
 static uint16_t     osd_chan8_raw = 1000;
+
