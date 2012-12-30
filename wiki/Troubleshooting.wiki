@@ -19,4 +19,4 @@ All the params with the prefix "SR3_" are related to this. E.g.: SR3_Extra1 = 5 
 *EEPROM is shown as outdated and it's not being fixed by the OSD Config Tool*
 
 After updating your OSD to the firmware 2.0 or above you need keep your Config Tool updated.<br> This will update your EEPROM for new resorces automatically. You just need to connect the board to the new OSD config.
-So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
+<br>So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
