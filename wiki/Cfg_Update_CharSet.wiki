@@ -3,8 +3,6 @@
 
 The ArduCAM OSD base code has an optimized way to draw panels fast on screen. This is possible due a special technique to write panels with reduced number of SPI transactions and also by the replacement of the original MAX7456 character set to a new one which is indexed as the ASCII table.
 
-If you got a .mcm file from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] you can use our configuration tool as explained below.
-
 *Important note before proceed:*
 
 Defective and fuzzy chars are the result of a faulty character updating.
@@ -12,6 +10,8 @@ Max7456's internal memory is really picky about voltage level during a charset u
 The only way to fix that is updating the charset by feeding the board properly. Just making sure it has around 5V there. E.g.: tying the two stages and feeding it by an external battery on the video IO pins.
 
 == Using ArduCAM Config Tool ==
+
+Since the firmware 2.0 there is a new charset available on the updated Config Tool's install folder. From now on it will be always there as "OSD_Charset.mcm". So, you can use our configuration tool as explained below:
 
   # Connect your FTDI Serial adapter ([https://store.diydrones.com/FTDI_Cable_3_3V_p/ttl-232r-3v3.htm Like this one]);
   # Select the proper Serial COM Port (on the example bellow is COM12. Your adapter may use another one);
