@@ -16,7 +16,7 @@ This isn't a problem with the firmware. Your APM isn't sending the data automati
 E,g. Check on Mission Planner: Configuration >> Parameter List:
 All the params with the prefix "SR3_" are related to this. E.g.: SR3_Extra1 = 5 means the IMU data being sent through telem port (serial 3) five times per second. If that wasn't set, so it will not send IMU data without a explicit requesting.
 
-*EEPROM is shown as outdated and keep like that*
+*EEPROM is shown as outdated and it's not being fixed by the OSD Config Tool*
 
 After updating your OSD to the firmware 2.0 or above you need keep your Config Tool updated.<br> This will update your EEPROM for new resorces automatically. You just need to connect the board to the new OSD config.
 So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
