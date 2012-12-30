@@ -3,8 +3,8 @@
 
 If you just want to update your OSD board, the easiest way is using released .hex files from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] and use our configuration tool as explained below.
 
-*Important NOTE:*<br>After installing the firmware 2.0 or above you need keep your Config Tool updated.<br>
-So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
+*Important NOTE:*<br>After updating your OSD to the firmware 2.0 or above you need to keep your Config Tool updated.<br> This will update your EEPROM for new resorces automatically. You just need to connect the board to the new OSD config.
+<br>So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
 
 
 == Using ArduCAM Config Tool ==
