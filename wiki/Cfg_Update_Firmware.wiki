@@ -3,6 +3,10 @@
 
 If you just want to update your OSD board, the easiest way is using released .hex files from our [http://code.google.com/p/arducam-osd/downloads/list Download Section] and use our configuration tool as explained below.
 
+*Important NOTE:*<br>After installing the firmware 2.0 or above you need keep your Config Tool updated.<br>
+So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
+
+
 == Using ArduCAM Config Tool ==
 
   # Connect your FTDI Serial adapter ([https://store.diydrones.com/FTDI_Cable_3_3V_p/ttl-232r-3v3.htm Like this one]) to the six-pin connector.
