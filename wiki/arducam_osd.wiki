@@ -3,7 +3,7 @@ http://arducam-osd.googlecode.com/svn/wiki/images/banner.jpg
 The project is about providing camera solutions for UAV projects as telemetry over OSD and/or camera control, etc.
 As the project is based on Arduino, it can be hacked to fit many other applications.
 <br><br>
-Your support is really appreciated: [https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7TNA3ZPZ5P4SN&address_override=1 https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif]
+Your support is highly appreciated: [https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7TNA3ZPZ5P4SN&address_override=1 https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif]
 <br><br>
 ==MinimOSD - The first product based on ArduCAM OSD Project==
 
