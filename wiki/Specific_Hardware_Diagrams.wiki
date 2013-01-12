@@ -1,0 +1,8 @@
+#summary How to wire DIYDrone's MinimOSD and attach it to ArduPilot Mega board.
+#labels specific,hardware,setup,video-link,transmitter,camera
+
+== MinimOSD - Specific Hardware Setup Diagrams ==
+
+There are many ways and hundreds of different video-link hardware out there. this is a space for official diagrams for the most popular ones.
+
+http://arducam-osd.googlecode.com/svn/wiki/images/FatShark_MinimOSD.jpg.jpg
