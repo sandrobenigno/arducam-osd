@@ -5,4 +5,4 @@
 
 There are many ways and hundreds of different video-link hardware out there. this is a space for official diagrams for the most popular ones.
 
-http://arducam-osd.googlecode.com/svn/wiki/images/FatShark_MinimOSD.jpg.jpg
+http://arducam-osd.googlecode.com/svn/wiki/images/FatShark_MinimOSD.jpg
