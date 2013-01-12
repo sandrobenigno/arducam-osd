@@ -1,4 +1,4 @@
-#summary How to wire DIYDrone's MinimOSD and attach it to ArduPilot Mega board.
+#summary How to wire DIYDrone's MinimOSD in specific FPV hardware.
 #labels specific,hardware,setup,video-link,transmitter,camera
 
 == MinimOSD - Specific Hardware Setup Diagrams ==
