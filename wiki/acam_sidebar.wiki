@@ -60,6 +60,7 @@
     * [Pan_efficiency Efficiency]
     * [Pan_call_sign Call Sign]
   * [Troubleshooting Troubleshooting]
+  * [MinimFAQ FAQ]
   * [Customers_Setup Setup from Customers]
  * ----
  * *Development*
