@@ -4,11 +4,13 @@
 
 This is probably due to outdated firmware that does not support the current MAVLink 1.0 standard used by !ArduPlane and !ArduCopter. Upgrade your MinimOSD firmware to Version 1.9 or above, which you can find [http://code.google.com/p/arducam-osd/downloads/list here]. Firmware upgrading instructions are [http://code.google.com/p/arducam-osd/wiki/Update_Firmware here].
 
+
 *Video overlay presenting fuzzy and not well formed chars*
 
 Defective and fuzzy chars are the result of a faulty character updating.
 Max7456's internal memory is really picky about voltage level during a charset update. Usually it happens with some PCs with lower USB voltage.
 The only way to fix that is updating the charset by feeding the board properly. Just making sure it has around 5V there. E.g.: tying the two stages and feeding it by an external battery on the video IO pins.
+
 
 *Data is showing up only when MinimOSD's TX is connected to APM's RX*
 
@@ -27,14 +29,17 @@ This is the complete list with the respective values:
  * SR3_RAW_SENS, 2  ( 2hz for raw imu sensor data )
  * SR3_RC_CHAN, 5     ( 5hz for radio input or radio output data )
 
+
 *EEPROM is shown as outdated and it's not being fixed by the OSD Config Tool*
 
 After updating your OSD to the firmware 2.0 or above you need keep your Config Tool updated.<br> This will update your EEPROM for new resorces automatically. You just need to connect the board to the new OSD config.
 <br>So, is *mandatory* to install the *newest "ArduCAM OSD Config Tool"* and also update the Character Set.<br> A new charset is available on the Config Tool's install folder. From now on it will be always there as *"OSD_Charset.mcm"*.
 
+
 *MinimOSD showing "Update Charset" on power up, requiring a hardware reset before you start using it*
 
 If your system is acting like that, you should set the Telemetry delay in the CGS to a lower value than the default. Customers reported us that a value below 5 seconds fixes that. However we recommend you you to find the best value for your particular case.
+
 
 *Do I need to connect the GND from the batteries when using two ones?
 
