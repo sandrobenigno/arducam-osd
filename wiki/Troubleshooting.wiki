@@ -39,13 +39,3 @@ After updating your OSD to the firmware 2.0 or above you need keep your Config T
 *MinimOSD showing "Update Charset" on power up, requiring a hardware reset before you start using it*
 
 If your system is acting like that, you should set the Telemetry delay in the CGS to a lower value than the default. Customers reported us that a value below 5 seconds fixes that. However we recommend you you to find the best value for your particular case.
-
-
-*Do I need to connect the GND from the batteries when using two ones?
-
-The quick answer is: No. Don't do that.
-
-Is a good idea using two batteries: one for ESCs and servos (aslo APM through the PowerModule or a uBEC) and another one for camera, video transmitter and the analog stage of MinimOSD.
-The objective of using those two batteries is exactly achieving two independent sources. It would even result in two GND's "Digital GND" and "Analog GND".
-
-NOTE: If you want to power the whole MinimOSD (two stages) from the second battery, you have to tie the jumpers on top and bottom of the board (check the quick start instructions). In this case the jumpers will result in just one GND and VCC. If you chose doing that, try disconnecting the +5V between APM and the OSD for minimizing the noise's impact from there.
