@@ -1,5 +1,5 @@
 == Frequently Asked Questions ==
-<br/>
+
 *Do I need to connect the GND from the batteries when using two ones?
 
 The quick answer is: No. Don't do that.
