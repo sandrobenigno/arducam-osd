@@ -5,7 +5,7 @@
 
 == How this section works ==
 
-We pretend to post here relevant setup wiring diagrams or pictures from the community. Our objective here is share knowledge, help starters finding extra information and ideas from experienced users.
+We intend to post here relevant setup wiring diagrams or pictures from the community. Our objective here is share knowledge, help starters finding extra information and ideas from experienced users.
 
 Disclaimer: Though we do quick check for setup consistency, we cannot try all them due to many different video equipment types used by many customers. So we are not responsible for any damage caused to your equipment if you try to apply any setup exposed here. Double check yourself before trying it.
 <br />
