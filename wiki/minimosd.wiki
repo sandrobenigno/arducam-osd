@@ -2,7 +2,7 @@
 
 = MinimOSD - Introduction =
 
-[https://store.diydrones.com/Ardupilot_Mega_Minimal_OSD_p/br-apmminosd.htm MinimOSD] is a super-tiny board designed by 3DRobotics. It's all you need to get OSD telemetry data from !ArduPilot Mega. Just connect your FPV camera and a video link and you're ready to fly with instruments on screen.
+[https://store.3drobotics.com/products/apm-minimosd-rev-1-1 MinimOSD] is a super-tiny board designed by 3DRobotics. It's all you need to get OSD telemetry data from !ArduPilot Mega. Just connect your FPV camera and a video link and you're ready to fly with instruments on screen.
 
 http://arducam-osd.googlecode.com/svn/wiki/images/MinimOSD.jpg
 
