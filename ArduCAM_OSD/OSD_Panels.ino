@@ -11,7 +11,7 @@ void startPanels(){
 void panLogo(){
     osd.setPanel(7, 4);
     osd.openPanel();
-    osd.printf_P(PSTR("\x20\x20\x20\x20\x20\x20\xba\xbb\xbc\xbd\xbe|\x20\x20\x20\x20\x20\x20\xca\xcb\xcc\xcd\xce|ArduCAM OSD v2.1"));
+    osd.printf_P(PSTR("\x20\x20\x20\x20\x20\x20\xba\xbb\xbc\xbd\xbe|\x20\x20\x20\x20\x20\x20\xca\xcb\xcc\xcd\xce|ArduCAM OSD v2.2"));
     osd.closePanel();
 }
 
@@ -875,27 +875,37 @@ void panFlightMode(int first_col, int first_line){
     //char c1 = 0xE0 ;//"; char c2; char c3; char c4; char c5; 
     char* mode_str="";
     if (apm_mav_type == 2){ //ArduCopter MultiRotor or ArduCopter Heli
-        if (osd_mode == 0) mode_str = "stab"; //Stabilize
-        else if (osd_mode == 1) mode_str = "acro"; //Acrobatic
-        else if (osd_mode == 2) mode_str = "alth"; //Alt Hold
-        else if (osd_mode == 3) mode_str = "auto"; //Auto
-        else if (osd_mode == 4) mode_str = "guid"; //Guided
-        else if (osd_mode == 5) mode_str = "loit"; //Loiter
-        else if (osd_mode == 6) mode_str = "retl"; //Return to Launch
-        else if (osd_mode == 7) mode_str = "circ"; //Circle
-        else if (osd_mode == 8) mode_str = "posi"; //Position
-        else if (osd_mode == 9) mode_str = "land"; //Land
-        else if (osd_mode == 10) mode_str = "oflo"; //OF_Loiter
+        if (osd_mode == 0)       mode_str = "stab"; //Stabilize: hold level position
+        else if (osd_mode == 1)  mode_str = "acro"; //Acrobatic: rate control
+        else if (osd_mode == 2)  mode_str = "alth"; //Altitude Hold: auto control
+        else if (osd_mode == 3)  mode_str = "auto"; //Auto: auto control
+        else if (osd_mode == 4)  mode_str = "guid"; //Guided: auto control
+        else if (osd_mode == 5)  mode_str = "loit"; //Loiter: hold a single location
+        else if (osd_mode == 6)  mode_str = "retl"; //Return to Launch: auto control
+        else if (osd_mode == 7)  mode_str = "circ"; //Circle: auto control
+        else if (osd_mode == 8)  mode_str = "posi"; //Position: auto control
+        else if (osd_mode == 9)  mode_str = "land"; //Land:: auto control
+        else if (osd_mode == 10) mode_str = "oflo"; //OF_Loiter: hold a single location using optical flow sensor
+        else if (osd_mode == 11) mode_str = "drif"; //Drift mode: 
+        else if (osd_mode == 13) mode_str = "sprt"; //Sport: earth frame rate control
+        else if (osd_mode == 14) mode_str = "flip"; //Flip: flip the vehicle on the roll axis
+        else if (osd_mode == 15) mode_str = "atun"; //Auto Tune: autotune the vehicle's roll and pitch gains
+        else if (osd_mode == 16) mode_str = "hybr"; //Hybrid: position hold with manual override
     } else if(apm_mav_type == 1){ //ArduPlane
-        if (osd_mode == 0) mode_str = "manu"; //Manual
-        else if (osd_mode == 1) mode_str = "circ"; //CIRCLE
-        else if (osd_mode == 2) mode_str = "stab"; //Stabilize
-        else if (osd_mode == 5) mode_str = "fbwa"; //FLY_BY_WIRE_A
-        else if (osd_mode == 6) mode_str = "fbwb"; //FLY_BY_WIRE_B
-        else if (osd_mode == 10) mode_str = "auto"; //AUTO
+        if (osd_mode == 0)       mode_str = "manu"; //Manual
+        else if (osd_mode == 1)  mode_str = "circ"; //Circle
+        else if (osd_mode == 2)  mode_str = "stab"; //Stabilize
+        else if (osd_mode == 3)  mode_str = "trng"; //Training
+        else if (osd_mode == 4)  mode_str = "acro"; //Acro
+        else if (osd_mode == 5)  mode_str = "fbwa"; //Fly_By_Wire_A
+        else if (osd_mode == 6)  mode_str = "fbwb"; //Fly_By_Wire_B
+        else if (osd_mode == 7)  mode_str = "crui"; //Cruise
+        else if (osd_mode == 8)  mode_str = "atun"; //Auto Tune
+        else if (osd_mode == 10) mode_str = "auto"; //Auto
         else if (osd_mode == 11) mode_str = "retl"; //Return to Launch
         else if (osd_mode == 12) mode_str = "loit"; //Loiter
-        else if (osd_mode == 15) mode_str = "guid"; //GUIDED
+        else if (osd_mode == 15) mode_str = "guid"; //Guided
+        else if (osd_mode == 16) mode_str = "init"; //Initializing
     }
     osd.printf("%c%s", 0xE0, mode_str);
     osd.closePanel();
