@@ -4,7 +4,7 @@ Copyright (c) 2011.  All rights reserved.
 An Open Source Arduino based OSD and Camera Control project.
 
 Program  : ArduCAM-OSD (MinimOSD [and variants] Firmware)
-Version  : V2.0, October 4th 2012
+Version  : V2.2, May 8th 2014
 Author(s): Sandro Benigno
 Coauthor(s):
 Jani Hirvinen   (All the EEPROM routines)
