@@ -1,6 +1,7 @@
 ArduCAM OSD Project
 ===================
 
+<p><img src="images/minimosd.jpg"></p>
 
 This project is about providing camera solutions for UAV projects as telemetry over OSD and/or camera control, etc.
 As the project is based on Arduino, it could be hacked to many other applications.
