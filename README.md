@@ -14,7 +14,7 @@ Documentation available in the [Wiki pages](https://github.com/sandrobenigno/ard
 
 <pre>Program  : ArduCAM-OSD (MinimOSD [and variants] Firmware)
 Version  : V2.2, May 8th 2014
-[ Automatically exported from code.google.com/p/arducam-osd ]
+[ Automatically imported from code.google.com/p/arducam-osd ]
 
 Author(s): Sandro Benigno
 
