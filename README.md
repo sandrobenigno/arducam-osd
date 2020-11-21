@@ -10,7 +10,8 @@ Welcome to the ArduCam OSD Project!
 
 --Sandro Benigno
 
-[ Automatically exported from code.google.com/p/arducam-osd ]
+<p>See the documentation on the <a src="https://github.com/sandrobenigno/arducam-osd/wiki">Wiki pages</a><br/>
+[ Automatically exported from code.google.com/p/arducam-osd ]</p>
 
 <pre>Program  : ArduCAM-OSD (MinimOSD [and variants] Firmware)
 Version  : V2.2, May 8th 2014
