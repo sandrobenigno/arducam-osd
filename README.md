@@ -19,7 +19,7 @@ Version  : V2.2, May 8th 2014
 Author(s): Sandro Benigno
 
 Coauthor(s):
-Jani Hirvinen   (All the EEPROM routines)
+Jani Hirvinen   (EEPROM routines)
 Michael Oborne  (OSD Configutator)
 Zóltan Gábor, Pedro Santos and MinimOSD-Extra Team (Extra OSD Tools/Panels)
 Mike Smith      (BetterStream and Fast Serial libraries)
