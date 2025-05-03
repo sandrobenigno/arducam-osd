@@ -11,16 +11,16 @@ namespace ArdupilotMega
 #if !MAVLINK10
         enum MAV_CLASS
         {
-            MAV_CLASS_GENERIC = 0,        /// Generic autopilot, full support for everything
-            MAV_CLASS_PIXHAWK = 1,        /// PIXHAWK autopilot, http://pixhawk.ethz.ch
-            MAV_CLASS_SLUGS = 2,          /// SLUGS autopilot, http://slugsuav.soe.ucsc.edu
-            MAV_CLASS_ARDUPILOTMEGA = 3,  /// ArduPilotMega / ArduCopter, http://diydrones.com
-            MAV_CLASS_OPENPILOT = 4,      /// OpenPilot, http://openpilot.org
-            MAV_CLASS_GENERIC_MISSION_WAYPOINTS_ONLY = 5,  /// Generic autopilot only supporting simple waypoints
-            MAV_CLASS_GENERIC_MISSION_NAVIGATION_ONLY = 6, /// Generic autopilot supporting waypoints and other simple navigation commands
-            MAV_CLASS_GENERIC_MISSION_FULL = 7,            /// Generic autopilot supporting the full mission command set
-            MAV_CLASS_NONE = 8,           /// No valid autopilot
-            MAV_CLASS_NB                  /// Number of autopilot classes
+            MAV_CLASS_GENERIC = 0,        /// 汎用自動操縦システム（すべての機能に対応）
+            MAV_CLASS_PIXHAWK = 1,        /// PIXHAWK自動操縦システム（http://pixhawk.ethz.ch）
+            MAV_CLASS_SLUGS = 2,          /// SLUGS自動操縦システム（http://slugsuav.soe.ucsc.edu）
+            MAV_CLASS_ARDUPILOTMEGA = 3,  /// ArduPilotMega / ArduCopter（http://diydrones.com）
+            MAV_CLASS_OPENPILOT = 4,      /// OpenPilot（http://openpilot.org）
+            MAV_CLASS_GENERIC_MISSION_WAYPOINTS_ONLY = 5,  /// 簡単なウェイポイント命令のみをサポートする汎用自動操縦システム
+            MAV_CLASS_GENERIC_MISSION_NAVIGATION_ONLY = 6, /// ウェイポイントと簡易ナビゲーションコマンドをサポートする汎用自動操縦システム
+            MAV_CLASS_GENERIC_MISSION_FULL = 7,            /// フル機能のミッションコマンドをサポートする汎用自動操縦システム
+            MAV_CLASS_NONE = 8,           /// 有効な自動操縦システムなし
+            MAV_CLASS_NB                  /// 自動操縦クラスの数（カウント用）
         };
 
         public enum MAV_ACTION
@@ -73,16 +73,16 @@ namespace ArdupilotMega
 
         public enum MAV_MODE
         {
-            MAV_MODE_UNINIT = 0,     /// System is in undefined state
-            MAV_MODE_LOCKED = 1,     /// Motors are blocked, system is safe
-            MAV_MODE_MANUAL = 2,     /// System is allowed to be active, under manual (RC) control
-            MAV_MODE_GUIDED = 3,     /// System is allowed to be active, under autonomous control, manual setpoint
-            MAV_MODE_AUTO = 4,     /// System is allowed to be active, under autonomous control and navigation
-            MAV_MODE_TEST1 = 5,     /// Generic test mode, for custom use
-            MAV_MODE_TEST2 = 6,     /// Generic test mode, for custom use
-            MAV_MODE_TEST3 = 7,     /// Generic test mode, for custom use
-            MAV_MODE_READY = 8,     /// System is ready, motors are unblocked, but controllers are inactive
-            MAV_MODE_RC_TRAINING = 9 /// System is blocked, only RC valued are read and reported back
+            MAV_MODE_UNINIT = 0,           /// システムが未初期化の状態（定義されていない状態）
+            MAV_MODE_LOCKED = 1,           /// モーターがロックされており、安全な状態
+            MAV_MODE_MANUAL = 2,           /// システムがアクティブ化され、手動（RC）制御下にある
+            MAV_MODE_GUIDED = 3,           /// システムがアクティブ化され、自律制御中（手動でセットポイント指定）
+            MAV_MODE_AUTO = 4,             /// システムがアクティブ化され、自律制御かつナビゲーション制御中
+            MAV_MODE_TEST1 = 5,            /// 汎用テストモード（カスタム用途向け）
+            MAV_MODE_TEST2 = 6,            /// 汎用テストモード（カスタム用途向け）
+            MAV_MODE_TEST3 = 7,            /// 汎用テストモード（カスタム用途向け）
+            MAV_MODE_READY = 8,            /// システムは準備完了、モーターはロック解除済だが、コントローラはまだ非アクティブ
+            MAV_MODE_RC_TRAINING = 9       /// システムはロック中、RC入力だけを読み取って報告するトレーニングモード
         };
 
         public enum MAV_STATE

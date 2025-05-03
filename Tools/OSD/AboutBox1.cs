@@ -13,11 +13,11 @@ namespace OSD
         public AboutBox1()
         {
             InitializeComponent();
-            this.Text = "About ArduCAM OSD Config";//String.Format("About {0}", AssemblyTitle);
-            this.labelProductName.Text = "ArduCAM OSD Config"; //AssemblyProduct;
+            this.Text = "About ArduCAM OSD Config 日本語版";//String.Format("About {0}", AssemblyTitle);
+            this.labelProductName.Text = "ArduCAM OSD Config 日本語版"; //AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = "Author: Michael Oborne";//AssemblyCopyright;
-            this.labelCompanyName.Text = "Co-authors: Pedro Santos and Gábor Zoltán";//AssemblyCompany;
+            this.labelCompanyName.Text = "Co-authors: Pedro Santos and Gábor Zoltán and 野澤システム（翻訳・微調整）";//AssemblyCompany;
         }
 
         #region Assembly Attribute Accessors
@@ -105,5 +105,9 @@ namespace OSD
             this.Close() ;
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

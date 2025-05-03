@@ -42,84 +42,88 @@ namespace OSD
             return Math.Tan(input);
         }
 
-        /*Panels variables*/
-        //Will come from APM telem port
+        /* パネル関連の変数 */
+        // APMのテレメトリポートから取得される
 
-        //Config vars
-        public uint8_t overspeed = 40;
-        public uint8_t stall = 5;
-        public uint8_t battv = 101;                //Batery warning voltage - units Volt *10 
-        public uint8_t converts = 0;                //1- Imperial; 0- Metric
+        // 設定用変数
+        public uint8_t overspeed = 40;             // オーバースピード警告のしきい値
+        public uint8_t stall = 5;                  // ストール（失速）警告のしきい値
+        public uint8_t battv = 101;                // バッテリー警告電圧（単位はVolt×10）
+        public uint8_t converts = 0;               // 単位系：1=ヤードポンド法（インペリアル）、0=メートル法（メトリック）
 
+        static float osd_vbat = 11.61f;            // 電圧（ボルト単位、ミリボルトではなく）
+        static uint16_t osd_battery_remaining = 10; // バッテリー残量（0〜100 ⇒ 実際には0〜1000）
+        static uint8_t osd_battery_pic = 0xb4;     // バッテリー残量表示用のアイコン画像
 
-        static float osd_vbat = 11.61f;                   // voltage in milivolt
-        static uint16_t osd_battery_remaining = 10;      // 0 to 100 <=> 0 to 1000
-        static uint8_t osd_battery_pic = 0xb4;         // picture to show battery remaining
+        static uint16_t osd_mode = 100;            // ナビゲーションモード（RC AC2ではCH5、APMではCH8から取得）
+        static uint8_t osd_nav_mode = 4;           // ナビゲーションモード（同上）
 
-        static uint16_t osd_mode = 100;                   // Navigation mode from RC AC2 = CH5, APM = CH8
-        static uint8_t osd_nav_mode = 4;               // Navigation mode from RC AC2 = CH5, APM = CH8
+        static float osd_lat = -35.020938f;        // 緯度（latitude）
+        static float osd_lon = 117.883419f;        // 経度（longitude）
+        static uint8_t osd_satellites_visible = 7; // 可視衛星の数
+        static uint8_t osd_fix_type = 3;           // GPSロックの種類：0または1=ロックなし、2=2Dロック、3=3Dロック
+        static int start_Time = 2;                 // 起動時間（単位は不明、おそらく秒）
 
-        static float osd_lat = -35.020938f;                    // latidude
-        static float osd_lon = 117.883419f;                    // longitude
-        static uint8_t osd_satellites_visible = 7;     // number of satelites
-        static uint8_t osd_fix_type = 3;               // GPS lock 0-1=no fix, 2=2D, 3=3D
-        static int start_Time = 2; 
+        //static uint8_t osd_got_home = 0;         // ホームポジションを取得したかどうか（0 = 未取得）
+        //static float osd_home_lat = 0;           // ホーム地点の緯度
+        //static float osd_home_lon = 0;           // ホーム地点の経度
+        static float osd_home_alt = 100;          // ホーム地点の高度
+        static long osd_home_distance = 0;        // 現在地からホームまでの距離
+        static uint8_t osd_home_direction = 0;    // ホームへの方向（1〜16、時計回りにループ）
 
-        //static uint8_t osd_got_home = 0;               // tels if got home position or not
-        //static float osd_home_lat = 0;               // home latidude
-        //static float osd_home_lon = 0;               // home longitude
-        static float osd_home_alt = 100;              //Home altitude
-        static long osd_home_distance = 0;          // distance from home
-        static uint8_t osd_home_direction = 0;             // Arrow direction pointing to home (1-16 to CW loop)
+        static int8_t osd_pitch = 0;              // ピッチ角（機体の前後傾き、DCMから取得）
+        static int8_t osd_roll = 0;               // ロール角（機体の左右傾き、DCMから取得）
+                                                  //static uint8_t osd_yaw = 0;             // ヨー角（機体の方位角、DCMから取得）
+        static float osd_heading = 0;             // 地上進行方向（GPSからのヘディング）
+        static float osd_alt = 200;               // 現在の高度
+        static float osd_groundspeed = 90;        // 地上速度
+        static float osd_airspeed = 101;          // 対気速度（空気に対する速度）
+        static uint16_t osd_throttle = 100;       // スロットル（出力値）
+        static float osd_curr_A = 453;            // 電流（アンペア）
+        static float osd_windspeed = 10;          // 風速（水平）
+        static float osd_windspeedz = 2;          // 風速（垂直成分）
+        static float osd_climb = 2;               // 上昇/下降速度（上昇 = 正、下降 = 負）
 
-        static int8_t osd_pitch = 0;                  // pitch form DCM
-        static int8_t osd_roll = 0;                   // roll form DCM
-        //static uint8_t osd_yaw = 0;                    // relative heading form DCM
-        static float osd_heading = 0;                // ground course heading from GPS
-        static float osd_alt = 200;                    // altitude
-        static float osd_groundspeed = 90;            // ground speed
-        static float osd_airspeed = 101;            // air speed
-        static uint16_t osd_throttle = 100;               // throtle
-        static float osd_curr_A = 453;
-        static float osd_windspeed = 10;
-        static float osd_windspeedz = 2;
-        static float osd_climb = 2;
-        static float nav_roll = 0;
-        static float nav_pitch = 0;
-        static uint16_t nav_bearing = 0; // Current desired heading in degrees
-        static uint16_t wp_target_bearing = 0; // Bearing to current MISSION/target in degrees
-        static uint16_t wp_dist = 9000; // Distance to active MISSION in meters
-        static uint16_t wp_number = 99; // Distance to active MISSION in meters
-        static float alt_error = 0; // Current altitude error in meters
-        static float aspd_error = 0; // Current airspeed error in meters/second
-        static float xtrack_error = 0; // Current crosstrack error on x-y plane in meters
-        static float eff = 10;
+        static float nav_roll = 0;                // ナビゲーション制御による目標ロール角
+        static float nav_pitch = 0;               // ナビゲーション制御による目標ピッチ角
+        static uint16_t nav_bearing = 0;          // 現在の目標進行方向（度）
+        static uint16_t wp_target_bearing = 0;    // 現在のウェイポイントへの方位角（度）
+        static uint16_t wp_dist = 9000;           // 現在のウェイポイントまでの距離（メートル）
+        static uint16_t wp_number = 99;           // 現在のウェイポイント番号
 
-        //MAVLink session control
-        static boolean mavbeat = 1;
-        //static float lastMAVBeat = 0;
-        //static boolean waitingMAVBeats = 1;
-        static uint8_t apm_mav_type = 2;
-        //static uint8_t apm_mav_system = 7;
-        //static uint8_t apm_mav_component = 0;
-        //static boolean enable_mav_request = 0;
-        //rssi varables
-        //public uint8_t rssi = 0;
-        public uint8_t rssipersent = 0;
-        public uint8_t rssical = 255;
-        public uint8_t rssiraw_on = 0;
-        static uint8_t osd_rssi = 2;
-        public uint8_t radio_setup_flag = 0;
-        public uint8_t ch_toggle = 8; //CH8
-        public boolean switch_mode = 0;
-        public boolean pal_ntsc = 1; //PAL 1 - NTSC 0
-        public uint8_t osd_brightness = 0; // low bright
-        
-        public uint8_t rssi_warn_level = 5;
-        public uint8_t batt_warn_level = 10;
+        static float alt_error = 0;               // 現在の高度誤差（メートル）
+        static float aspd_error = 0;              // 現在の対気速度誤差（m/s）
+        static float xtrack_error = 0;            // 現在のクロストラック誤差（航路からの横ずれ距離、メートル）
 
-        public string callsign_str = "a1b2c3d4";
-        //public uint8_t[] call_sign_parse = new uint8_t[6];
+        static float eff = 10;                    // 効率（推測、燃費または制御効率？）
+
+        // MAVLinkセッション制御
+        static boolean mavbeat = 1;                    // MAVLinkのハートビート信号を受信しているかどうか
+                                                       //static float lastMAVBeat = 0;               // 最後に受信したMAVLinkビートの時刻
+                                                       //static boolean waitingMAVBeats = 1;         // MAVLinkビート待機中かどうか
+        static uint8_t apm_mav_type = 2;               // APM（ArduPilot）のMAVLinkタイプ（2=飛行機）
+                                                       //static uint8_t apm_mav_system = 7;          // MAVLinkシステムID
+                                                       //static uint8_t apm_mav_component = 0;       // MAVLinkコンポーネントID
+                                                       //static boolean enable_mav_request = 0;      // MAVLinkデータ要求の有効/無効
+
+        // RSSI（受信信号強度）関連の変数
+        //public uint8_t rssi = 0;                    // RSSIの生値（使用されていない）
+        public uint8_t rssipersent = 0;               // RSSIをパーセント表示した値（0〜100）
+        public uint8_t rssical = 255;                 // RSSIキャリブレーション値
+        public uint8_t rssiraw_on = 0;                // 生のRSSI値を使用するかどうか（1=使用）
+        static uint8_t osd_rssi = 2;                  // OSDに表示するRSSI値（またはレベル）
+
+        public uint8_t radio_setup_flag = 0;          // 無線設定が完了しているかのフラグ
+        public uint8_t ch_toggle = 8;                 // チャンネル切り替え用のRCチャンネル（CH8）
+        public boolean switch_mode = 0;               // モード切り替えスイッチの状態
+        public boolean pal_ntsc = 1;                  // 映像方式の設定：PAL=1、NTSC=0
+        public uint8_t osd_brightness = 0;            // OSDの明るさ設定（0=低輝度）
+
+        public uint8_t rssi_warn_level = 5;           // RSSI警告レベル（しきい値）
+        public uint8_t batt_warn_level = 10;          // バッテリー警告レベル（しきい値）
+
+        public string callsign_str = "japan";       // コールサイン（文字列）
+                                                       //public uint8_t[] call_sign_parse = new uint8_t[6]; // コールサインをバイト配列に分解（未使用）
 
         public uint8_t chan1_raw = 0;
         public uint8_t chan2_raw = 0;
@@ -546,7 +550,7 @@ namespace OSD
             panLogo(10, 5);
             osd.setPanel(first_col, first_line);
             osd.openPanel();
-            osd.printf_P(PSTR("Waiting for|MAVLink heartbeats..."));
+            osd.printf_P(PSTR("MAVLinkのハートビート信号を|待機中..."));
             osd.closePanel();
             return 0;
         }

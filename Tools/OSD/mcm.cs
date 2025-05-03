@@ -16,7 +16,7 @@ namespace OSD
 
             if (!File.Exists(file))
             {
-                System.Windows.Forms.MessageBox.Show("Font file does not exist : " + file);
+                System.Windows.Forms.MessageBox.Show("フォントファイルが存在しません: " + file);
                 return imagearray;
             }
 
